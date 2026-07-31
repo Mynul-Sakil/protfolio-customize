@@ -72,7 +72,7 @@ export default function CertificationsPage() {
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Certificate Image</label>
-              <ImageUpload value={formData.imageUrl} onChange={(url) => setFormData({...formData, imageUrl: url})} />
+              <ImageUpload value={formData.imageUrl} onChange={(url) => setFormData(prev => ({...prev, imageUrl: url}))} />
             </div>
           </div>
           

@@ -81,7 +81,7 @@ export default function ProfilePage() {
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Profile Photo</label>
             <ImageUpload 
               value={formData.photoUrl} 
-              onChange={(url) => setFormData({ ...formData, photoUrl: url })} 
+              onChange={(url) => setFormData(prev => ({ ...prev, photoUrl: url }))} 
             />
             <p className="text-xs text-slate mt-2">Requires Cloudinary configuration in .env</p>
           </div>
