@@ -6,7 +6,7 @@ A dynamic, responsive personal portfolio website with a built-in Content Managem
 ## Tech Stack
 *   **Framework:** Next.js
 *   **Database:** MongoDB
-*   **Styling:** CSS / Styling solution of choice (Inspired by the provided demo style) and use tailwind
+*   **Styling:** CSS / Styling solution of choice (Inspired by the provided demo style) and use tailwind. 
 
 ## Design & Aesthetics (Inspired by Demo)
 *   **Style:** Premium executive-style interface, polished, and professional with a document/ledger motif.
