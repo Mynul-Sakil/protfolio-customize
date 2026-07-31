@@ -5,6 +5,13 @@ This document breaks down the development process into manageable phases based o
 
 ---
 
+## Finalized Decisions
+*   **Animations:** We will use **Framer Motion** for smooth, professional scroll reveals and marquee effects.
+*   **Image / File Uploads:** We will use **Cloudinary** for storing uploaded files (like certificates and CVs). Cloudinary provides 25 credits on their free tier, which easily covers up to 25 GB of storage and bandwidth—more than enough for a portfolio site.
+*   **Admin Login:** We will use a custom Email/Password login via MongoDB. The default Admin password will be `Password1@`, and there will be a "Change Password" option in the admin dashboard.
+
+---
+
 ## Phase 1: Project Setup & Global Architecture
 1. **Next.js & Tailwind CSS Initialization**
    - Configure Next.js with App Router.
@@ -12,11 +19,12 @@ This document breaks down the development process into manageable phases based o
 2. **Database Connection**
    - Connect Next.js to MongoDB using Mongoose.
 3. **Authentication Setup**
-   - Secure the Admin Panel using NextAuth.js (or similar) to prevent unauthorized access.
+   - Secure the Admin Panel using NextAuth.js (Credentials Provider) and `bcryptjs` for hashing passwords.
 
 ## Phase 2: Database Models & APIs
 1. **Mongoose Schemas**
    - Create schemas for: User (Admin), Profile Info, Experience, Skills, Services, Projects, Certifications, Achievements, Partnerships, Testimonials, and Contact Messages.
+   - Seed the initial Admin user with the default password `Password1@`.
 2. **API Routes / Server Actions**
    - Create CRUD operations (Create, Read, Update, Delete) for the CMS dashboard.
    - Create public-facing fetch functions for the visitor website.
@@ -24,11 +32,13 @@ This document breaks down the development process into manageable phases based o
 ## Phase 3: The Admin Panel (CMS)
 1. **Dashboard Layout**
    - Build a secure, responsive sidebar navigation for the CMS.
-2. **Content Management Pages**
+2. **Authentication Pages**
+   - Build the Admin Login page and a Change Password page within the dashboard.
+3. **Content Management Pages**
    - Develop forms to add/edit/delete: Profile details, Experience, Skills, Services, etc.
-3. **File Upload Handling**
-   - Setup an image/file upload service for Resumes, Certificates, and Achievement photos.
-4. **Contact Enquiries View**
+4. **File Upload Handling**
+   - Setup `next-cloudinary` to seamlessly handle image and file uploads directly to your Cloudinary account.
+5. **Contact Enquiries View**
    - A page to read and manage messages submitted via the visitor contact form.
 
 ## Phase 4: Visitor-Facing Website (Frontend)
@@ -47,14 +57,6 @@ This document breaks down the development process into manageable phases based o
 
 ## Phase 5: Polish & Animations
 1. **Scroll Reveals & Micro-interactions**
-   - Implement fade-ins, sliding texts, and hover effects to match the premium feel of the demo.
+   - Implement Framer Motion for fade-ins, sliding texts, and hover effects to match the premium feel of the demo.
 2. **SEO & Performance**
    - Add dynamic Meta tags and optimize images for fast loading.
-
----
-
-## Open Questions / Details Needed
-*   **Animations:** To match the smooth marquee and "stamp" reveal from the demo, should we use a library like **Framer Motion**, or stick to pure CSS animations?
-*   **Image / File Uploads:** Where would you like to store uploaded files (like certificates and your CV)? Options include **Cloudinary** (free/easy), AWS S3, or Vercel Blob.
-*   **Admin Login:** Is a simple Email/Password login sufficient for the Admin Panel, or do you want OAuth (e.g., login with Google)?
-
