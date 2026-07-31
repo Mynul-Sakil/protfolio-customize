@@ -89,16 +89,45 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Resume / CV (Google Drive / Dropbox Link)</label>
-            <input 
-              type="url" 
-              name="resumeUrl" 
-              value={formData.resumeUrl} 
-              onChange={handleChange} 
-              placeholder="https://drive.google.com/..."
-              className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" 
-            />
-            <p className="text-xs text-slate mt-2">Cloudinary blocks PDF hosting for free accounts. Please paste a link to your resume hosted on Google Drive or Dropbox.</p>
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Resume / CV (PDF)</label>
+            <div className="flex items-center gap-4">
+              <input 
+                type="file" 
+                accept="application/pdf"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  
+                  const uploadData = new FormData();
+                  uploadData.append("file", file);
+                  
+                  try {
+                    setSaving(true);
+                    const res = await fetch("/api/resume", {
+                      method: "POST",
+                      body: uploadData
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                      setFormData(prev => ({ ...prev, resumeUrl: "/api/resume" }));
+                      setMessage("Resume uploaded! Don't forget to Save Changes.");
+                    } else {
+                      setMessage("Failed to upload resume.");
+                    }
+                  } catch (error) {
+                    setMessage("Error uploading resume.");
+                  } finally {
+                    setSaving(false);
+                    setTimeout(() => setMessage(""), 3000);
+                  }
+                }}
+                className="block w-full text-sm text-slate file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-mono file:uppercase file:bg-brass/10 file:text-brass hover:file:bg-brass/20 transition-colors" 
+              />
+              {formData.resumeUrl && formData.resumeUrl === "/api/resume" && (
+                <a href={formData.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-brass underline whitespace-nowrap">View Current</a>
+              )}
+            </div>
+            <p className="text-xs text-slate mt-2">Uploading will overwrite the previous resume. PDF format only.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
