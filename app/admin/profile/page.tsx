@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "@/actions/profile";
 import ImageUpload from "@/components/ImageUpload";
-import FileUpload from "@/components/FileUpload";
 import { Save, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
 
@@ -90,12 +89,16 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Resume / CV (PDF)</label>
-            <FileUpload 
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Resume / CV (Google Drive / Dropbox Link)</label>
+            <input 
+              type="url" 
+              name="resumeUrl" 
               value={formData.resumeUrl} 
-              onChange={(url) => setFormData(prev => ({ ...prev, resumeUrl: url }))} 
+              onChange={handleChange} 
+              placeholder="https://drive.google.com/..."
+              className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" 
             />
-            <p className="text-xs text-slate mt-2">This will be available for download on the public site.</p>
+            <p className="text-xs text-slate mt-2">Cloudinary blocks PDF hosting for free accounts. Please paste a link to your resume hosted on Google Drive or Dropbox.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
