@@ -35,7 +35,14 @@ export default function FileUpload({ value, onChange, disabled }: FileUploadProp
   }
 
   return (
-    <CldUploadWidget onSuccess={onUpload} uploadPreset="portfolio_preset" options={{ clientAllowedFormats: ['pdf', 'doc', 'docx'] }}>
+    <CldUploadWidget 
+      onSuccess={onUpload} 
+      uploadPreset="portfolio_preset" 
+      options={{ 
+        clientAllowedFormats: ['pdf', 'doc', 'docx'],
+        resourceType: 'raw'
+      }}
+    >
       {({ open }) => {
         return (
           <button
