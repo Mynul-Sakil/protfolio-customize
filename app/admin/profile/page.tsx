@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "@/actions/profile";
 import ImageUpload from "@/components/ImageUpload";
+import FileUpload from "@/components/FileUpload";
 import { Save, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
 
@@ -16,6 +17,7 @@ export default function ProfilePage() {
     shortIntroduction: "",
     professionalSummary: "",
     photoUrl: "",
+    resumeUrl: "",
     email: "",
     phone: "",
     location: "",
@@ -32,6 +34,7 @@ export default function ProfilePage() {
           shortIntroduction: data.shortIntroduction || "",
           professionalSummary: data.professionalSummary || "",
           photoUrl: data.photoUrl || "",
+          resumeUrl: data.resumeUrl || "",
           email: data.email || "",
           phone: data.phone || "",
           location: data.location || "",
@@ -84,7 +87,15 @@ export default function ProfilePage() {
               value={formData.photoUrl} 
               onChange={(url) => setFormData(prev => ({ ...prev, photoUrl: url }))} 
             />
-            <p className="text-xs text-slate mt-2">Requires Cloudinary configuration in .env</p>
+          </div>
+
+          <div>
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Resume / CV (PDF)</label>
+            <FileUpload 
+              value={formData.resumeUrl} 
+              onChange={(url) => setFormData(prev => ({ ...prev, resumeUrl: url }))} 
+            />
+            <p className="text-xs text-slate mt-2">This will be available for download on the public site.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

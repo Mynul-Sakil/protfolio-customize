@@ -10,6 +10,17 @@ export async function getMessages() {
   return JSON.parse(JSON.stringify(messages));
 }
 
+export async function createMessage(data: any) {
+  try {
+    await dbConnect();
+    const newMessage = await ContactMessage.create(data);
+    revalidatePath("/admin/messages");
+    return { success: true, message: JSON.parse(JSON.stringify(newMessage)) };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
 export async function updateMessageStatus(id: string, status: string) {
   try {
     await dbConnect();
