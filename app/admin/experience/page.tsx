@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getExperiences, createExperience, deleteExperience } from "@/actions/experience";
 import { Trash2, Plus, Loader2 } from "lucide-react";
+import AdminSkeleton from "@/components/AdminSkeleton";
 
 export default function ExperiencePage() {
   const [experiences, setExperiences] = useState<any[]>([]);
@@ -55,7 +56,7 @@ export default function ExperiencePage() {
     }
   };
 
-  if (loading) return <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-brass" /></div>;
+  if (loading) return <AdminSkeleton />;
 
   return (
     <div className="space-y-8">

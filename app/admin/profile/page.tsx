@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "@/actions/profile";
 import ImageUpload from "@/components/ImageUpload";
 import { Save, Loader2 } from "lucide-react";
+import AdminSkeleton from "@/components/AdminSkeleton";
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
@@ -61,7 +62,7 @@ export default function ProfilePage() {
   };
 
   if (loading) {
-    return <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-brass" /></div>;
+    return <AdminSkeleton />;
   }
 
   return (

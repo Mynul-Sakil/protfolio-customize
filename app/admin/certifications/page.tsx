@@ -5,6 +5,7 @@ import { getCertifications, createCertification, deleteCertification } from "@/a
 import ImageUpload from "@/components/ImageUpload";
 import { Trash2, Plus, Loader2 } from "lucide-react";
 import Image from "next/image";
+import AdminSkeleton from "@/components/AdminSkeleton";
 
 export default function CertificationsPage() {
   const [certs, setCerts] = useState<any[]>([]);
@@ -46,7 +47,7 @@ export default function CertificationsPage() {
     }
   };
 
-  if (loading) return <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-brass" /></div>;
+  if (loading) return <AdminSkeleton />;
 
   return (
     <div className="space-y-8">

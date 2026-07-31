@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getServices, createService, deleteService } from "@/actions/service";
 import { Trash2, Plus, Loader2 } from "lucide-react";
+import AdminSkeleton from "@/components/AdminSkeleton";
 
 export default function ServicesPage() {
   const [services, setServices] = useState<any[]>([]);
@@ -41,7 +42,7 @@ export default function ServicesPage() {
     }
   };
 
-  if (loading) return <div className="flex justify-center p-10"><Loader2 className="w-8 h-8 animate-spin text-brass" /></div>;
+  if (loading) return <AdminSkeleton />;
 
   return (
     <div className="space-y-8">
