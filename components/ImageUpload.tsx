@@ -13,6 +13,11 @@ interface ImageUploadProps {
 export default function ImageUpload({ value, onChange, disabled }: ImageUploadProps) {
   const onUpload = (result: any) => {
     onChange(result.info.secure_url);
+    // Cloudinary widget adds overflow: hidden to the body. If the component unmounts quickly,
+    // it forgets to remove it, freezing the page scroll. We manually reset it here.
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = "auto";
+    }
   };
 
   if (value) {
