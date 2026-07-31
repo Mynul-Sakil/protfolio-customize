@@ -90,7 +90,7 @@ export default function ProjectsPage() {
             <div key={project._id} className="border border-line rounded overflow-hidden bg-parchment flex flex-col">
               {project.imageUrl && (
                 <div className="relative h-48 w-full border-b border-line">
-                  <Image src={project.imageUrl} alt={project.title} fill style={{objectFit: 'cover'}} />
+                  <Image src={project.imageUrl} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" style={{objectFit: 'cover'}} />
                 </div>
               )}
               <div className="p-4 flex-1 flex flex-col">

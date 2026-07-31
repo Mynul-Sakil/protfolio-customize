@@ -94,7 +94,7 @@ export default function CertificationsPage() {
               
               <div className="aspect-[4/3] relative border-b border-line bg-page flex items-center justify-center overflow-hidden">
                 {cert.imageUrl ? (
-                  <Image src={cert.imageUrl} alt={cert.title} fill style={{objectFit: 'cover'}} />
+                  <Image src={cert.imageUrl} alt={cert.title} fill sizes="(max-width: 768px) 100vw, 33vw" style={{objectFit: 'cover'}} />
                 ) : (
                   <span className="font-mono text-[10px] uppercase text-slate">No Image</span>
                 )}

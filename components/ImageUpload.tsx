@@ -18,7 +18,7 @@ export default function ImageUpload({ value, onChange, disabled }: ImageUploadPr
   if (value) {
     return (
       <div className="relative w-40 h-40 rounded-md overflow-hidden border border-line">
-        <Image fill style={{ objectFit: 'cover' }} alt="Upload" src={value} />
+        <Image fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} alt="Upload" src={value} />
         <button
           onClick={() => onChange("")}
           className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition"

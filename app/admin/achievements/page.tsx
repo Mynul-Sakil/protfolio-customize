@@ -79,7 +79,7 @@ export default function AchievementsPage() {
               
               <div className="aspect-square relative flex items-center justify-center">
                 {ach.imageUrl ? (
-                  <Image src={ach.imageUrl} alt={ach.title} fill style={{objectFit: 'cover'}} className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" />
+                  <Image src={ach.imageUrl} alt={ach.title} fill sizes="(max-width: 768px) 100vw, 25vw" style={{objectFit: 'cover'}} className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500" />
                 ) : (
                   <span className="font-mono text-[10px] uppercase text-slate/50">No Photo</span>
                 )}
