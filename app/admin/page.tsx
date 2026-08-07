@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { getDashboardStats, getRecentMessages } from "@/actions/dashboard";
+import dbConnect from "@/lib/mongodb";
+import Profile from "@/models/Profile";
 import Link from "next/link";
 import { 
   FolderGit2, 
@@ -17,6 +19,10 @@ import {
 export default async function AdminDashboard() {
   const session = await getServerSession(authOptions);
   
+  await dbConnect();
+  const profile = await Profile.findOne().lean();
+  const adminName = profile?.name || session?.user?.name || 'New User';
+  
   const statsRes = await getDashboardStats();
   const stats = statsRes.success ? statsRes.data : null;
   const recentMessages = await getRecentMessages(3);
@@ -24,7 +30,7 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-serif font-semibold text-ink">Welcome back, {session?.user?.name || 'Admin'}</h1>
+        <h1 className="text-3xl font-serif font-semibold text-ink">Welcome back, {adminName}</h1>
         <p className="text-slate mt-2">Here is a quick overview of your portfolio.</p>
       </div>
 
