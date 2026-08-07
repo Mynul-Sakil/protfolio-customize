@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col selection:bg-brass selection:text-page">
+      <body className="min-h-full flex flex-col selection:bg-brass selection:text-page" suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>
