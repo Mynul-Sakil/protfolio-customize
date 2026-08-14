@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #12233B;
-  --color-ink-2: #1B3358;
-  --color-parchment: #F4EFE3;
-  --color-page: #FBFAF6;
-  --color-brass: #AD8A46;
-  --color-brass-light: #D9C48F;
-  --color-slate: #5C6B7A;
-  --color-line: rgba(18, 35, 59, 0.14);
+  --color-ink: #FFFFFF; /* Replaces dark text with white */
+  --color-ink-2: #E2E8F0; /* slate-200 */
+  --color-parchment: #1E293B; /* slate-800 (Card backgrounds) */
+  --color-page: #0F172A; /* slate-900 (Main background) */
+  --color-brass: #60A5FA; /* blue-400 (Accents) */
+  --color-brass-light: #A78BFA; /* purple-400 (Secondary Accents) */
+  --color-slate: #94A3B8; /* slate-400 (Subtitles) */
+  --color-line: rgba(255, 255, 255, 0.1); /* Light borders */
 
   --font-serif: var(--font-fraunces), serif;
   --font-sans: var(--font-ibm-plex), sans-serif;
