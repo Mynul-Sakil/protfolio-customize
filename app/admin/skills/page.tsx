@@ -53,11 +53,11 @@ export default function SkillsPage() {
         <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-end">
           <div className="flex-1 w-full">
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Skill Name</label>
-            <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="text" required placeholder="e.g. React.js" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           <div className="flex-1 w-full">
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Category</label>
-            <select value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none">
+            <select value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors">
               {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
             </select>
           </div>

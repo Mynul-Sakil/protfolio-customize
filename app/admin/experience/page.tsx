@@ -104,28 +104,28 @@ export default function ExperiencePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Role / Job Title *</label>
-              <input type="text" required value={formData.role} onChange={e => setFormData({...formData, role: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required value={formData.role} placeholder="Marketing Executive" onChange={e => setFormData({...formData, role: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Organization *</label>
-              <input type="text" required value={formData.organization} onChange={e => setFormData({...formData, organization: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required value={formData.organization} placeholder="Australian Polytechnic College" onChange={e => setFormData({...formData, organization: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Location (Optional, e.g., Sydney, Australia)</label>
-              <input type="text" value={formData.location} onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Location (Optional)</label>
+              <input type="text" value={formData.location} placeholder="Sydney, Australia" onChange={e => setFormData({...formData, location: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Start Date *</label>
-              <input type="text" required value={formData.startDate} onChange={e => setFormData({...formData, startDate: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required value={formData.startDate} placeholder="Mar 2024" onChange={e => setFormData({...formData, startDate: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">End Date *</label>
-              <input type="text" required value={formData.endDate} onChange={e => setFormData({...formData, endDate: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required value={formData.endDate} placeholder="Present" onChange={e => setFormData({...formData, endDate: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
           </div>
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Responsibilities (One per line) *</label>
-            <textarea required rows={4} value={formData.responsibilities} onChange={e => setFormData({...formData, responsibilities: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none resize-none"></textarea>
+            <textarea required rows={4} value={formData.responsibilities} placeholder="Managed marketing campaigns..." onChange={e => setFormData({...formData, responsibilities: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none"></textarea>
           </div>
           <div className="flex gap-4">
             <button type="submit" disabled={saving} className="flex items-center gap-2 py-2 px-6 bg-ink text-page font-mono text-sm uppercase tracking-wider hover:bg-brass transition-colors rounded-xl disabled:opacity-70">

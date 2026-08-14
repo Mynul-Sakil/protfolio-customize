@@ -57,19 +57,19 @@ export default function CertificationsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Certificate Title</label>
-              <input type="text" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="e.g. AWS Certified Developer" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Issuer (e.g. Coursera, VIT)</label>
-              <input type="text" required value={formData.issuer} onChange={e => setFormData({...formData, issuer: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="e.g. Amazon Web Services" value={formData.issuer} onChange={e => setFormData({...formData, issuer: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Date Issued (e.g. Oct 2023)</label>
-              <input type="text" required value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="e.g. Dec 2024" value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Credential URL (Optional)</label>
-              <input type="url" value={formData.credentialUrl} onChange={e => setFormData({...formData, credentialUrl: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="url" placeholder="https://credential.net/..." value={formData.credentialUrl} onChange={e => setFormData({...formData, credentialUrl: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Certificate Image</label>

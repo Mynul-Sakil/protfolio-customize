@@ -57,19 +57,19 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Project Title</label>
-              <input type="text" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="Project Name" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Category (e.g. Marketing)</label>
-              <input type="text" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" placeholder="Web Development" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div className="md:col-span-2">
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Description</label>
-              <textarea required rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none resize-none"></textarea>
+              <textarea required rows={4} placeholder="Describe the project..." value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none"></textarea>
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Project Link (Optional)</label>
-              <input type="url" value={formData.link} onChange={e => setFormData({...formData, link: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="url" placeholder="https://example.com" value={formData.link} onChange={e => setFormData({...formData, link: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Project Image</label>

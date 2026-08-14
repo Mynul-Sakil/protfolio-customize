@@ -53,16 +53,16 @@ export default function TestimonialsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Name</label>
-              <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="Jane Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Role / Organization</label>
-              <input type="text" required value={formData.role} onChange={e => setFormData({...formData, role: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="CEO, Tech Innovations" value={formData.role} onChange={e => setFormData({...formData, role: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
           </div>
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Feedback / Quote</label>
-            <textarea required rows={3} value={formData.feedback} onChange={e => setFormData({...formData, feedback: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none resize-none"></textarea>
+            <textarea required rows={4} placeholder="Working with Sabbir was..." value={formData.feedback} onChange={e => setFormData({...formData, feedback: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none"></textarea>
           </div>
           <button type="submit" disabled={saving} className="flex items-center gap-2 py-2 px-6 bg-ink text-page font-mono text-sm uppercase tracking-wider hover:bg-brass disabled:opacity-70">
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Add Testimonial

@@ -54,7 +54,7 @@ export default function AchievementsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Achievement Title / Caption</label>
-              <input type="text" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+              <input type="text" required placeholder="e.g. Best Employee of 2023" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Achievement Photo</label>

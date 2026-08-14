@@ -96,11 +96,11 @@ export default function SettingsPage() {
         <form onSubmit={handleEmailSubmit} className="space-y-5">
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">New Login Email</label>
-            <input type="email" required value={emailFormData.newEmail} onChange={e => setEmailFormData({...emailFormData, newEmail: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="email" required placeholder="new@example.com" value={emailFormData.newEmail} onChange={e => setEmailFormData({...emailFormData, newEmail: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Current Password (For Security)</label>
-            <input type="password" required value={emailFormData.currentPassword} onChange={e => setEmailFormData({...emailFormData, currentPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="password" required placeholder="Current password" value={emailFormData.currentPassword} onChange={e => setEmailFormData({...emailFormData, currentPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           
           <div className="pt-2">
@@ -131,15 +131,15 @@ export default function SettingsPage() {
         <form onSubmit={handlePasswordSubmit} className="space-y-5">
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Current Password</label>
-            <input type="password" required value={passwordFormData.currentPassword} onChange={e => setPasswordFormData({...passwordFormData, currentPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="password" required placeholder="Current password" value={passwordFormData.currentPassword} onChange={e => setPasswordFormData({...passwordFormData, currentPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">New Password</label>
-            <input type="password" required minLength={6} value={passwordFormData.newPassword} onChange={e => setPasswordFormData({...passwordFormData, newPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="password" required minLength={6} placeholder="New password" value={passwordFormData.newPassword} onChange={e => setPasswordFormData({...passwordFormData, newPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Confirm New Password</label>
-            <input type="password" required minLength={6} value={passwordFormData.confirmPassword} onChange={e => setPasswordFormData({...passwordFormData, confirmPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:border-brass outline-none" />
+            <input type="password" required minLength={6} placeholder="Confirm new password" value={passwordFormData.confirmPassword} onChange={e => setPasswordFormData({...passwordFormData, confirmPassword: e.target.value})} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors" />
           </div>
           
           <div className="pt-2">

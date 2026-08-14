@@ -133,40 +133,40 @@ export default function ProfilePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Full Name</label>
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="text" name="name" value={formData.name} placeholder="John Doe" onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Professional Title</label>
-              <input type="text" name="title" value={formData.title} onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="text" name="title" value={formData.title} placeholder="e.g. Marketing Executive" onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Short Introduction (Hero Section)</label>
-            <textarea name="shortIntroduction" value={formData.shortIntroduction} onChange={handleChange} rows={2} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
+            <textarea name="shortIntroduction" value={formData.shortIntroduction} placeholder="I am a professional..." onChange={handleChange} rows={5} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
           </div>
 
           <div>
             <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Professional Summary (About Me)</label>
-            <textarea name="professionalSummary" value={formData.professionalSummary} onChange={handleChange} rows={4} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
+            <textarea name="professionalSummary" value={formData.professionalSummary} placeholder="Detailed career overview..." onChange={handleChange} rows={4} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Email</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="email" name="email" value={formData.email} placeholder="john@example.com" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Phone</label>
-              <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="text" name="phone" value={formData.phone} placeholder="+1 (555) 000-0000" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Location</label>
-              <input type="text" name="location" value={formData.location} onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="text" name="location" value={formData.location} placeholder="Sydney, Australia" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
             <div>
               <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">LinkedIn URL</label>
-              <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink focus:outline-none focus:border-brass transition-colors" />
+              <input type="url" name="linkedin" value={formData.linkedin} placeholder="https://linkedin.com/in/johndoe" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
             </div>
           </div>
         </div>
