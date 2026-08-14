@@ -308,7 +308,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           type="text"
                           name="fullName"
                           required
-                          className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
+                          className="w-full bg-parchment border border-line p-3 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                          placeholder="John Doe"
                         />
                       </div>
 
@@ -318,7 +319,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           type="email"
                           name="email"
                           required
-                          className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
+                          className="w-full bg-parchment border border-line p-3 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                          placeholder="john@example.com"
                         />
                       </div>
 
@@ -328,7 +330,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="tel"
                             name="phone"
-                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            className="w-full bg-parchment border border-line p-3 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            placeholder="+1 (555) 000-0000"
                           />
                         </div>
 
@@ -337,7 +340,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="text"
                             name="company"
-                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            className="w-full bg-parchment border border-line p-3 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            placeholder="Acme Corp"
                           />
                         </div>
                       </div>

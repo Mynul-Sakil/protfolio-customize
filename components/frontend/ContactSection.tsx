@@ -128,22 +128,22 @@ export default function ContactSection({ profile }: ContactProps) {
 
                 <div>
                   <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Name</label>
-                  <input required type="text" id="name" name="name" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="text" id="name" name="name" placeholder="John Doe" className="w-full bg-parchment border border-line px-3 py-3 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Email</label>
-                  <input required type="email" id="email" name="email" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="email" id="email" name="email" placeholder="john@example.com" className="w-full bg-parchment border border-line px-3 py-3 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Subject</label>
-                  <input required type="text" id="subject" name="subject" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="text" id="subject" name="subject" placeholder="Project Inquiry" className="w-full bg-parchment border border-line px-3 py-3 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Message</label>
-                  <textarea required id="message" name="message" rows={4} className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
+                  <textarea required id="message" name="message" rows={4} placeholder="Tell me about your project..." className="w-full bg-parchment border border-line px-3 py-3 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
                 </div>
 
                 <button
