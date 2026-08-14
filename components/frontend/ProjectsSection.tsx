@@ -45,10 +45,10 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
             {marqueeItems.map((project, index) => (
               <div 
                 key={`${project._id}-${index}`}
-                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 group-hover:border-brass cursor-pointer"
+                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 group-hover:border-brass cursor-pointer rounded-2xl"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative aspect-[4/3] w-full bg-ink/5 border-b border-line overflow-hidden mb-4">
+                <div className="relative aspect-[4/3] w-full bg-ink/5 border-b border-line overflow-hidden mb-4 rounded-xl">
                   {project.imageUrl ? (
                     <Image 
                       src={project.imageUrl} 
@@ -62,7 +62,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                       No Image Provided
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-2 py-1 z-10">
+                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
                     {project.category}
                   </div>
                 </div>
@@ -98,16 +98,16 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line flex flex-col overflow-hidden shadow-2xl"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line flex flex-col overflow-hidden shadow-2xl rounded-2xl"
             >
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
+                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="relative aspect-[16/9] w-full bg-ink/5 border-b border-line shrink-0">
+              <div className="relative aspect-[16/9] w-full bg-ink/5 border-b border-line shrink-0 rounded-t-2xl overflow-hidden">
                 {selectedProject.imageUrl ? (
                   <Image 
                     src={selectedProject.imageUrl} 
@@ -138,7 +138,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-ink text-page font-mono text-xs uppercase tracking-widest hover:bg-brass transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-ink text-page font-mono text-xs uppercase tracking-widest hover:bg-brass transition-colors rounded-xl"
                   >
                     Visit Project <ArrowUpRight className="w-4 h-4" />
                   </a>

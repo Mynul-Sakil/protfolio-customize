@@ -85,7 +85,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => setSelectedService(service.title)}
-                    className="bg-page border border-line p-6 rounded-sm shadow-sm hover:border-brass transition-colors group cursor-pointer"
+                    className="bg-page border border-line p-6 rounded-2xl shadow-sm hover:border-brass transition-colors group cursor-pointer"
                   >
                     <div className="flex items-start gap-4">
                       <div className="mt-1">
@@ -183,7 +183,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg max-h-[90vh] bg-page border border-line shadow-2xl overflow-y-auto"
+              className="relative w-full max-w-lg max-h-[90vh] bg-page border border-line shadow-2xl overflow-y-auto rounded-2xl"
             >
               <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10">
                 <div>
@@ -192,7 +192,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                 </div>
                 <button
                   onClick={closeModal}
-                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
+                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -242,7 +242,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="tel"
                             name="phone"
-                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
+                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors rounded-xl"
                           />
                         </div>
 
@@ -251,7 +251,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="text"
                             name="company"
-                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
+                            className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors rounded-xl"
                           />
                         </div>
                       </div>
@@ -262,7 +262,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           name="serviceRequired"
                           required
                           defaultValue={selectedService || ""}
-                          className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors appearance-none"
+                          className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors appearance-none rounded-xl"
                         >
                           <option value="" disabled>Select a service...</option>
                           {serviceOptions.map(opt => (
@@ -275,7 +275,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-ink text-page font-mono text-xs uppercase tracking-widest py-4 hover:bg-brass transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-ink text-page font-mono text-xs uppercase tracking-widest py-4 hover:bg-brass transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-xl"
                     >
                       {isSubmitting ? "Submitting..." : "Submit Request"}
                     </button>
@@ -303,7 +303,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg bg-page border border-line shadow-2xl overflow-y-auto"
+              className="relative w-full max-w-lg bg-page border border-line shadow-2xl overflow-y-auto rounded-2xl"
             >
               <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10">
                 <div>
@@ -312,7 +312,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                 </div>
                 <button
                   onClick={() => setExpandedCategory(null)}
-                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
+                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>

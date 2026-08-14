@@ -44,10 +44,10 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
             {marqueeItems.map((exp, index) => (
               <div 
                 key={`${exp._id}-${index}`}
-                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-6 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 group-hover:border-brass cursor-pointer"
+                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-6 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 group-hover:border-brass cursor-pointer rounded-2xl"
                 onClick={() => setSelectedExperience(exp)}
               >
-                <span className="font-mono text-[10px] uppercase tracking-widest text-brass block mb-3 bg-brass/10 px-2 py-1 inline-block self-start">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-brass block mb-3 bg-brass/10 px-3 py-1.5 rounded-full inline-block self-start">
                   {exp.startDate} - {exp.endDate}
                 </span>
                 
@@ -86,11 +86,11 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line flex flex-col overflow-hidden shadow-2xl"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line flex flex-col overflow-hidden shadow-2xl rounded-2xl"
             >
               <button 
                 onClick={() => setSelectedExperience(null)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
+                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
               >
                 <X className="w-4 h-4" />
               </button>

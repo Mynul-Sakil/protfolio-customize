@@ -43,9 +43,9 @@ export default function MarqueeSection({ certifications, achievements }: Marquee
             return (
               <div 
                 key={`${item._id}-${index}`} 
-                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300"
+                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 rounded-2xl"
               >
-                <div className="relative aspect-[4/3] w-full bg-page border-b border-line overflow-hidden mb-4">
+                <div className="relative aspect-[4/3] w-full bg-page border-b border-line overflow-hidden mb-4 rounded-xl">
                   {item.imageUrl ? (
                     <Image 
                       src={item.imageUrl} 
@@ -59,7 +59,7 @@ export default function MarqueeSection({ certifications, achievements }: Marquee
                       No Image
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-2 py-1 z-10">
+                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
                     {isCert ? 'Certification' : 'Achievement'}
                   </div>
                 </div>

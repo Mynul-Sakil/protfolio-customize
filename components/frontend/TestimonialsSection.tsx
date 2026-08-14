@@ -32,7 +32,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-parchment border border-line p-8 relative hover:border-brass transition-colors"
+              className="bg-parchment border border-line p-8 relative hover:border-brass transition-colors rounded-2xl"
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-brass/20" />
               <p className="font-serif text-lg text-ink-2 italic mb-6 relative z-10 leading-relaxed">

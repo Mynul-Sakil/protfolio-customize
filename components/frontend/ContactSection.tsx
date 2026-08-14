@@ -60,7 +60,7 @@ export default function ContactSection({ profile }: ContactProps) {
             <div className="space-y-6">
               {profile?.email && (
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass">
+                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass rounded-full">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ export default function ContactSection({ profile }: ContactProps) {
               )}
               {profile?.phone && (
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass">
+                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass rounded-full">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -86,7 +86,7 @@ export default function ContactSection({ profile }: ContactProps) {
               )}
               {profile?.location && (
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass">
+                  <div className="w-10 h-10 flex items-center justify-center bg-page border border-line text-brass rounded-full">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ export default function ContactSection({ profile }: ContactProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-page border border-line p-8 md:p-10 shadow-sm"
+            className="bg-page border border-line p-8 md:p-10 shadow-sm rounded-2xl"
           >
             {success ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-12 space-y-4">
@@ -128,28 +128,28 @@ export default function ContactSection({ profile }: ContactProps) {
                 
                 <div>
                   <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Name</label>
-                  <input required type="text" id="name" name="name" className="w-full bg-transparent border-b border-line px-2 py-3 text-ink focus:border-brass outline-none transition-colors" />
+                  <input required type="text" id="name" name="name" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Email</label>
-                  <input required type="email" id="email" name="email" className="w-full bg-transparent border-b border-line px-2 py-3 text-ink focus:border-brass outline-none transition-colors" />
+                  <input required type="email" id="email" name="email" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
                 
                 <div>
                   <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Subject</label>
-                  <input required type="text" id="subject" name="subject" className="w-full bg-transparent border-b border-line px-2 py-3 text-ink focus:border-brass outline-none transition-colors" />
+                  <input required type="text" id="subject" name="subject" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Message</label>
-                  <textarea required id="message" name="message" rows={4} className="w-full bg-transparent border-b border-line px-2 py-3 text-ink focus:border-brass outline-none transition-colors resize-none"></textarea>
+                  <textarea required id="message" name="message" rows={4} className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
                 </div>
                 
                 <button 
                   type="submit" 
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 py-4 bg-ink text-page font-mono text-sm uppercase tracking-widest hover:bg-brass disabled:opacity-70 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-4 bg-ink text-page font-mono text-sm uppercase tracking-widest hover:bg-brass disabled:opacity-70 transition-colors rounded-xl"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   Send Message
