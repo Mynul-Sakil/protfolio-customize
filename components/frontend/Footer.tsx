@@ -11,13 +11,13 @@ export default function Footer() {
           Sabbir<span className="text-brass">.</span>
         </div>
         
-        <div className="font-mono text-xs text-page/60 uppercase tracking-widest text-center md:text-left">
+        <div className="font-mono text-xs text-slate uppercase tracking-widest text-center md:text-left">
           &copy; {currentYear} Sabbir. All rights reserved.
         </div>
         
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-mono text-xs uppercase tracking-widest text-brass hover:text-page transition-colors"
+          className="font-mono text-xs uppercase tracking-widest text-brass hover:text-ink transition-colors"
         >
           Back to Top
         </button>
