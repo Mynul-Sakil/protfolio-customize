@@ -68,7 +68,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <span className="font-serif font-semibold text-2xl tracking-wide">Admin CMS</span>
         </div>
         
-        <div className="flex-1 overflow-y-auto py-4">
+        <div className="flex-1 overflow-y-auto py-4 custom-scrollbar">
           <nav className="space-y-1 px-2">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
