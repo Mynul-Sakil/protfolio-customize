@@ -16,6 +16,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [showAllServicesModal, setShowAllServicesModal] = useState(false);
 
   const serviceOptions = [
     "Business Development",
@@ -77,7 +78,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               </motion.div>
 
               <div className="space-y-6">
-                {services.map((service, index) => (
+                {services.slice(0, 3).map((service, index) => (
                   <motion.div
                     key={service._id}
                     initial={{ opacity: 0, x: -20 }}
@@ -107,6 +108,21 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     </div>
                   </motion.div>
                 ))}
+                
+                {services.length > 3 && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="mt-4"
+                  >
+                    <button
+                      onClick={() => setShowAllServicesModal(true)}
+                      className="px-4 py-2 bg-transparent border border-dashed border-slate text-slate text-sm font-sans rounded-full hover:border-brass hover:text-brass transition-colors shadow-sm"
+                    >
+                      + {services.length - 3} More Services
+                    </button>
+                  </motion.div>
+                )}
               </div>
             </div>
           )}
@@ -166,6 +182,76 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
         </div>
       </section>
+
+      {/* All Services Modal */}
+      <AnimatePresence>
+        {showAllServicesModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAllServicesModal(false)}
+              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line shadow-2xl overflow-y-auto rounded-2xl flex flex-col"
+            >
+              <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10 shrink-0">
+                <div>
+                  <h4 className="font-mono text-[10px] tracking-widest uppercase text-brass mb-1">What I Do</h4>
+                  <h3 className="font-serif text-2xl font-semibold text-ink">All Services</h3>
+                </div>
+                <button
+                  onClick={() => setShowAllServicesModal(false)}
+                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="p-6 sm:p-8 space-y-6 overflow-y-auto">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service._id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    onClick={() => {
+                      setShowAllServicesModal(false);
+                      setSelectedService(service.title);
+                    }}
+                    className="bg-parchment border border-line p-6 rounded-2xl shadow-sm hover:border-brass transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="mt-1">
+                        <CheckCircle className="w-5 h-5 text-brass" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-serif text-xl font-semibold text-ink group-hover:text-brass transition-colors mb-2">
+                          {service.title}
+                        </h4>
+                        {service.description && (
+                          <p className="font-sans text-slate text-sm leading-relaxed mb-4">
+                            {service.description}
+                          </p>
+                        )}
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-brass hover:text-ink transition-colors flex items-center gap-1">
+                          Book Service <ArrowRight className="w-3 h-3" />
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Booking Modal */}
       <AnimatePresence>
