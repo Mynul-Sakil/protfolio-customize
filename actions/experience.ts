@@ -22,6 +22,18 @@ export async function createExperience(data: any) {
   }
 }
 
+export async function updateExperience(id: string, data: any) {
+  try {
+    await dbConnect();
+    const updatedExp = await Experience.findByIdAndUpdate(id, data, { new: true });
+    revalidatePath("/admin/experience");
+    revalidatePath("/");
+    return { success: true, experience: JSON.parse(JSON.stringify(updatedExp)) };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
 export async function deleteExperience(id: string) {
   try {
     await dbConnect();

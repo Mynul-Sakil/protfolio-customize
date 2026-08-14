@@ -48,15 +48,15 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                 onClick={() => setSelectedExperience(exp)}
               >
                 <span className="font-mono text-[10px] uppercase tracking-widest text-brass block mb-3 bg-brass/10 px-3 py-1.5 rounded-full inline-block self-start">
-                  {exp.startDate} - {exp.endDate}
+                  {exp.location && `${exp.location} · `}{exp.startDate} — {exp.endDate}
                 </span>
                 
                 <h4 className="font-serif text-xl font-semibold text-ink whitespace-normal line-clamp-2 mb-1">
-                  {exp.role}
+                  {exp.organization}
                 </h4>
                 
                 <p className="font-sans text-sm text-slate whitespace-normal line-clamp-2 mb-6">
-                  {exp.organization}
+                  {exp.role}
                 </p>
                 
                 <button 
@@ -97,15 +97,15 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
 
               <div className="p-8 sm:p-12 overflow-y-auto">
                 <span className="font-mono text-xs uppercase tracking-widest text-brass block mb-2">
-                  {selectedExperience.startDate} - {selectedExperience.endDate}
+                  {selectedExperience.location && `${selectedExperience.location} · `}{selectedExperience.startDate} — {selectedExperience.endDate}
                 </span>
                 
                 <h4 className="font-serif text-3xl font-semibold text-ink mb-2">
-                  {selectedExperience.role}
+                  {selectedExperience.organization}
                 </h4>
                 
                 <p className="font-sans text-lg text-slate mb-8">
-                  {selectedExperience.organization}
+                  {selectedExperience.role}
                 </p>
 
                 <div className="space-y-4">
