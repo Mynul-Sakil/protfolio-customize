@@ -33,9 +33,7 @@ export default function HeroSection({ profile }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm uppercase tracking-widest text-brass mb-4">
-              &lt;Hello World /&gt;
-            </p>
+
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.1] mb-6">
               I'm <span className="bg-gradient-to-r from-brass via-brass-light to-pink-400 bg-clip-text text-transparent">{profile.name}</span>
             </h1>
