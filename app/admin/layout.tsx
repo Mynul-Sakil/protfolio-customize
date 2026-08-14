@@ -17,7 +17,8 @@ import {
   LogOut,
   Menu,
   X,
-  Calendar
+  Calendar,
+  TrendingUp
 } from "lucide-react";
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ const navItems = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { name: "Profile", href: "/admin/profile", icon: User },
   { name: "Experience", href: "/admin/experience", icon: Briefcase },
+  { name: "Impact Stats", href: "/admin/impact", icon: TrendingUp },
   { name: "Skills", href: "/admin/skills", icon: Wrench },
   { name: "Services", href: "/admin/services", icon: Layers },
   { name: "Projects", href: "/admin/projects", icon: FolderDot },

@@ -2,6 +2,7 @@ import Navbar from "@/components/frontend/Navbar";
 import HeroSection from "@/components/frontend/HeroSection";
 import AboutSection from "@/components/frontend/AboutSection";
 import ExperienceSection from "@/components/frontend/ExperienceSection";
+import ImpactSection from "@/components/frontend/ImpactSection";
 import SkillsAndServices from "@/components/frontend/SkillsAndServices";
 import ProjectsSection from "@/components/frontend/ProjectsSection";
 import MarqueeSection from "@/components/frontend/MarqueeSection";
@@ -18,6 +19,7 @@ import { getProjects } from "@/actions/project";
 import { getCertifications } from "@/actions/certification";
 import { getAchievements } from "@/actions/achievement";
 import { getTestimonials } from "@/actions/testimonial";
+import { getImpactStats } from "@/actions/impact";
 
 export default async function Home() {
   // Fetch all data in parallel
@@ -29,7 +31,8 @@ export default async function Home() {
     projects, 
     certifications, 
     achievements, 
-    testimonials
+    testimonials,
+    impactStats
   ] = await Promise.all([
     getProfile(),
     getExperiences(),
@@ -38,7 +41,8 @@ export default async function Home() {
     getProjects(),
     getCertifications(),
     getAchievements(),
-    getTestimonials()
+    getTestimonials(),
+    getImpactStats()
   ]);
 
   return (
@@ -50,6 +54,8 @@ export default async function Home() {
       <AboutSection profile={profile} />
       
       <ExperienceSection experiences={experiences || []} />
+
+      <ImpactSection stats={impactStats || []} />
       
       <SkillsAndServices skills={skills || []} services={services || []} />
       
