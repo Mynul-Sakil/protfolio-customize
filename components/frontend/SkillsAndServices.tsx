@@ -12,6 +12,7 @@ interface SkillsServicesProps {
 
 export default function SkillsAndServices({ skills, services }: SkillsServicesProps) {
   const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -60,11 +61,11 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
     <>
       <section id="services" className="py-24 bg-parchment border-y border-line">
         <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          
+
           {/* Services Side */}
           {services.length > 0 && (
             <div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -77,7 +78,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
               <div className="space-y-6">
                 {services.map((service, index) => (
-                  <motion.div 
+                  <motion.div
                     key={service._id}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -113,7 +114,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
           {/* Skills Side */}
           {skills.length > 0 && (
             <div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -128,7 +129,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                 {categories.map((category, idx) => {
                   const categorySkills = skills.filter(s => s.category === category);
                   return (
-                    <motion.div 
+                    <motion.div
                       key={category}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -139,14 +140,22 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                         <Wrench className="w-3 h-3 text-brass" /> {category}
                       </h4>
                       <div className="flex flex-wrap gap-3">
-                        {categorySkills.map(skill => (
-                          <span 
+                        {categorySkills.slice(0, 6).map(skill => (
+                          <span
                             key={skill._id}
                             className="px-4 py-2 bg-page border border-line text-ink text-sm font-sans rounded-full hover:border-brass hover:text-brass transition-colors cursor-default shadow-sm"
                           >
                             {skill.name}
                           </span>
                         ))}
+                        {categorySkills.length > 3 && (
+                          <button
+                            onClick={() => setExpandedCategory(category)}
+                            className="px-4 py-2 bg-transparent border border-dashed border-slate text-slate text-sm font-sans rounded-full hover:border-brass hover:text-brass transition-colors shadow-sm"
+                          >
+                            + {categorySkills.length - 3} More
+                          </button>
+                        )}
                       </div>
                     </motion.div>
                   )
@@ -162,15 +171,15 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
       <AnimatePresence>
         {selectedService && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => !isSubmitting && setSelectedService(null)}
               className="absolute inset-0 bg-page/80 backdrop-blur-sm"
             />
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -181,7 +190,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                   <h4 className="font-mono text-[10px] tracking-widest uppercase text-brass mb-1">Service Request</h4>
                   <h3 className="font-serif text-2xl font-semibold text-ink">Book a Service</h3>
                 </div>
-                <button 
+                <button
                   onClick={closeModal}
                   className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
                 >
@@ -205,24 +214,24 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                         {submitError}
                       </div>
                     )}
-                    
+
                     <div className="space-y-4">
                       <div>
                         <label className="block font-mono text-[10px] tracking-widest uppercase text-slate mb-2">Full Name *</label>
-                        <input 
-                          type="text" 
-                          name="fullName" 
-                          required 
+                        <input
+                          type="text"
+                          name="fullName"
+                          required
                           className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
                         />
                       </div>
-                      
+
                       <div>
                         <label className="block font-mono text-[10px] tracking-widest uppercase text-slate mb-2">Email Address *</label>
-                        <input 
-                          type="email" 
-                          name="email" 
-                          required 
+                        <input
+                          type="email"
+                          name="email"
+                          required
                           className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
                         />
                       </div>
@@ -230,18 +239,18 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block font-mono text-[10px] tracking-widest uppercase text-slate mb-2">Phone / WhatsApp</label>
-                          <input 
-                            type="tel" 
-                            name="phone" 
+                          <input
+                            type="tel"
+                            name="phone"
                             className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
                           />
                         </div>
-                        
+
                         <div>
                           <label className="block font-mono text-[10px] tracking-widest uppercase text-slate mb-2">Company / Org</label>
-                          <input 
-                            type="text" 
-                            name="company" 
+                          <input
+                            type="text"
+                            name="company"
                             className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors"
                           />
                         </div>
@@ -249,9 +258,9 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
                       <div>
                         <label className="block font-mono text-[10px] tracking-widest uppercase text-slate mb-2">Service Required *</label>
-                        <select 
-                          name="serviceRequired" 
-                          required 
+                        <select
+                          name="serviceRequired"
+                          required
                           defaultValue={selectedService || ""}
                           className="w-full bg-parchment border border-line p-3 font-sans text-ink focus:outline-none focus:border-brass transition-colors appearance-none"
                         >
@@ -263,8 +272,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                       </div>
                     </div>
 
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-ink text-page font-mono text-xs uppercase tracking-widest py-4 hover:bg-brass transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -272,6 +281,54 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     </button>
                   </form>
                 )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Category Skills Modal */}
+      <AnimatePresence>
+        {expandedCategory && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedCategory(null)}
+              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-lg bg-page border border-line shadow-2xl overflow-y-auto"
+            >
+              <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10">
+                <div>
+                  <h4 className="font-mono text-[10px] tracking-widest uppercase text-brass mb-1">Skills</h4>
+                  <h3 className="font-serif text-2xl font-semibold text-ink">{expandedCategory}</h3>
+                </div>
+                <button
+                  onClick={() => setExpandedCategory(null)}
+                  className="w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-wrap gap-3">
+                  {skills.filter(s => s.category === expandedCategory).map(skill => (
+                    <span
+                      key={skill._id}
+                      className="px-4 py-2 bg-parchment border border-line text-ink text-sm font-sans rounded-full shadow-sm"
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

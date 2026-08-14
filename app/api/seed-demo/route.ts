@@ -84,6 +84,9 @@ export async function GET() {
       "Education Marketing", "Lead Generation & Sales", "Product Development", 
       "Student Recruitment & Admissions", "Stakeholder Relationship Management"
     ];
+    const otherSkills = [
+      "Communication", "Media Work"
+    ];
     const techSkills = [
       "Microsoft Office Suite", "SharePoint", "AgentCis CRM", "Google Workspace", 
       "ChatGPT & Copilot", "HTML Email Marketing", "Social Media Marketing", 
@@ -92,6 +95,7 @@ export async function GET() {
 
     const skillDocs = [
       ...coreSkills.map((s, i) => ({ name: s, category: "Core Competencies", order: i })),
+      ...otherSkills.map((s, i) => ({ name: s, category: "Other Skills", order: i })),
       ...techSkills.map((s, i) => ({ name: s, category: "Technical Skills", order: i }))
     ];
     await Skill.insertMany(skillDocs);
