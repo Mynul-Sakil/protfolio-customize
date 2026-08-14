@@ -42,10 +42,10 @@ export default function ContactSection({ profile }: ContactProps) {
   return (
     <section id="contact" className="py-24 bg-parchment border-t border-line">
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 lg:gap-24">
-        
+
         {/* Contact Info */}
-        <div className="flex-1">
-          <motion.div 
+        <div className="flex-1 flex justify-center items-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -115,7 +115,7 @@ export default function ContactSection({ profile }: ContactProps) {
                 </div>
                 <h4 className="font-serif text-2xl font-semibold text-ink">Message Sent!</h4>
                 <p className="text-slate font-sans">Thank you for reaching out. I'll get back to you shortly.</p>
-                <button 
+                <button
                   onClick={() => setSuccess(false)}
                   className="mt-4 px-6 py-2 bg-ink text-page font-mono text-xs uppercase tracking-widest hover:bg-brass transition-colors"
                 >
@@ -125,29 +125,29 @@ export default function ContactSection({ profile }: ContactProps) {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {error && <div className="p-3 bg-red-50 text-red-500 text-sm border border-red-200">{error}</div>}
-                
+
                 <div>
                   <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Name</label>
                   <input required type="text" id="name" name="name" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Email</label>
                   <input required type="email" id="email" name="email" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Subject</label>
                   <input required type="text" id="subject" name="subject" className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Message</label>
                   <textarea required id="message" name="message" rows={4} className="w-full bg-parchment border border-line px-3 py-3 text-ink focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
                 </div>
-                
-                <button 
-                  type="submit" 
+
+                <button
+                  type="submit"
                   disabled={loading}
                   className="w-full flex items-center justify-center gap-2 py-4 bg-ink text-page font-mono text-sm uppercase tracking-widest hover:bg-brass disabled:opacity-70 transition-colors rounded-xl"
                 >
