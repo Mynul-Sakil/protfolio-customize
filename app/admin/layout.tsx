@@ -16,7 +16,8 @@ import {
   Settings,
   LogOut,
   Menu,
-  X
+  X,
+  Calendar
 } from "lucide-react";
 import { useState } from "react";
 
@@ -31,6 +32,7 @@ const navItems = [
   { name: "Achievements", href: "/admin/achievements", icon: Star },
   { name: "Testimonials", href: "/admin/testimonials", icon: MessageSquare },
   { name: "Messages", href: "/admin/messages", icon: MessageSquare },
+  { name: "Bookings", href: "/admin/bookings", icon: Calendar },
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
