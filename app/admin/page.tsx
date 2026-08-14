@@ -39,20 +39,20 @@ export default async function AdminDashboard() {
       {/* Stats Grid */}
       {stats && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between">
+          <Link href="/admin/projects" className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between group">
             <div>
               <p className="font-mono text-[10px] tracking-widest uppercase text-slate mb-1">Total Projects</p>
-              <p className="text-3xl font-serif font-semibold text-ink">{stats.projects}</p>
+              <p className="text-3xl font-serif font-semibold text-ink group-hover:text-brass transition-colors">{stats.projects}</p>
             </div>
             <div className="w-12 h-12 bg-brass/10 text-brass rounded-full flex items-center justify-center">
               <FolderGit2 className="w-6 h-6" />
             </div>
-          </div>
+          </Link>
 
-          <div className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between relative overflow-hidden">
+          <Link href="/admin/messages" className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between relative overflow-hidden group">
             <div className="relative z-10">
               <p className="font-mono text-[10px] tracking-widest uppercase text-slate mb-1">Unread Messages</p>
-              <p className="text-3xl font-serif font-semibold text-ink">{stats.messages.unread}</p>
+              <p className="text-3xl font-serif font-semibold text-ink group-hover:text-brass transition-colors">{stats.messages.unread}</p>
             </div>
             <div className="relative z-10 w-12 h-12 bg-brass/10 text-brass rounded-full flex items-center justify-center">
               <MessageSquare className="w-6 h-6" />
@@ -60,22 +60,22 @@ export default async function AdminDashboard() {
             {stats.messages.unread > 0 && (
               <div className="absolute top-0 right-0 w-2 h-full bg-brass"></div>
             )}
-          </div>
+          </Link>
 
-          <div className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between">
+          <Link href="/admin/testimonials" className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between group">
             <div>
               <p className="font-mono text-[10px] tracking-widest uppercase text-slate mb-1">Testimonials</p>
-              <p className="text-3xl font-serif font-semibold text-ink">{stats.testimonials}</p>
+              <p className="text-3xl font-serif font-semibold text-ink group-hover:text-brass transition-colors">{stats.testimonials}</p>
             </div>
             <div className="w-12 h-12 bg-brass/10 text-brass rounded-full flex items-center justify-center">
               <Star className="w-6 h-6" />
             </div>
-          </div>
+          </Link>
 
-          <div className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between relative overflow-hidden">
+          <Link href="/admin/bookings" className="bg-parchment border border-line p-6 rounded shadow-sm hover:border-brass transition-colors flex items-center justify-between relative overflow-hidden group">
             <div className="relative z-10">
               <p className="font-mono text-[10px] tracking-widest uppercase text-slate mb-1">Pending Bookings</p>
-              <p className="text-3xl font-serif font-semibold text-ink">{stats.bookings.pending}</p>
+              <p className="text-3xl font-serif font-semibold text-ink group-hover:text-brass transition-colors">{stats.bookings.pending}</p>
             </div>
             <div className="relative z-10 w-12 h-12 bg-brass/10 text-brass rounded-full flex items-center justify-center">
               <Calendar className="w-6 h-6" />
@@ -83,7 +83,7 @@ export default async function AdminDashboard() {
             {stats.bookings.pending > 0 && (
               <div className="absolute top-0 right-0 w-2 h-full bg-brass"></div>
             )}
-          </div>
+          </Link>
         </div>
       )}
 
