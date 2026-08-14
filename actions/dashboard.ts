@@ -6,6 +6,7 @@ import Skill from "@/models/Skill";
 import Service from "@/models/Service";
 import Testimonial from "@/models/Testimonial";
 import ContactMessage from "@/models/ContactMessage";
+import ServiceBooking from "@/models/ServiceBooking";
 
 export async function getDashboardStats() {
   await dbConnect();
@@ -17,14 +18,18 @@ export async function getDashboardStats() {
       totalServices,
       totalTestimonials,
       totalMessages,
-      unreadMessages
+      unreadMessages,
+      totalBookings,
+      pendingBookings
     ] = await Promise.all([
       Project.countDocuments(),
       Skill.countDocuments(),
       Service.countDocuments(),
       Testimonial.countDocuments(),
       ContactMessage.countDocuments(),
-      ContactMessage.countDocuments({ status: "unread" })
+      ContactMessage.countDocuments({ status: "unread" }),
+      ServiceBooking.countDocuments(),
+      ServiceBooking.countDocuments({ status: "pending" })
     ]);
 
     return {
@@ -37,6 +42,10 @@ export async function getDashboardStats() {
         messages: {
           total: totalMessages,
           unread: unreadMessages
+        },
+        bookings: {
+          total: totalBookings,
+          pending: pendingBookings
         }
       }
     };
@@ -56,6 +65,20 @@ export async function getRecentMessages(limit: number = 3) {
     return JSON.parse(JSON.stringify(messages));
   } catch (error) {
     console.error("Failed to fetch recent messages", error);
+    return [];
+  }
+}
+
+export async function getRecentBookings(limit: number = 3) {
+  await dbConnect();
+  try {
+    const bookings = await ServiceBooking.find({})
+      .sort({ createdAt: -1 })
+      .limit(limit)
+      .lean();
+    return JSON.parse(JSON.stringify(bookings));
+  } catch (error) {
+    console.error("Failed to fetch recent bookings", error);
     return [];
   }
 }
