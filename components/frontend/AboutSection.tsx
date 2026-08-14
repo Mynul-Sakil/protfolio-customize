@@ -24,7 +24,7 @@ export default function AboutSection({ profile }: AboutProps) {
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-brass"></span>
           </h2>
 
-          <div className="mt-8 ">
+          <div className="mt-8 font-serif text-xl md:text-2xl text-ink-2 leading-relaxed whitespace-pre-wrap">
             <ScrollRevealText text={profile.professionalSummary} />
           </div>
         </motion.div>
