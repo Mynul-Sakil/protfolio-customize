@@ -16,15 +16,15 @@ export default function MarqueeSection({ certifications, achievements }: Marquee
   const marqueeItems = [...items, ...items, ...items];
 
   return (
-    <section className="py-24 bg-ink overflow-hidden border-y border-brass/20 relative">
+    <section className="py-24 bg-page/50 overflow-hidden border-y border-line relative z-0">
       {/* Decorative text */}
-      <div className="absolute top-8 left-12 text-brass/20 font-serif text-8xl md:text-9xl font-bold opacity-10 pointer-events-none whitespace-nowrap">
+      <div className="absolute top-8 left-12 text-brass/10 font-serif text-8xl md:text-9xl font-bold opacity-10 pointer-events-none whitespace-nowrap -z-10">
         RECOGNITIONS & AWARDS
       </div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 mb-12 relative z-10">
         <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">Milestones</h2>
-        <h3 className="font-serif text-3xl md:text-4xl font-semibold text-page">Certifications & Achievements.</h3>
+        <h3 className="font-serif text-3xl md:text-4xl font-semibold text-ink">Certifications & Achievements.</h3>
       </div>
 
       {/* Marquee Container */}

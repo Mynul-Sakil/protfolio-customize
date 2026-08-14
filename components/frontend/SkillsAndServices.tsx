@@ -166,8 +166,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={closeModal}
-              className="absolute inset-0 bg-ink/80 backdrop-blur-sm"
+              onClick={() => !isSubmitting && setSelectedService(null)}
+              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
             />
             
             <motion.div 

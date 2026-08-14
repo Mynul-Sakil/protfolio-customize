@@ -79,7 +79,7 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedExperience(null)}
-              className="absolute inset-0 bg-ink/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
             />
             
             <motion.div 
