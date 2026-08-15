@@ -12,7 +12,7 @@ export default function AboutSection({ profile }: AboutProps) {
 
   return (
     <section id="about" className="py-24 bg-parchment border-y border-line">
-      <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
