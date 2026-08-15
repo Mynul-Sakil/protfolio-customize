@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Download, ArrowDownRight } from "lucide-react";
+import { Download, ArrowDownRight, Link } from "lucide-react";
 
 interface HeroProps {
   profile: any;
@@ -13,11 +13,11 @@ export default function HeroSection({ profile }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-page z-0">
-      
+
       {/* Animated Cyberpunk Background Blobs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brass/20 rounded-full blur-3xl animate-pulse -z-10"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brass-light/20 rounded-full blur-3xl animate-pulse delay-1000 -z-10"></div>
-      
+
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-10 -z-20" style={{
         backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
@@ -25,7 +25,7 @@ export default function HeroSection({ profile }: HeroProps) {
       }}></div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
-        
+
         {/* Text Content */}
         <div className="flex-1 max-w-2xl z-10">
           <motion.div
@@ -52,22 +52,34 @@ export default function HeroSection({ profile }: HeroProps) {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap items-center gap-4"
           >
-            <a 
+            <a
               href="#contact"
               className="flex items-center gap-2 bg-gradient-to-r from-brass to-brass-light text-page px-6 py-3.5 font-mono text-xs uppercase tracking-widest hover:opacity-90 hover:scale-105 transition-all shadow-lg shadow-brass/20"
             >
               Let's Talk
               <ArrowDownRight className="w-4 h-4" />
             </a>
-            
+
+            {profile.linkedin && (
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-parchment/50 backdrop-blur-sm border border-line text-ink px-6 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-blue-500 hover:text-blue-500 transition-all"
+              >
+                <Link className="w-4 h-4" />
+                LinkedIn
+              </a>
+            )}
+
             {profile.resumeUrl && (
-              <a 
+              <a
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -81,7 +93,7 @@ export default function HeroSection({ profile }: HeroProps) {
         </div>
 
         {/* Profile Image with Neon Glow Frame */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -91,7 +103,7 @@ export default function HeroSection({ profile }: HeroProps) {
             <div className="w-full h-full relative rounded-2xl overflow-hidden border-2 border-line bg-parchment/30 backdrop-blur-sm p-2 shadow-2xl group">
               <div className="absolute inset-0 bg-gradient-to-r from-brass/20 to-brass-light/20 rounded-2xl blur-xl transform scale-110 group-hover:scale-125 transition-transform duration-700"></div>
               <div className="relative w-full h-full rounded-xl overflow-hidden">
-                <Image 
+                <Image
                   src={profile.photoUrl}
                   alt={profile.name}
                   fill
