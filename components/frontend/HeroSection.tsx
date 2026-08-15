@@ -68,7 +68,7 @@ export default function HeroSection({ profile }: HeroProps) {
 
             {profile.linkedin && (
               <a
-                href={profile.linkedin}
+                href={profile.linkedin.startsWith('http') ? profile.linkedin : `https://${profile.linkedin}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-parchment/50 backdrop-blur-sm border border-line text-ink px-6 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-blue-500 hover:text-blue-500 transition-all"
