@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight, X } from "lucide-react";
+import { FolderGit2, Terminal, ArrowUpRight, X, ExternalLink, Code2 } from "lucide-react";
 
 interface ProjectsProps {
   projects: any[];
@@ -14,71 +14,83 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
 
   if (!projects || projects.length === 0) return null;
 
-  const marqueeItems = [...projects, ...projects, ...projects];
-
   return (
     <>
-      <section id="projects" className="py-24 bg-page overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 mb-12">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">Featured Work</h2>
-            <h3 className="font-serif text-4xl md:text-5xl font-semibold text-ink">Projects.</h3>
-          </motion.div>
-        </div>
+      <section id="projects" className="py-24 bg-[#06090E] relative overflow-hidden">
+        
+        {/* Background Glow */}
+        <div className="absolute top-1/2 left-1/3 w-[500px] h-[300px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
-        {/* Marquee Container */}
-        <div className="relative flex overflow-x-hidden group">
-          <motion.div
-            className="flex whitespace-nowrap gap-6 md:gap-8 px-4"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              ease: "linear",
-              duration: 40,
-            }}
-          >
-            {marqueeItems.map((project, index) => (
-              <div 
-                key={`${project._id}-${index}`}
-                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 group-hover:border-brass cursor-pointer rounded-2xl"
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          
+          {/* Section Badge */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs uppercase tracking-widest flex items-center gap-1.5">
+              <FolderGit2 className="w-3.5 h-3.5" />
+              // FEATURED_REPOSITORIES.ts
+            </span>
+          </div>
+
+          <h2 className="font-mono text-3xl md:text-5xl font-extrabold text-ink mb-12 tracking-tight">
+            Software <span className="text-cyan-400">Projects</span> & Systems
+          </h2>
+
+          {/* Project Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project._id || index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
+                className="rounded-2xl border border-white/10 bg-[#0D1117] p-6 shadow-xl hover:border-cyan-400/40 hover:shadow-cyan-500/10 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
-                <div className="relative aspect-[4/3] w-full bg-ink/5 border-b border-line overflow-hidden mb-4 rounded-xl">
-                  {project.imageUrl ? (
-                    <Image 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center font-mono text-xs uppercase text-slate whitespace-normal text-center px-4">
-                      No Image Provided
+                <div>
+                  {/* Top Repo Header */}
+                  <div className="flex items-center justify-between font-mono text-xs text-slate mb-4 pb-3 border-b border-white/10">
+                    <div className="flex items-center gap-2 text-cyan-400 font-bold">
+                      <Code2 className="w-4 h-4" />
+                      <span>{project.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.repo</span>
                     </div>
-                  )}
-                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
-                    {project.category}
+                    <span className="px-2.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-[10px] text-cyan-400 font-bold">
+                      {project.category}
+                    </span>
                   </div>
+
+                  {project.imageUrl ? (
+                    <div className="relative aspect-[16/9] w-full bg-[#06090E] border border-white/10 rounded-xl overflow-hidden mb-6">
+                      <Image 
+                        src={project.imageUrl} 
+                        alt={project.title} 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : null}
+
+                  <h3 className="font-mono text-xl font-bold text-ink group-hover:text-cyan-400 transition-colors mb-3">
+                    {project.title}
+                  </h3>
+
+                  <p className="font-sans text-xs md:text-sm text-slate line-clamp-3 leading-relaxed mb-6">
+                    {project.description}
+                  </p>
                 </div>
-                
-                <h4 className="font-serif text-lg font-semibold text-ink whitespace-normal line-clamp-2 mb-2">
-                  {project.title}
-                </h4>
-                
-                <button 
-                  className="mt-auto font-mono text-[10px] uppercase tracking-widest text-brass hover:text-ink transition-colors flex items-center gap-1 self-start"
-                >
-                  Show More <ArrowUpRight className="w-3 h-3" />
-                </button>
-              </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-slate group-hover:text-cyan-400 transition-colors">
+                  <span className="flex items-center gap-1">
+                    <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>$ inspect-architecture</span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
+
         </div>
       </section>
 
@@ -91,45 +103,49 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-page/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#06090E]/90 backdrop-blur-md"
             />
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-page border border-line flex flex-col overflow-hidden shadow-2xl rounded-2xl"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-[#0D1117] border border-cyan-500/30 flex flex-col overflow-hidden shadow-2xl rounded-2xl z-10"
             >
-              <button 
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-parchment border border-line text-slate hover:text-ink hover:border-brass transition-all rounded-full"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              <div className="px-5 py-3.5 bg-[#161B22] border-b border-white/10 flex items-center justify-between font-mono text-xs text-slate">
+                <div className="flex items-center gap-2 text-cyan-400 font-bold">
+                  <Terminal className="w-4 h-4" />
+                  <span>repository --inspect</span>
+                </div>
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="w-7 h-7 flex items-center justify-center bg-[#06090E] border border-white/10 text-slate hover:text-ink hover:border-rose-500 transition-all rounded-lg"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
 
-              <div className="relative aspect-[16/9] w-full bg-ink/5 border-b border-line shrink-0 rounded-t-2xl overflow-hidden">
-                {selectedProject.imageUrl ? (
+              {selectedProject.imageUrl && (
+                <div className="relative aspect-[16/9] w-full bg-[#06090E] border-b border-white/10 shrink-0 overflow-hidden">
                   <Image 
                     src={selectedProject.imageUrl} 
                     alt={selectedProject.title} 
                     fill 
                     className="object-cover"
                   />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-sm uppercase text-slate">
-                    No Image Provided
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
 
-              <div className="p-6 sm:p-8 overflow-y-auto">
-                <span className="font-mono text-xs uppercase tracking-widest text-brass block mb-2">
+              <div className="p-6 sm:p-10 overflow-y-auto">
+                <span className="px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs font-bold inline-block mb-3">
                   {selectedProject.category}
                 </span>
-                <h4 className="font-serif text-3xl font-semibold text-ink mb-6">
+                
+                <h3 className="font-mono text-2xl font-bold text-ink mb-4">
                   {selectedProject.title}
-                </h4>
-                <p className="font-sans text-slate leading-relaxed text-base mb-8 whitespace-pre-wrap">
+                </h3>
+                
+                <p className="font-sans text-slate text-sm leading-relaxed mb-8 whitespace-pre-wrap">
                   {selectedProject.description}
                 </p>
 
@@ -138,9 +154,10 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-ink text-page font-mono text-xs uppercase tracking-widest hover:bg-brass transition-colors rounded-xl"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-[#06090E] font-mono text-xs uppercase font-extrabold tracking-wider hover:brightness-110 transition-all rounded-xl shadow-lg shadow-cyan-500/20"
                   >
-                    Visit Project <ArrowUpRight className="w-4 h-4" />
+                    <span>View Repository / Demo</span>
+                    <ExternalLink className="w-4 h-4" />
                   </a>
                 )}
               </div>
@@ -151,3 +168,4 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
     </>
   );
 }
+

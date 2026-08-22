@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #FFFFFF; /* Replaces dark text with white */
-  --color-ink-2: #E2E8F0; /* slate-200 */
-  --color-parchment: #1E293B; /* slate-800 (Card backgrounds) */
-  --color-page: #0F172A; /* slate-900 (Main background) */
-  --color-brass: #60A5FA; /* blue-400 (Accents) */
-  --color-brass-light: #A78BFA; /* purple-400 (Secondary Accents) */
-  --color-slate: #94A3B8; /* slate-400 (Subtitles) */
-  --color-line: rgba(255, 255, 255, 0.1); /* Light borders */
+  --color-ink: #F8FAFC; /* Crisp white code text */
+  --color-ink-2: #CBD5E1; /* Slate-300 readable text */
+  --color-parchment: #0D1117; /* GitHub Dark / IDE surface background */
+  --color-page: #06090E; /* Deep Cyber Obsidian main page background */
+  --color-brass: #10B981; /* Emerald-500 Electric Green primary accent */
+  --color-brass-light: #06B6D4; /* Cyan-500 Cyber Cyan secondary accent */
+  --color-slate: #94A3B8; /* Slate-400 comment/subtitle text */
+  --color-line: rgba(255, 255, 255, 0.08); /* Sleek IDE grid lines */
 
   --font-serif: var(--font-fraunces), serif;
   --font-sans: var(--font-ibm-plex), sans-serif;
@@ -26,19 +26,32 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
   }
 
+  /* IDE Glow utilities */
+  .glow-emerald {
+    box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+  }
+  .border-glow-emerald {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.15), 0 0 15px rgba(16, 185, 129, 0.2);
+  }
+
   /* Global Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #06090E;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(96, 165, 250, 0.3); /* muted brass */
+    background-color: rgba(16, 185, 129, 0.25);
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(96, 165, 250, 0.8); /* brass */
+    background-color: rgba(16, 185, 129, 0.7);
   }
 }
+

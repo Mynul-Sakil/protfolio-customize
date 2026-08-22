@@ -19,12 +19,11 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
   const [showAllServicesModal, setShowAllServicesModal] = useState(false);
 
   const serviceOptions = [
-    "Business Development",
-    "Agent/Partner Management",
-    "Marketing Materials / Brochure",
-    "Lead Generation",
-    "Consultation",
-    "Visa Lodge"
+    "Backend API Architecture",
+    "Full Stack Web Development",
+    "AI Integration & Automation",
+    "Database Design & Optimization",
+    "Technical Consultation"
   ];
 
   if (!skills.length && !services.length) return null;
@@ -60,8 +59,12 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
   return (
     <>
-      <section id="services" className="py-24 bg-parchment border-y border-line">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <section id="services" className="py-24 bg-[#06090E] border-y border-white/10 relative overflow-hidden">
+        
+        {/* Glow */}
+        <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+        <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
 
           {/* Services Side */}
           {services.length > 0 && (
@@ -73,12 +76,19 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                 transition={{ duration: 0.5 }}
                 className="mb-10"
               >
-                <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">What I Do</h2>
-                <h3 className="font-serif text-4xl font-semibold text-ink">Services.</h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs uppercase tracking-widest flex items-center gap-1.5">
+                    <Wrench className="w-3.5 h-3.5" />
+                    // SERVICES.json
+                  </span>
+                </div>
+                <h3 className="font-mono text-3xl font-bold text-ink">
+                  Engineering <span className="text-emerald-400">Services</span>
+                </h3>
               </motion.div>
 
-              <div className="space-y-6">
-                {services.slice(0, 3).map((service, index) => (
+              <div className="space-y-4">
+                {services.slice(0, 4).map((service, index) => (
                   <motion.div
                     key={service._id}
                     initial={{ opacity: 0, x: -20 }}
@@ -86,43 +96,28 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => setSelectedService(service.title)}
-                    className="bg-page border border-line p-6 rounded-2xl shadow-sm hover:border-brass transition-colors group cursor-pointer"
+                    className="bg-[#0D1117] border border-white/10 p-6 rounded-2xl shadow-lg hover:border-emerald-500/40 hover:shadow-emerald-500/10 transition-all group cursor-pointer"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="mt-1">
-                        <CheckCircle className="w-5 h-5 text-brass" />
+                      <div className="mt-1 w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                        <CheckCircle className="w-4 h-4" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-serif text-xl font-semibold text-ink group-hover:text-brass transition-colors mb-2">
+                        <h4 className="font-mono text-lg font-bold text-ink group-hover:text-emerald-400 transition-colors mb-2">
                           {service.title}
                         </h4>
                         {service.description && (
-                          <p className="font-sans text-slate text-sm leading-relaxed mb-4">
+                          <p className="font-sans text-slate text-xs md:text-sm leading-relaxed mb-4">
                             {service.description}
                           </p>
                         )}
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-brass hover:text-ink transition-colors flex items-center gap-1">
-                          Book Service <ArrowRight className="w-3 h-3" />
+                        <span className="font-mono text-xs text-emerald-400 hover:text-ink transition-colors flex items-center gap-1">
+                          $ book-service --now <ArrowRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
                     </div>
                   </motion.div>
                 ))}
-                
-                {services.length > 3 && (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="mt-4"
-                  >
-                    <button
-                      onClick={() => setShowAllServicesModal(true)}
-                      className="px-4 py-2 bg-transparent border border-dashed border-slate text-slate text-sm font-sans rounded-full hover:border-brass hover:text-brass transition-colors shadow-sm"
-                    >
-                      + {services.length - 3} More Services
-                    </button>
-                  </motion.div>
-                )}
               </div>
             </div>
           )}
@@ -137,11 +132,18 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                 transition={{ duration: 0.5 }}
                 className="mb-10"
               >
-                <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">My Toolkit</h2>
-                <h3 className="font-serif text-4xl font-semibold text-ink">Skills.</h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs uppercase tracking-widest flex items-center gap-1.5">
+                    <Wrench className="w-3.5 h-3.5" />
+                    // TECH_STACK.ts
+                  </span>
+                </div>
+                <h3 className="font-mono text-3xl font-bold text-ink">
+                  Technical <span className="text-cyan-400">Toolkit</span>
+                </h3>
               </motion.div>
 
-              <div className="space-y-10">
+              <div className="space-y-8">
                 {categories.map((category, idx) => {
                   const categorySkills = skills.filter(s => s.category === category);
                   return (
