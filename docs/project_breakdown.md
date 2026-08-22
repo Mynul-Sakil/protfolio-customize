@@ -1,5 +1,5 @@
 # Project Breakdown & Development Roadmap
-**Sabbir's Portfolio & CMS**
+**Mynul Islam's Portfolio & CMS**
 
 This document breaks down the development process into manageable phases based on the `project_details.md`, `project-information.txt`, and the styling from `sabbir-portfolio1.html`.
 

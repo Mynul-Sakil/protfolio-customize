@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MD Rakibul Islam Sabbir - Portfolio",
-  description: "Portfolio of MD Rakibul Islam Sabbir, Marketing Executive.",
+  title: "Mynul Islam - Portfolio",
+  description: "Portfolio of Mynul Islam.",
 };
 
 export default function RootLayout({

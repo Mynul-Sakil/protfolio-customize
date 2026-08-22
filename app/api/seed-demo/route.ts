@@ -27,14 +27,14 @@ export async function GET() {
 
     // 2. Insert Profile
     await Profile.create({
-      name: "MD Rakibul Islam Sabbir",
+      name: "Mynul Islam",
       title: "Marketing Executive working across business development, partnerships and student recruitment in Australia's international education sector.",
       shortIntroduction: "Results-driven marketing executive with experience in business development, partnership management, education marketing, student recruitment, admissions and visa support within Australia's international education sector — building strategic partnerships, generating leads, and using AI-assisted marketing to drive growth.",
       professionalSummary: "Results-driven marketing executive with experience in business development, partnership management, education marketing, student recruitment, admissions and visa support within Australia's international education sector — building strategic partnerships, generating leads, and using AI-assisted marketing to drive growth.",
-      email: "adrakib0@gmail.com",
+      email: "mynul.sakil@gmail.com",
       phone: "+61 491 767 377",
       location: "Sydney, NSW",
-      linkedin: "linkedin.com/in/islamsabbir"
+      linkedin: "linkedin.com/in/mynulislam"
     });
 
     // 3. Insert Experience
@@ -124,7 +124,7 @@ export async function GET() {
       }
     ]);
 
-    return NextResponse.json({ success: true, message: "Database successfully seeded with MD Rakibul Islam Sabbir real data!" });
+    return NextResponse.json({ success: true, message: "Database successfully seeded with Mynul Islam real data!" });
   } catch (error: any) {
     console.error("Seed error:", error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

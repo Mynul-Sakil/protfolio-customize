@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         <div className="font-serif text-2xl font-semibold tracking-tight">
-          Sabbir<span className="text-brass">.</span>
+          Mynul<span className="text-brass">.</span>
         </div>
         
         <div className="font-mono text-xs text-slate uppercase tracking-widest text-center md:text-left">
-          &copy; {currentYear} Sabbir. All rights reserved.
+          &copy; {currentYear} Mynul Islam. All rights reserved.
         </div>
         
         <button 

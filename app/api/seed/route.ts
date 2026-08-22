@@ -18,8 +18,8 @@ export async function GET() {
     const hashedPassword = await bcrypt.hash('Password1@', salt);
     
     const newAdmin = new User({
-      name: 'MD Rakibul Islam Sabbir',
-      email: 'adrakib0@gmail.com', // from the demo
+      name: 'Mynul Islam',
+      email: 'mynul.sakil@gmail.com',
       password: hashedPassword,
       role: 'admin'
     });

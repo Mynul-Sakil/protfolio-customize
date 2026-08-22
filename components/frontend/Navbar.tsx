@@ -53,7 +53,7 @@ export default function Navbar() {
           className="font-serif text-2xl font-semibold text-ink tracking-tight"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          Sabbir<span className="text-brass">.</span>
+          Mynul<span className="text-brass">.</span>
         </Link>
 
         {/* Desktop Nav */}

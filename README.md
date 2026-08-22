@@ -1,4 +1,4 @@
-# Sabbir Portfolio CMS
+# Mynul Islam Portfolio CMS
 
 A premium, full-stack portfolio built with Next.js (App Router), Tailwind CSS v4, and MongoDB. It features a complete Admin CMS to manage profile details, experiences, skills, projects, and a custom MongoDB document upload system for resumes.
 
@@ -18,7 +18,7 @@ A premium, full-stack portfolio built with Next.js (App Router), Tailwind CSS v4
 
 ```bash
 git clone <your-repo-url>
-cd protfolio-sabbir
+cd portfolio-mynul
 ```
 
 ### 2. Install Dependencies
@@ -61,7 +61,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the public site.
 Go to [http://localhost:3000/admin](http://localhost:3000/admin) to access the CMS Dashboard.
 
 **Default Admin Credentials:**
-- **Email:** adrakib0@gmail.com
+- **Email:** mynul.sakil@gmail.com
 - **Password:** Password1@
 
 *(You can change this password inside the Admin Dashboard after logging in).*
