@@ -70,8 +70,8 @@ Before logging into the Admin CMS for the first time, you must trigger the seed 
    { "message": "Default admin user created successfully." }
    ```
 
-*(Optional)* To populate sample portfolio data (Profile, Experience, Skills, Projects, Achievements), visit:
-- **`http://localhost:3000/api/seed-demo`**
+To populate your authentic portfolio data (Profile, Cansoft & Aliyah Holdings Experience, Technical Skills, Projects, Services, Education, and Impact Stats), navigate to:
+- **`http://localhost:3000/api/seed-mynul`** (or `http://localhost:3000/api/seed-demo`)
 
 ### 6. Access the Admin CMS Dashboard
 
