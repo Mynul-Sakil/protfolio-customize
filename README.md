@@ -12,9 +12,9 @@ A premium, full-stack portfolio built with Next.js (App Router), Tailwind CSS v4
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Step-by-Step Setup Guide
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone <your-repo-url>
@@ -27,51 +27,69 @@ cd portfolio-mynul
 npm install
 ```
 
-### 3. Setup Environment Variables
+### 3. Configure Environment Variables
 
-Copy the example environment file:
+Create or update your `.env` file in the root directory:
+
 ```bash
 cp .env.example .env
 ```
 
-Open `.env` and fill in the required variables. Here is how to get them:
+Open `.env` and configure the following variables:
 
-#### `DATABASE_URL` (MongoDB)
-1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and create a free account.
-2. Build a free cluster and create a database user (remember the password).
-3. Click "Connect" -> "Connect your application" and copy the connection string.
-4. Replace `<password>` in the string with your actual password.
+```env
+# Database URL (MongoDB Atlas)
+DATABASE_URL="mongodb+srv://mynulsakil:JwpLqHtzb5QWYELB@cluster0.bpciahf.mongodb.net/mynul_portfolio?retryWrites=true&w=majority&appName=Cluster0"
 
-#### `NEXTAUTH_SECRET` & `NEXTAUTH_URL` (Authentication)
-1. Set `NEXTAUTH_URL` to `http://localhost:3000` for local development (change this to your Vercel URL when deploying).
-2. For `NEXTAUTH_SECRET`, generate a secure random string by running `openssl rand -base64 32` in your terminal, or just type a long, random password.
+# NextAuth Configuration
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="a_very_secure_secret_key_123"
 
-#### `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` (Image Uploads)
-1. Go to [Cloudinary](https://cloudinary.com/) and create a free account.
-2. Copy your **Cloud Name** from the dashboard.
-3. *Important:* You must also go to Cloudinary Settings -> Upload and create an **Unsigned Upload Preset** named `portfolio_preset`.
+# Cloudinary Configuration (For Image Uploads)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
+```
 
 ### 4. Start the Development Server
+
+Run the development server locally:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the public site.
-Go to [http://localhost:3000/admin](http://localhost:3000/admin) to access the CMS Dashboard.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the live website.
 
-**Default Admin Credentials:**
-- **Email:** mynul.sakil@gmail.com
-- **Password:** Password1@
+### 5. Seed the Database & Create Admin Account
 
-*(You can change this password inside the Admin Dashboard after logging in).*
+Before logging into the Admin CMS for the first time, you must trigger the seed route to create the default Admin account in MongoDB:
+
+1. Open your browser and navigate to:
+   **`http://localhost:3000/api/seed`**
+2. You will see a JSON confirmation response:
+   ```json
+   { "message": "Default admin user created successfully." }
+   ```
+
+*(Optional)* To populate sample portfolio data (Profile, Experience, Skills, Projects, Achievements), visit:
+- **`http://localhost:3000/api/seed-demo`**
+
+### 6. Access the Admin CMS Dashboard
+
+Navigate to **[http://localhost:3000/admin](http://localhost:3000/admin)** and log in with the default credentials:
+
+- **Admin Email:** `mynul.sakil@gmail.com`
+- **Admin Password:** `Password1@`
+
+> 💡 *You can update your admin profile and password anytime inside the Admin Dashboard after logging in.*
 
 ---
 
-## Deployment (Vercel)
+## 🚀 Deployment (Vercel)
 
-1. Push your code to GitHub.
-2. Log into [Vercel](https://vercel.com/) and import your repository.
-3. During setup, add all the Environment Variables from your `.env` file to Vercel's Environment Variables section.
-4. Make sure to change `NEXTAUTH_URL` in Vercel to your actual production domain (e.g., `https://my-portfolio.vercel.app`).
-5. Click **Deploy**!
+1. Push your repository code to GitHub.
+2. Log into [Vercel](https://vercel.com/) and import your project repository.
+3. Add all Environment Variables from your `.env` file to Vercel's Environment Variables settings.
+4. Set `NEXTAUTH_URL` in Vercel to your deployed domain (e.g., `https://mynul-portfolio.vercel.app`).
+5. Click **Deploy**.
+6. Once deployed, visit `https://your-domain.vercel.app/api/seed` once to seed your production admin user!
+
