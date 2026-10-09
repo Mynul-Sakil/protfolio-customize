@@ -52,7 +52,6 @@ export default function ProfilePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    setMessage("");
     const res = await updateProfile(formData);
     if (res.success) {
       toast.success("Profile updated successfully!");
