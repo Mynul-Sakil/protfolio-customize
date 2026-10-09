@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getAchievements, createAchievement, deleteAchievement } from "@/actions/achievement";
 import ImageUpload from "@/components/ImageUpload";
 import { Trash2, Plus, Loader2 } from "lucide-react";
@@ -33,14 +34,19 @@ export default function AchievementsPage() {
     
     await createAchievement(formData);
     setFormData({ title: "", imageUrl: "" });
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this achievement?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteAchievement(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

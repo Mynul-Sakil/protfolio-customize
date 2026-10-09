@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getBookings, updateBookingStatus, deleteBooking } from "@/actions/admin/bookings";
 import { Trash2, CheckCircle, MailOpen } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -24,12 +25,16 @@ export default function AdminBookings() {
     const newStatus = currentStatus === 'unread' ? 'read' : 'unread';
     await updateBookingStatus(id, newStatus);
     await fetchData();
+      toast.success("Status updated!");
   };
 
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this booking request? This action cannot be undone.")) {
       await deleteBooking(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

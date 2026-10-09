@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getExperiences, createExperience, updateExperience, deleteExperience } from "@/actions/experience";
 import { Trash2, Edit2, Plus, Loader2, X } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -55,6 +56,7 @@ export default function ExperiencePage() {
     }
 
     setFormData({ role: "", organization: "", location: "", startDate: "", endDate: "", responsibilities: "", order: 0 });
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
@@ -79,9 +81,13 @@ export default function ExperiencePage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this experience?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteExperience(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import toast from "react-hot-toast";
 import { getTestimonials, createTestimonial, deleteTestimonial } from "@/actions/testimonial";
 import { Trash2, Plus, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -32,14 +33,19 @@ export default function TestimonialsPage() {
     
     await createTestimonial(formData);
     setFormData({ name: "", role: "", feedback: "" });
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this testimonial?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteTestimonial(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

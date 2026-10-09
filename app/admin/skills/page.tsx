@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getSkills, createSkill, deleteSkill } from "@/actions/skill";
 import { Trash2, Plus, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -33,14 +34,19 @@ export default function SkillsPage() {
     
     await createSkill(formData);
     setFormData({ ...formData, name: "" }); // keep category selected
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this skill?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteSkill(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getProjects, createProject, deleteProject } from "@/actions/project";
 import ImageUpload from "@/components/ImageUpload";
 import { Trash2, Plus, Loader2 } from "lucide-react";
@@ -36,14 +37,19 @@ export default function ProjectsPage() {
     
     await createProject(formData);
     setFormData({ title: "", description: "", category: "General", imageUrl: "", link: "" });
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this project?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteProject(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

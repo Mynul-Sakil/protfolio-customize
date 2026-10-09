@@ -23,6 +23,7 @@ import {
   Globe
 } from "lucide-react";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -125,9 +126,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 p-6 md:p-10 pt-24 md:pt-10 overflow-x-hidden">
+      <main className="flex-1 p-6 md:p-10 pt-24 md:pt-10 overflow-x-hidden relative">
         <div className="max-w-5xl mx-auto">
+          <Toaster position="top-right" />
           {children}
         </div>
       </main>

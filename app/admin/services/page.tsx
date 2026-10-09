@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getServices, createService, deleteService } from "@/actions/service";
 import { Trash2, Plus, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -31,14 +32,19 @@ export default function ServicesPage() {
     
     await createService(formData);
     setFormData({ title: "", description: "" });
+    toast.success("Successfully saved!");
     await fetchData();
     setSaving(false);
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this service?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteService(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 

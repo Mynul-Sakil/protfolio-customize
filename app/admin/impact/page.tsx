@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import { getImpactStats, createImpactStat, updateImpactStat, deleteImpactStat } from "@/actions/impact";
 import { Plus, Trash2, Edit2, Loader2, Save, X } from "lucide-react";
 
@@ -76,7 +77,8 @@ export default function ImpactStatsAdmin() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this stat?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       const res = await deleteImpactStat(id);
       if (res.success) {
         await fetchStats();

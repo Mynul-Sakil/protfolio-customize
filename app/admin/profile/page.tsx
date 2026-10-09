@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getProfile, updateProfile } from "@/actions/profile";
 import ImageUpload from "@/components/ImageUpload";
 import { Save, Loader2 } from "lucide-react";
@@ -9,8 +10,7 @@ import AdminSkeleton from "@/components/AdminSkeleton";
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [message, setMessage] = useState("");
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     name: "",
     title: "",
     shortIntroduction: "",
@@ -55,13 +55,12 @@ export default function ProfilePage() {
     setMessage("");
     const res = await updateProfile(formData);
     if (res.success) {
-      setMessage("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
     } else {
-      setMessage("Failed to update profile.");
+      toast.error("Failed to update profile.");
     }
     setSaving(false);
-    setTimeout(() => setMessage(""), 3000);
-  };
+      };
 
   if (loading) {
     return <AdminSkeleton />;
@@ -74,7 +73,7 @@ export default function ProfilePage() {
           <h2 className="text-2xl font-serif font-semibold text-ink">Profile Information</h2>
           <p className="text-slate text-sm">Update your core details and contact information.</p>
         </div>
-        {message && <span className="text-sm font-mono text-brass">{message}</span>}
+        
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -110,16 +109,15 @@ export default function ProfilePage() {
                     const data = await res.json();
                     if (data.success) {
                       setFormData(prev => ({ ...prev, resumeUrl: "/api/resume" }));
-                      setMessage("Resume uploaded! Don't forget to Save Changes.");
+                      toast.success("Resume uploaded! Don't forget to Save Changes.");
                     } else {
-                      setMessage("Failed to upload resume.");
+                      toast.error("Failed to upload resume.");
                     }
                   } catch (error) {
-                    setMessage("Error uploading resume.");
+                    toast.error("Error uploading resume.");
                   } finally {
                     setSaving(false);
-                    setTimeout(() => setMessage(""), 3000);
-                  }
+                                      }
                 }}
                 className="block w-full text-sm text-slate file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-mono file:uppercase file:bg-brass/10 file:text-brass hover:file:bg-brass/20 transition-colors" 
               />

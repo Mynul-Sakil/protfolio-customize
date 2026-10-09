@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { getMessages, updateMessageStatus, deleteMessage } from "@/actions/message";
 import { Trash2, CheckCircle, MailOpen, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -23,12 +24,17 @@ export default function MessagesPage() {
     const newStatus = currentStatus === 'unread' ? 'read' : 'unread';
     await updateMessageStatus(id, newStatus);
     await fetchData();
+      toast.success("Status updated!");
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this message?")) {
+    if (confirm("Are you sure you want to delete this item?")) {
+      const toastId = toast.loading("Deleting...");
       await deleteMessage(id);
       await fetchData();
+    toast.success("Deleted successfully!", { id: toastId });
+    } else {
+      // do nothing
     }
   };
 
