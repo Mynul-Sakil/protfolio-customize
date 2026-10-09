@@ -15,7 +15,7 @@ export default function AdminBookings() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getBookings();
     setBookings(data || []);
     setLoading(false);

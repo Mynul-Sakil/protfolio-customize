@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getProjects();
     setProjects(data || []);
     setLoading(false);

@@ -25,7 +25,7 @@ export default function CertificationsPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getCertifications();
     setCerts(data || []);
     setLoading(false);

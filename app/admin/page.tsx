@@ -11,8 +11,6 @@ import {
   Star, 
   ArrowRight, 
   Calendar,
-  Terminal,
-  Cpu,
   CheckCircle2,
   Database
 } from "lucide-react";

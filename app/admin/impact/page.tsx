@@ -23,14 +23,14 @@ export default function ImpactStatsAdmin() {
     fetchStats();
   }, []);
 
-  const fetchStats = async () => {
+  async function fetchStats() {
     setLoading(true);
     const data = await getImpactStats();
     if (data) {
       setStats(data);
     }
     setLoading(false);
-  };
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,7 +94,7 @@ export default function ImpactStatsAdmin() {
     <div className="space-y-8 max-w-4xl">
       <div>
         <h1 className="text-3xl font-serif font-semibold text-ink">Impact Stats</h1>
-        <p className="text-slate mt-2">Manage the key metrics displayed in the "Built through real-world experience" section.</p>
+        <p className="text-slate mt-2">Manage the key metrics displayed in the &quot;Built through real-world experience&quot; section.</p>
       </div>
 
       {/* Add/Edit Form */}

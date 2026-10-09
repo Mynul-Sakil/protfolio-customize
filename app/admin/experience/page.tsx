@@ -26,7 +26,7 @@ export default function ExperiencePage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getExperiences();
     setExperiences(data || []);
     setLoading(false);

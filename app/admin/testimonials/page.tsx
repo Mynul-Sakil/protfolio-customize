@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { getTestimonials, createTestimonial, deleteTestimonial } from "@/actions/testimonial";
 import { Trash2, Plus, Loader2 } from "lucide-react";
@@ -17,15 +17,15 @@ export default function TestimonialsPage() {
     feedback: "",
   });
 
-  const fetchData = useCallback(async () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
     const data = await getTestimonials();
     setTestimonials(data || []);
     setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

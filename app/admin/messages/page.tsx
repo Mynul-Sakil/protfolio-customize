@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { getMessages, updateMessageStatus, deleteMessage } from "@/actions/message";
-import { Trash2, CheckCircle, MailOpen, Loader2 } from "lucide-react";
+import { Trash2, CheckCircle, MailOpen } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
 
 export default function MessagesPage() {
@@ -14,7 +14,7 @@ export default function MessagesPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getMessages();
     setMessages(data || []);
     setLoading(false);

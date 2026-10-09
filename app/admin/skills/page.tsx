@@ -22,7 +22,7 @@ export default function SkillsPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getSkills();
     setSkills(data || []);
     setLoading(false);

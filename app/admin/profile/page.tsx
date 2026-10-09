@@ -112,7 +112,7 @@ export default function ProfilePage() {
                     } else {
                       toast.error("Failed to upload resume.");
                     }
-                  } catch (error) {
+                  } catch {
                     toast.error("Error uploading resume.");
                   } finally {
                     setSaving(false);

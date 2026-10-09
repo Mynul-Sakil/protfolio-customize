@@ -20,7 +20,7 @@ export default function ServicesPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getServices();
     setServices(data || []);
     setLoading(false);

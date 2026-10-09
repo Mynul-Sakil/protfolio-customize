@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const mongoose = require('mongoose');
 const fs = require('fs');
 const envFile = fs.readFileSync('.env', 'utf8');

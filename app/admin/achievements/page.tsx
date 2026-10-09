@@ -22,7 +22,7 @@ export default function AchievementsPage() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  async function fetchData() {
     const data = await getAchievements();
     setAchievements(data || []);
     setLoading(false);
