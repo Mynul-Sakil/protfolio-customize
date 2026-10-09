@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, Terminal, ArrowUpRight, X, GitCommit, Building2, Calendar } from "lucide-react";
+import { Briefcase, ArrowUpRight, X, Building2, Calendar, Target } from "lucide-react";
 
 interface ExperienceProps {
   experiences: any[];
@@ -15,29 +15,29 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
 
   return (
     <>
-      <section id="experience" className="py-24 bg-[#06090E] relative overflow-hidden">
+      <section id="experience" className="py-24 bg-page relative overflow-hidden">
         
-        {/* Glow */}
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+        {/* Subtle Background glow */}
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[400px] bg-brass/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           
           {/* Section Badge */}
           <div className="flex items-center gap-2 mb-4">
-            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs uppercase tracking-widest flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass font-medium text-xs tracking-wide flex items-center gap-1.5">
               <Briefcase className="w-3.5 h-3.5" />
-              // DEPLOYMENT_HISTORY.log
+              Career Trajectory
             </span>
           </div>
 
-          <h2 className="font-mono text-3xl md:text-5xl font-extrabold text-ink mb-12 tracking-tight">
-            Work <span className="text-emerald-400">Experience</span> & Roles
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-ink mb-12 tracking-tight">
+            Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass to-brass-light">Experience</span> & Roles
           </h2>
 
           {/* Grid of Experience Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {experiences.map((exp, index) => {
-              const isCansoft = exp.organization.toLowerCase().includes("cansoft");
+              const isCurrent = exp.organization.toLowerCase().includes("cansoft") || exp.endDate.toLowerCase().includes("present");
               return (
                 <motion.div
                   key={exp._id || index}
@@ -46,46 +46,45 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => setSelectedExperience(exp)}
-                  className={`rounded-2xl border ${
-                    isCansoft 
-                      ? "border-emerald-500/40 bg-[#0D1117] glow-emerald" 
-                      : "border-white/10 bg-[#0D1117]/80 hover:border-emerald-500/30"
+                  className={`rounded-3xl border ${
+                    isCurrent 
+                      ? "border-brass/30 bg-gradient-to-br from-parchment to-[#162032] shadow-xl shadow-brass/5" 
+                      : "border-white/5 bg-parchment hover:border-brass/30"
                   } p-6 sm:p-8 flex flex-col justify-between cursor-pointer group transition-all duration-300 relative overflow-hidden`}
                 >
-                  {isCansoft && (
-                    <div className="absolute top-0 right-0 px-4 py-1 bg-emerald-500 text-[#06090E] font-mono text-[10px] font-extrabold rounded-bl-xl uppercase tracking-wider">
-                      Current Position
+                  {isCurrent && (
+                    <div className="absolute top-0 right-0 px-5 py-1.5 bg-brass text-white font-sans text-[10px] font-bold rounded-bl-2xl uppercase tracking-widest shadow-md">
+                      Current Role
                     </div>
                   )}
 
                   <div>
-                    <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 mb-4">
+                    <div className="flex items-center gap-2 font-sans font-medium text-xs text-brass-light mb-4">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{exp.startDate} — {exp.endDate}</span>
                     </div>
 
-                    <h3 className="font-mono text-xl font-bold text-ink group-hover:text-emerald-400 transition-colors flex items-center gap-2 mb-2">
-                      <Building2 className="w-4 h-4 text-slate/60 shrink-0" />
+                    <h3 className="font-sans text-xl md:text-2xl font-bold text-ink group-hover:text-brass transition-colors flex items-center gap-2 mb-2">
+                      <Building2 className="w-5 h-5 text-slate/50 shrink-0" />
                       <span>{exp.organization}</span>
                     </h3>
 
-                    <h4 className="font-sans text-sm font-semibold text-cyan-400 mb-4">
+                    <h4 className="font-sans text-sm md:text-base font-semibold text-brass mb-4">
                       {exp.role}
                     </h4>
 
                     {exp.responsibilities && exp.responsibilities.length > 0 && (
-                      <p className="font-sans text-xs text-slate line-clamp-2 leading-relaxed mb-6">
+                      <p className="font-sans text-sm text-slate line-clamp-2 leading-relaxed mb-6 font-light">
                         {exp.responsibilities[0]}
                       </p>
                     )}
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono text-xs text-slate group-hover:text-emerald-400 transition-colors">
-                    <span className="flex items-center gap-1.5">
-                      <GitCommit className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>$ view-log --details</span>
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="pt-5 border-t border-white/5 flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass transition-colors">
+                    <span>View full details</span>
+                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brass/10 transition-colors">
+                      <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -104,51 +103,51 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedExperience(null)}
-              className="absolute inset-0 bg-[#06090E]/90 backdrop-blur-md"
+              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
             />
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-[#0D1117] border border-emerald-500/30 flex flex-col overflow-hidden shadow-2xl rounded-2xl z-10"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-white/10 flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
             >
               {/* Modal Window Header */}
-              <div className="px-5 py-3.5 bg-[#161B22] border-b border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-2 font-mono text-xs text-slate">
-                  <Terminal className="w-4 h-4 text-emerald-400" />
-                  <span>git log --show-commit</span>
+              <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center justify-between sticky top-0 z-10 backdrop-blur-md">
+                <div className="flex items-center gap-2 font-sans font-semibold text-sm text-ink">
+                  <Briefcase className="w-4 h-4 text-brass" />
+                  <span>Role Details</span>
                 </div>
                 <button 
                   onClick={() => setSelectedExperience(null)}
-                  className="w-7 h-7 flex items-center justify-center bg-[#06090E] border border-white/10 text-slate hover:text-ink hover:border-rose-500 transition-all rounded-lg"
+                  className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 text-slate hover:text-ink hover:bg-white/10 transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               <div className="p-6 sm:p-10 overflow-y-auto font-sans">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 font-mono text-xs text-emerald-400 mb-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brass/10 border border-brass/20 font-medium text-xs text-brass mb-4">
                   <span>{selectedExperience.startDate} — {selectedExperience.endDate}</span>
                 </div>
                 
-                <h3 className="font-mono text-2xl font-bold text-ink mb-1">
+                <h3 className="font-sans text-2xl md:text-3xl font-extrabold text-ink mb-2">
                   {selectedExperience.organization}
                 </h3>
                 
-                <p className="font-mono text-sm text-cyan-400 font-semibold mb-6">
+                <p className="font-sans text-base md:text-lg text-brass-light font-semibold mb-8">
                   {selectedExperience.role}
                 </p>
 
-                <div className="space-y-4 pt-4 border-t border-white/10">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-bold">
-                    Key Execution & Responsibilities:
+                <div className="space-y-4 pt-6 border-t border-white/5">
+                  <h4 className="font-sans text-xs uppercase tracking-widest text-slate font-bold mb-4 flex items-center gap-2">
+                    <Target className="w-4 h-4 text-brass" /> Key Achievements & Responsibilities
                   </h4>
-                  <ul className="space-y-3 font-sans text-sm text-slate">
+                  <ul className="space-y-4 font-sans text-sm md:text-base text-ink-2">
                     {selectedExperience.responsibilities.map((resp: string, i: number) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-emerald-400 font-mono font-bold mr-3 shrink-0">➔</span>
-                        <span className="leading-relaxed text-ink-2">{resp}</span>
+                      <li key={i} className="flex items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                        <span className="w-2 h-2 rounded-full bg-brass mt-2 mr-4 shrink-0"></span>
+                        <span className="leading-relaxed font-light">{resp}</span>
                       </li>
                     ))}
                   </ul>
@@ -161,4 +160,3 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
     </>
   );
 }
-

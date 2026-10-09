@@ -20,8 +20,8 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">Words of Trust</h2>
-          <h3 className="font-serif text-4xl md:text-5xl font-semibold text-ink">Testimonials.</h3>
+          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-brass mb-3">Words of Trust</h2>
+          <h3 className="font-sans text-4xl md:text-5xl font-extrabold text-ink">Client Endorsements</h3>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -32,17 +32,17 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-parchment border border-line p-8 relative hover:border-brass transition-colors rounded-2xl"
+              className="bg-parchment border border-white/5 p-8 relative hover:border-brass/30 transition-all rounded-3xl shadow-lg"
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-brass/20" />
-              <p className="font-serif text-lg text-ink-2 italic mb-6 relative z-10 leading-relaxed">
+              <p className="font-sans text-lg text-ink-2 font-light italic mb-8 relative z-10 leading-relaxed">
                 "{test.feedback}"
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-[1px] bg-brass"></div>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-[2px] bg-brass/50 rounded-full"></div>
                 <div>
-                  <h4 className="font-serif font-semibold text-ink">{test.name}</h4>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-slate">{test.role}</p>
+                  <h4 className="font-sans font-bold text-ink">{test.name}</h4>
+                  <p className="font-sans text-xs uppercase tracking-widest text-slate mt-1 font-semibold">{test.role}</p>
                 </div>
               </div>
             </motion.div>
