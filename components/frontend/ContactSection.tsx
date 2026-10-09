@@ -32,7 +32,7 @@ export default function ContactSection({ profile }: ContactProps) {
       await createMessage(data);
       setSuccess(true);
       (e.target as HTMLFormElement).reset();
-    } catch (err) {
+    } catch {
       setError("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
@@ -54,7 +54,7 @@ export default function ContactSection({ profile }: ContactProps) {
             <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-brass mb-3">Get in touch</h2>
             <h3 className="font-sans text-4xl md:text-5xl font-extrabold text-ink mb-6">Contact & Inquiries</h3>
             <p className="text-slate font-sans mb-12 max-w-md leading-relaxed font-light">
-              Have a strategic initiative in mind or need technical leadership consultation? Fill out the form and I'll get back to you as soon as possible.
+              Have a strategic initiative in mind or need technical leadership consultation? Fill out the form and I&apos;ll get back to you as soon as possible.
             </p>
 
             <div className="space-y-8">
@@ -114,7 +114,7 @@ export default function ContactSection({ profile }: ContactProps) {
                   <Send className="w-6 h-6" />
                 </div>
                 <h4 className="font-sans text-2xl font-bold text-ink">Message Sent!</h4>
-                <p className="text-slate font-sans font-light">Thank you for reaching out. I'll get back to you shortly.</p>
+                <p className="text-slate font-sans font-light">Thank you for reaching out. I&apos;ll get back to you shortly.</p>
                 <button
                   onClick={() => setSuccess(false)}
                   className="mt-6 px-6 py-3 bg-white/5 text-ink font-sans text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors rounded-xl border border-white/10"

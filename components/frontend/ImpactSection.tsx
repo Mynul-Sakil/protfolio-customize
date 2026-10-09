@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Activity, BarChart, TrendingUp, Zap } from "lucide-react";
+import { BarChart, Zap } from "lucide-react";
 
 interface ImpactStat {
   _id: string;

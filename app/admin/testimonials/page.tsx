@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getTestimonials, createTestimonial, deleteTestimonial } from "@/actions/testimonial";
 import { Trash2, Plus, Loader2 } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
@@ -16,15 +16,15 @@ export default function TestimonialsPage() {
     feedback: "",
   });
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const data = await getTestimonials();
     setTestimonials(data || []);
     setLoading(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ export default function TestimonialsPage() {
           {testimonials.map((t) => (
             <div key={t._id} className="border border-line rounded bg-parchment p-4 flex justify-between items-start gap-4">
               <div>
-                <p className="text-ink text-sm italic mb-3">"{t.feedback}"</p>
+                <p className="text-ink text-sm italic mb-3">&quot;{t.feedback}&quot;</p>
                 <div className="flex items-center gap-2">
                   <span className="h-[1px] w-4 bg-brass"></span>
                   <h4 className="font-serif font-semibold text-ink text-sm">{t.name}</h4>

@@ -37,7 +37,7 @@ export default function HeroSection({ profile }: HeroProps) {
 
               {/* Title & Headline */}
               <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6">
-                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-blue-300">{profile.name}</span>
+                Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-blue-300">{profile.name}</span>
               </h1>
 
               <div className="text-xl md:text-2xl font-semibold text-ink-2 mb-6">

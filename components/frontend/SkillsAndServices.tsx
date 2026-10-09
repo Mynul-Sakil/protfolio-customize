@@ -16,7 +16,6 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [showAllServicesModal, setShowAllServicesModal] = useState(false);
 
   const serviceOptions = [
     "Backend API Architecture",

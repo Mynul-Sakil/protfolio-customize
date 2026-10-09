@@ -36,7 +36,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-brass/20" />
               <p className="font-sans text-lg text-ink-2 font-light italic mb-8 relative z-10 leading-relaxed">
-                "{test.feedback}"
+                &quot;{test.feedback}&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-[2px] bg-brass/50 rounded-full"></div>

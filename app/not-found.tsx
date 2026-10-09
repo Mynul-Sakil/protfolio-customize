@@ -38,7 +38,7 @@ export default function NotFound() {
             Lost in the digital void
           </h2>
           <p className="text-slate text-base md:text-lg mb-12 max-w-md mx-auto leading-relaxed">
-            The page you're looking for has been moved, deleted, or possibly never existed in this timeline.
+            The page you&apos;re looking for has been moved, deleted, or possibly never existed in this timeline.
           </p>
         </motion.div>
 
