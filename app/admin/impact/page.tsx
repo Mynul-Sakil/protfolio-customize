@@ -52,9 +52,10 @@ export default function ImpactStatsAdmin() {
       setFormData({ value: "", label: "", order: 0 });
       setIsEditing(false);
       setEditingId(null);
+      toast.success("Successfully saved!");
       await fetchStats();
     } else {
-      alert("Failed to save impact stat");
+      toast.error("Failed to save impact stat");
     }
     setSaving(false);
   };
@@ -81,9 +82,10 @@ export default function ImpactStatsAdmin() {
       const toastId = toast.loading("Deleting...");
       const res = await deleteImpactStat(id);
       if (res.success) {
+        toast.success("Deleted successfully!", { id: toastId });
         await fetchStats();
       } else {
-        alert("Failed to delete stat");
+        toast.error("Failed to delete stat", { id: toastId });
       }
     }
   };

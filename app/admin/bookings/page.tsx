@@ -30,9 +30,10 @@ export default function AdminBookings() {
 
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this booking request? This action cannot be undone.")) {
+      const toastId = toast.loading("Deleting...");
       await deleteBooking(id);
       await fetchData();
-    toast.success("Deleted successfully!", { id: toastId });
+      toast.success("Deleted successfully!", { id: toastId });
     } else {
       // do nothing
     }
