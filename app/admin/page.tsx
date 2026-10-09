@@ -4,6 +4,7 @@ import { getDashboardStats, getRecentMessages, getRecentBookings } from "@/actio
 import dbConnect from "@/lib/mongodb";
 import Profile from "@/models/Profile";
 import Link from "next/link";
+import SyncDataButton from "@/components/SyncDataButton";
 import { 
   FolderGit2, 
   MessageSquare, 
@@ -51,14 +52,7 @@ export default async function AdminDashboard() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
-            <a 
-              href="/api/seed-mynul"
-              target="_blank"
-              className="px-5 py-2.5 rounded-xl bg-brass text-white font-semibold hover:bg-brass-light transition-colors flex items-center gap-2 shadow-lg shadow-brass/20"
-            >
-              <Database className="w-4 h-4" />
-              <span>Sync Demo Data</span>
-            </a>
+            <SyncDataButton />
 
             <Link
               href="/"
