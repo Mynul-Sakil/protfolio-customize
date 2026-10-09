@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Download, Terminal, Link as LinkIcon, Code2, Cpu, CheckCircle2 } from "lucide-react";
+import { Download, Link as LinkIcon, Briefcase, TrendingUp, ChevronRight } from "lucide-react";
 
 interface HeroProps {
   profile: any;
@@ -12,73 +12,39 @@ export default function HeroSection({ profile }: HeroProps) {
   if (!profile) return null;
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-[#06090E] z-0">
-
-      {/* Cyber Neon Background Gradients */}
-      <div className="absolute top-1/4 left-1/6 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse -z-10"></div>
-      <div className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse delay-1000 -z-10"></div>
-
-      {/* Code Grid Overlay */}
-      <div className="absolute inset-0 opacity-[0.04] -z-20" style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-        backgroundSize: '40px 40px'
-      }}></div>
+    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-page z-0">
+      {/* Corporate Glow Background */}
+      <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-brass/10 rounded-full blur-[120px] animate-pulse -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/6 w-[500px] h-[500px] bg-brass-light/10 rounded-full blur-[120px] animate-pulse delay-1000 -z-10"></div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 w-full">
-        
-        {/* IDE Terminal Outer Window Frame */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="rounded-2xl border border-white/10 bg-[#0D1117]/90 backdrop-blur-2xl shadow-2xl shadow-black/80 overflow-hidden"
+          className="rounded-3xl border border-white/5 bg-parchment/60 backdrop-blur-2xl shadow-2xl overflow-hidden"
         >
-          {/* Terminal Window Header Bar */}
-          <div className="px-5 py-3.5 bg-[#161B22] border-b border-white/10 flex items-center justify-between font-mono text-xs text-slate">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span className="ml-2 text-slate/60 text-[11px] font-mono">~/mynul-portfolio/backend_v2.ts</span>
-            </div>
-
-            <div className="flex items-center gap-4 text-[11px] text-slate/70">
-              <span className="flex items-center gap-1">
-                <Cpu className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Node.js v22</span>
-              </span>
-              <span className="flex items-center gap-1 text-emerald-400">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Cansoft AI Active</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Main IDE Content Area */}
-          <div className="p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div className="p-8 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-16">
             
-            {/* Left Column: Code Bio */}
+            {/* Left Column: Executive Bio */}
             <div className="flex-1 max-w-2xl">
               
-              {/* Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-6">
-                <Code2 className="w-3.5 h-3.5" />
-                <span>Full Stack & Backend Engineer</span>
+              {/* Professional Status Pill */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass-light font-medium text-xs md:text-sm mb-8 tracking-wide">
+                <Briefcase className="w-4 h-4" />
+                <span>Engineering Leadership & Delivery</span>
               </div>
 
               {/* Title & Headline */}
-              <h1 className="font-mono text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6">
-                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-300">{profile.name}</span>
+              <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6">
+                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-blue-300">{profile.name}</span>
               </h1>
 
-              <div className="p-4 rounded-xl bg-[#06090E] border border-white/10 font-mono text-xs md:text-sm text-emerald-400/90 mb-8 shadow-inner">
-                <div className="text-slate/60 mb-1">// Current Active Stack & Role</div>
-                <div className="text-ink font-semibold">
-                  <span className="text-cyan-400">const</span> status = <span className="text-emerald-400">"{profile.title}"</span>;
-                </div>
+              <div className="text-xl md:text-2xl font-semibold text-ink-2 mb-6">
+                {profile.title}
               </div>
 
-              <p className="text-slate text-base md:text-lg mb-10 leading-relaxed font-sans font-light">
+              <p className="text-slate text-base md:text-lg mb-10 leading-relaxed font-sans font-light max-w-xl">
                 {profile.shortIntroduction}
               </p>
 
@@ -86,10 +52,10 @@ export default function HeroSection({ profile }: HeroProps) {
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="#contact"
-                  className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-[#06090E] font-extrabold px-6 py-3.5 rounded-lg font-mono text-xs uppercase tracking-wider hover:brightness-110 hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+                  className="flex items-center gap-2 bg-gradient-to-r from-brass to-brass-light text-page font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-brass/25 hover:-translate-y-0.5"
                 >
-                  <Terminal className="w-4 h-4" />
-                  $ contact --me
+                  Connect with me
+                  <ChevronRight className="w-4 h-4" />
                 </a>
 
                 {profile.linkedin && (
@@ -97,9 +63,9 @@ export default function HeroSection({ profile }: HeroProps) {
                     href={profile.linkedin.startsWith('http') ? profile.linkedin : `https://${profile.linkedin}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-[#161B22] border border-white/10 text-ink px-5 py-3.5 rounded-lg font-mono text-xs uppercase tracking-wider hover:border-cyan-400 hover:text-cyan-400 transition-all"
+                    className="flex items-center gap-2 bg-white/5 border border-white/10 text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-white/10 hover:border-brass-light hover:text-brass-light"
                   >
-                    <LinkIcon className="w-4 h-4 text-cyan-400" />
+                    <LinkIcon className="w-4 h-4" />
                     LinkedIn
                   </a>
                 )}
@@ -109,21 +75,20 @@ export default function HeroSection({ profile }: HeroProps) {
                     href={profile.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-[#161B22] border border-white/10 text-ink px-5 py-3.5 rounded-lg font-mono text-xs uppercase tracking-wider hover:border-emerald-400 hover:text-emerald-400 transition-all"
+                    className="flex items-center gap-2 bg-white/5 border border-white/10 text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-white/10 hover:border-brass hover:text-brass"
                   >
-                    <Download className="w-4 h-4 text-emerald-400" />
-                    Resume PDF
+                    <Download className="w-4 h-4" />
+                    Resume
                   </a>
                 )}
               </div>
-
             </div>
 
-            {/* Right Column: HUD Profile Frame */}
-            <div className="relative w-64 h-64 md:w-80 md:h-96 shrink-0">
-              <div className="w-full h-full relative rounded-2xl overflow-hidden border-2 border-emerald-500/30 bg-[#06090E] p-2 shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 rounded-2xl blur-lg group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#0D1117] border border-white/10 flex items-center justify-center">
+            {/* Right Column: Professional Portrait Frame */}
+            <div className="relative w-64 h-64 md:w-[340px] md:h-[400px] shrink-0">
+              <div className="w-full h-full relative rounded-3xl overflow-hidden border border-white/10 bg-page p-2 shadow-2xl group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-brass/20 to-brass-light/20 rounded-3xl blur-xl group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-parchment flex items-center justify-center">
                   {profile.photoUrl ? (
                     <Image
                       src={profile.photoUrl}
@@ -131,29 +96,23 @@ export default function HeroSection({ profile }: HeroProps) {
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center p-6 text-center">
-                      <Code2 className="w-12 h-12 text-emerald-400 mb-3 animate-pulse" />
-                      <span className="font-mono text-xs text-ink font-bold">&lt;Mynul Islam /&gt;</span>
-                      <span className="font-mono text-[11px] text-slate mt-1">Full Stack Developer</span>
+                      <TrendingUp className="w-12 h-12 text-brass mb-3 opacity-50" />
+                      <span className="font-sans text-sm text-ink font-semibold">{profile.name}</span>
+                      <span className="font-sans text-xs text-slate mt-1">{profile.title}</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#06090E]/90 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 right-3 p-2 bg-[#06090E]/80 backdrop-blur-md rounded border border-white/10 text-[11px] font-mono text-emerald-400 flex items-center justify-between">
-                    <span>[STATUS: ONLINE]</span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-page/90 via-transparent to-transparent"></div>
                 </div>
               </div>
             </div>
 
           </div>
         </motion.div>
-
       </div>
     </section>
   );
 }
-

@@ -51,11 +51,11 @@ export default async function Home() {
       
       <HeroSection profile={profile} />
       
+      <ImpactSection stats={impactStats || []} />
+      
       <AboutSection profile={profile} />
       
       <ExperienceSection experiences={experiences || []} />
-
-      <ImpactSection stats={impactStats || []} />
       
       <SkillsAndServices skills={skills || []} services={services || []} />
       

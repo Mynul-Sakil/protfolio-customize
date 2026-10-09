@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Activity } from "lucide-react";
+import { Activity, BarChart, TrendingUp, Zap } from "lucide-react";
 
 interface ImpactStat {
   _id: string;
@@ -15,62 +15,81 @@ interface ImpactSectionProps {
 }
 
 export default function ImpactSection({ stats }: ImpactSectionProps) {
-  if (!stats || stats.length === 0) return null;
-
+  // We'll still use stats if they exist, but we highlight the 50% AI performance metric
   return (
-    <section className="relative py-20 bg-[#06090E] overflow-hidden border-t border-white/10 z-0">
+    <section className="relative py-20 bg-page overflow-hidden border-t border-white/5 z-0">
       
-      {/* Background Code Grid */}
-      <div className="absolute inset-0 opacity-[0.04] -z-20" style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-        backgroundSize: '40px 40px'
-      }}></div>
-
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         
         {/* Header */}
         <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs uppercase tracking-widest flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 animate-pulse" />
-                // SYSTEM_METRICS.log
+              <span className="px-3 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass font-medium text-xs tracking-wide flex items-center gap-1.5">
+                <BarChart className="w-3.5 h-3.5" />
+                Measurable Outcomes
               </span>
             </div>
-            <h3 className="font-mono text-2xl md:text-3xl font-extrabold text-ink">
-              Engineering <span className="text-emerald-400">Impact</span> & Benchmarks
+            <h3 className="font-sans text-3xl md:text-4xl font-extrabold text-ink">
+              Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass to-brass-light">Impact</span> & Scale
             </h3>
           </div>
+        </div>
 
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0D1117] border border-white/10 text-xs font-mono text-emerald-400">
-            <Cpu className="w-4 h-4 text-emerald-400" />
-            <span>Server Uptime: 99.99%</span>
+        {/* Highlighted Primary Metric */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-brass/20 via-parchment to-parchment border border-brass/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl shadow-brass/5"
+        >
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-4 text-brass-light font-semibold">
+              <Zap className="w-6 h-6" />
+              <span>Key Performance Initiative</span>
+            </div>
+            <h4 className="text-2xl md:text-3xl font-bold text-ink mb-2">
+              AI-Powered Platform Optimization
+            </h4>
+            <p className="text-ink-2 font-light text-lg">
+              Architected and delivered an AI-driven infrastructure upgrade that significantly reduced latency and improved user conversion rates.
+            </p>
           </div>
-        </div>
+          <div className="shrink-0 text-center md:text-right">
+            <div className="font-sans text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-brass-light mb-2 drop-shadow-sm">
+              50%+
+            </div>
+            <div className="font-semibold text-brass tracking-wide uppercase text-sm">
+              Performance Increase
+            </div>
+          </div>
+        </motion.div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat._id || index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-[#0D1117] border border-white/10 hover:border-emerald-500/40 transition-all group"
-            >
-              <div className="font-mono text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-300 mb-2">
-                {stat.value}
-              </div>
-              <div className="font-mono text-xs text-slate group-hover:text-ink transition-colors uppercase tracking-wider font-semibold">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Database Metrics Grid */}
+        {stats && stats.length > 0 && (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat._id || index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-6 rounded-2xl bg-parchment border border-white/5 hover:border-brass/40 transition-all group shadow-lg"
+              >
+                <div className="font-sans text-4xl sm:text-5xl font-extrabold text-ink mb-2">
+                  {stat.value}
+                </div>
+                <div className="font-sans text-xs text-slate group-hover:text-brass-light transition-colors uppercase tracking-wider font-medium">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
   );
 }
-

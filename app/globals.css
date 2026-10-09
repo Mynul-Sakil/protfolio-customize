@@ -2,13 +2,13 @@
 
 @theme inline {
   --color-ink: #F8FAFC; /* Crisp white code text */
-  --color-ink-2: #CBD5E1; /* Slate-300 readable text */
-  --color-parchment: #0D1117; /* GitHub Dark / IDE surface background */
-  --color-page: #06090E; /* Deep Cyber Obsidian main page background */
-  --color-brass: #10B981; /* Emerald-500 Electric Green primary accent */
-  --color-brass-light: #06B6D4; /* Cyan-500 Cyber Cyan secondary accent */
+  --color-ink-2: #E2E8F0; /* Slate-200 readable text */
+  --color-parchment: #0F172A; /* Slate-900 surface background */
+  --color-page: #020617; /* Slate-950 main page background */
+  --color-brass: #2563EB; /* Blue-600 primary accent */
+  --color-brass-light: #38BDF8; /* Sky-400 secondary accent */
   --color-slate: #94A3B8; /* Slate-400 comment/subtitle text */
-  --color-line: rgba(255, 255, 255, 0.08); /* Sleek IDE grid lines */
+  --color-line: rgba(255, 255, 255, 0.05); /* Subtle grid lines */
 
   --font-serif: var(--font-fraunces), serif;
   --font-sans: var(--font-ibm-plex), sans-serif;

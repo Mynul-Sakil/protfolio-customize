@@ -32,41 +32,41 @@ export default async function AdminDashboard() {
     <div className="space-y-8 font-mono text-ink">
       
       {/* Header Banner */}
-      <div className="p-6 md:p-8 rounded-2xl bg-[#0D1117] border border-white/10 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-          <Terminal className="w-48 h-48 text-emerald-400" />
+      <div className="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-[#161B22] to-[#0D1117] border border-white/5 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+          <Database className="w-64 h-64 text-brass" />
         </div>
 
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs mb-3 font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass-light text-xs mb-4 font-semibold">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>[STATUS: DEVSTUDIO CMS ACTIVE]</span>
+            <span>System Status: Online</span>
           </div>
 
           <h1 className="text-2xl md:text-4xl font-extrabold text-ink tracking-tight">
-            System Operational, <span className="text-emerald-400">{adminName}</span>
+            Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass to-brass-light">{adminName}</span>
           </h1>
-          <p className="text-slate text-xs md:text-sm mt-2 max-w-xl font-sans">
-            Manage your full-stack developer portfolio, experiences, projects, and backend API settings.
+          <p className="text-ink-2 text-sm md:text-base mt-2 max-w-xl font-light">
+            Manage your professional portfolio, track inquiries, and update system settings from your control center.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
             <a 
               href="/api/seed-mynul"
               target="_blank"
-              className="px-4 py-2 rounded-lg bg-emerald-500 text-[#06090E] font-extrabold hover:brightness-110 transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-500/20"
+              className="px-5 py-2.5 rounded-xl bg-brass text-white font-semibold hover:bg-brass-light transition-colors flex items-center gap-2 shadow-lg shadow-brass/20"
             >
-              <Terminal className="w-3.5 h-3.5" />
-              <span>$ run seed-mynul-data</span>
+              <Database className="w-4 h-4" />
+              <span>Sync Demo Data</span>
             </a>
 
             <Link
               href="/"
               target="_blank"
-              className="px-4 py-2 rounded-lg bg-[#161B22] border border-white/10 text-ink hover:border-cyan-400 hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-ink hover:bg-white/10 hover:border-brass-light transition-colors flex items-center gap-2"
             >
-              <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-              <span>View Public Live Site</span>
+              <ArrowRight className="w-4 h-4" />
+              <span>View Public Profile</span>
             </Link>
           </div>
         </div>
@@ -77,20 +77,20 @@ export default async function AdminDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link href="/admin/projects" className="bg-[#0D1117] border border-white/10 p-6 rounded-2xl shadow-xl hover:border-emerald-500/40 transition-all group flex items-center justify-between">
             <div>
-              <p className="text-[10px] uppercase text-slate tracking-wider mb-1">// Total Projects</p>
-              <p className="text-3xl font-extrabold text-ink group-hover:text-emerald-400 transition-colors">{stats.projects}</p>
+              <p className="text-xs text-slate font-semibold mb-1">Total Projects</p>
+              <p className="text-3xl font-bold text-ink group-hover:text-brass-light transition-colors">{stats.projects}</p>
             </div>
-            <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-brass/10 text-brass border border-brass/20 rounded-2xl flex items-center justify-center">
               <FolderGit2 className="w-6 h-6" />
             </div>
           </Link>
 
           <Link href="/admin/messages" className="bg-[#0D1117] border border-white/10 p-6 rounded-2xl shadow-xl hover:border-emerald-500/40 transition-all group flex items-center justify-between relative overflow-hidden">
             <div>
-              <p className="text-[10px] uppercase text-slate tracking-wider mb-1">// Unread Inquiries</p>
-              <p className="text-3xl font-extrabold text-ink group-hover:text-emerald-400 transition-colors">{stats.messages.unread}</p>
+              <p className="text-xs text-slate font-semibold mb-1">Unread Inquiries</p>
+              <p className="text-3xl font-bold text-ink group-hover:text-brass-light transition-colors">{stats.messages.unread}</p>
             </div>
-            <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-brass/10 text-brass border border-brass/20 rounded-2xl flex items-center justify-center">
               <MessageSquare className="w-6 h-6" />
             </div>
             {stats.messages.unread > 0 && (
@@ -100,20 +100,20 @@ export default async function AdminDashboard() {
 
           <Link href="/admin/testimonials" className="bg-[#0D1117] border border-white/10 p-6 rounded-2xl shadow-xl hover:border-emerald-500/40 transition-all group flex items-center justify-between">
             <div>
-              <p className="text-[10px] uppercase text-slate tracking-wider mb-1">// Testimonials</p>
-              <p className="text-3xl font-extrabold text-ink group-hover:text-emerald-400 transition-colors">{stats.testimonials}</p>
+              <p className="text-xs text-slate font-semibold mb-1">Testimonials</p>
+              <p className="text-3xl font-bold text-ink group-hover:text-brass-light transition-colors">{stats.testimonials}</p>
             </div>
-            <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-brass/10 text-brass border border-brass/20 rounded-2xl flex items-center justify-center">
               <Star className="w-6 h-6" />
             </div>
           </Link>
 
           <Link href="/admin/bookings" className="bg-[#0D1117] border border-white/10 p-6 rounded-2xl shadow-xl hover:border-emerald-500/40 transition-all group flex items-center justify-between">
             <div>
-              <p className="text-[10px] uppercase text-slate tracking-wider mb-1">// Service Bookings</p>
-              <p className="text-3xl font-extrabold text-ink group-hover:text-emerald-400 transition-colors">{stats.bookings.pending}</p>
+              <p className="text-xs text-slate font-semibold mb-1">Service Bookings</p>
+              <p className="text-3xl font-bold text-ink group-hover:text-brass-light transition-colors">{stats.bookings.pending}</p>
             </div>
-            <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-brass/10 text-brass border border-brass/20 rounded-2xl flex items-center justify-center">
               <Calendar className="w-6 h-6" />
             </div>
           </Link>
@@ -125,10 +125,10 @@ export default async function AdminDashboard() {
         
         {/* Recent Messages */}
         <div className="bg-[#0D1117] border border-white/10 rounded-2xl shadow-xl flex flex-col overflow-hidden">
-          <div className="p-5 bg-[#161B22] border-b border-white/10 flex justify-between items-center text-xs">
-            <span className="text-emerald-400 font-bold flex items-center gap-2">
-              <MessageSquare className="w-4 h-4" />
-              // Recent_Inquiries.log
+          <div className="p-5 bg-white/5 border-b border-white/5 flex justify-between items-center text-sm">
+            <span className="text-ink font-semibold flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-brass" />
+              Recent Inquiries
             </span>
             <Link href="/admin/messages" className="text-slate hover:text-emerald-400 flex items-center gap-1 transition-colors">
               View All <ArrowRight className="w-3 h-3" />
@@ -158,10 +158,10 @@ export default async function AdminDashboard() {
 
         {/* Recent Bookings */}
         <div className="bg-[#0D1117] border border-white/10 rounded-2xl shadow-xl flex flex-col overflow-hidden">
-          <div className="p-5 bg-[#161B22] border-b border-white/10 flex justify-between items-center text-xs">
-            <span className="text-cyan-400 font-bold flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              // Recent_Bookings.log
+          <div className="p-5 bg-white/5 border-b border-white/5 flex justify-between items-center text-sm">
+            <span className="text-ink font-semibold flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-brass-light" />
+              Recent Bookings
             </span>
             <Link href="/admin/bookings" className="text-slate hover:text-cyan-400 flex items-center gap-1 transition-colors">
               View All <ArrowRight className="w-3 h-3" />
