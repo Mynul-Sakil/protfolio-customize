@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Hexagon } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "@/components/frontend/ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -45,7 +46,7 @@ export default function Navbar() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-page/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/50 py-3" 
+          ? "bg-page/90 backdrop-blur-xl border-b border-line shadow-lg shadow-black/10 py-3" 
           : "bg-transparent py-5"
       }`}
     >
@@ -63,29 +64,35 @@ export default function Navbar() {
           <span>Mynul<span className="text-brass">.</span>Islam</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <nav className="flex gap-1.5 bg-parchment/80 p-1.5 rounded-xl border border-white/5 backdrop-blur-md">
+        {/* Desktop Nav & Theme Toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <nav className="flex gap-1.5 bg-parchment/80 p-1.5 rounded-xl border border-line backdrop-blur-md">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollTo(e, link.href)}
-                className="px-4 py-1.5 text-sm font-sans font-medium text-slate hover:text-ink hover:bg-white/5 rounded-lg transition-all"
+                className="px-4 py-1.5 text-sm font-sans font-medium text-slate hover:text-ink hover:bg-surface-subtle rounded-lg transition-all"
               >
                 {link.name}
               </a>
             ))}
           </nav>
+          <ThemeToggle showLabel />
         </div>
 
-        {/* Mobile Nav Toggle */}
-        <button 
-          className="md:hidden text-ink p-2 rounded-lg bg-parchment border border-white/10 text-brass-light"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button 
+            type="button"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            className="text-brass-light p-2 rounded-xl bg-parchment border border-line-strong h-10 w-10 flex items-center justify-center"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -95,7 +102,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-parchment border-b border-white/5 shadow-2xl md:hidden"
+            className="absolute top-full left-0 right-0 bg-parchment border-b border-line shadow-2xl md:hidden"
           >
             <nav className="flex flex-col py-4 px-6 gap-2">
               {navLinks.map((link) => (
@@ -103,7 +110,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollTo(e, link.href)}
-                  className="py-3 px-4 rounded-xl bg-page border border-white/5 text-sm font-sans font-medium text-ink hover:text-brass hover:border-brass/30 transition-colors flex items-center justify-between"
+                  className="py-3 px-4 rounded-xl bg-page border border-line text-sm font-sans font-medium text-ink hover:text-brass hover:border-brass/30 transition-colors flex items-center justify-between"
                 >
                   <span>{link.name}</span>
                 </a>

@@ -59,7 +59,7 @@ export default function MarqueeSection({ certifications, achievements }: Marquee
                       No Image
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 bg-brass text-page text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
+                  <div className="absolute top-2 right-2 bg-brass text-white text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
                     {isCert ? 'Certification' : 'Achievement'}
                   </div>
                 </div>

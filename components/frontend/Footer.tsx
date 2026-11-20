@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-page border-t border-white/5 py-12 text-slate z-10 relative font-sans">
+    <footer className="bg-page border-t border-line py-12 text-slate z-10 relative font-sans">
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Logo */}
@@ -23,7 +23,7 @@ export default function Footer() {
         {/* Back to Top */}
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-slate hover:border-brass hover:text-ink transition-colors text-sm font-semibold"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-subtle border border-line-strong text-slate hover:border-brass hover:text-ink transition-colors text-sm font-semibold"
         >
           <span>Back to Top</span>
           <ArrowUp className="w-4 h-4" />

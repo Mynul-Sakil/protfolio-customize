@@ -58,7 +58,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
   return (
     <>
-      <section id="services" className="py-24 bg-page border-y border-white/5 relative overflow-hidden">
+      <section id="services" className="py-24 bg-page border-y border-line relative overflow-hidden">
         
         {/* Glow */}
         <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-brass/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
@@ -95,10 +95,10 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => setSelectedService(service.title)}
-                    className="bg-parchment border border-white/5 p-6 rounded-3xl shadow-lg hover:border-brass/40 hover:shadow-brass/10 transition-all group cursor-pointer"
+                    className="bg-parchment border border-line p-6 rounded-3xl shadow-lg hover:border-brass/40 hover:shadow-brass/10 transition-all group cursor-pointer"
                   >
                     <div className="flex items-start gap-5">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brass-light shrink-0 group-hover:bg-brass/10 group-hover:border-brass/20 transition-colors">
+                      <div className="w-10 h-10 rounded-xl bg-surface-subtle border border-line-strong flex items-center justify-center text-brass-light shrink-0 group-hover:bg-brass/10 group-hover:border-brass/20 transition-colors">
                         <CheckCircle className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
@@ -152,16 +152,16 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="bg-parchment p-6 rounded-3xl border border-white/5"
+                      className="bg-parchment p-6 rounded-3xl border border-line"
                     >
-                      <h4 className="font-sans text-sm uppercase tracking-widest text-ink font-semibold mb-4 flex items-center gap-2 pb-3 border-b border-white/5">
+                      <h4 className="font-sans text-sm uppercase tracking-widest text-ink font-semibold mb-4 flex items-center gap-2 pb-3 border-b border-line">
                         <Wrench className="w-4 h-4 text-brass" /> {category}
                       </h4>
                       <div className="flex flex-wrap gap-2.5">
                         {categorySkills.slice(0, 6).map(skill => (
                           <span
                             key={skill._id}
-                            className="px-4 py-2 bg-white/5 border border-white/10 text-ink-2 text-sm font-sans rounded-xl hover:border-brass hover:text-brass hover:bg-brass/5 transition-colors shadow-sm"
+                            className="px-4 py-2 bg-surface-subtle border border-line-strong text-ink-2 text-sm font-sans rounded-xl hover:border-brass hover:text-brass hover:bg-brass/5 transition-colors shadow-sm"
                           >
                             {skill.name}
                           </span>
@@ -201,16 +201,16 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg max-h-[90vh] bg-page border border-white/10 shadow-2xl overflow-y-auto rounded-3xl"
+              className="relative w-full max-w-lg max-h-[90vh] bg-page border border-line-strong shadow-2xl overflow-y-auto rounded-3xl"
             >
-              <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-white/5 p-6 flex items-center justify-between z-10">
+              <div className="sticky top-0 bg-page/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10">
                 <div>
                   <h4 className="font-sans text-[10px] tracking-widest uppercase text-brass mb-1 font-bold">Service Request</h4>
                   <h3 className="font-sans text-2xl font-bold text-ink">Inquire</h3>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 text-slate hover:text-ink hover:bg-white/10 transition-all rounded-full"
+                  className="w-8 h-8 flex items-center justify-center bg-surface-subtle border border-line-strong text-slate hover:text-ink hover:bg-surface-hover transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -240,7 +240,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           type="text"
                           name="fullName"
                           required
-                          className="w-full bg-parchment border border-white/10 p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                          className="w-full bg-parchment border border-line-strong p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
                           placeholder="John Doe"
                         />
                       </div>
@@ -251,7 +251,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           type="email"
                           name="email"
                           required
-                          className="w-full bg-parchment border border-white/10 p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                          className="w-full bg-parchment border border-line-strong p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -262,7 +262,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="tel"
                             name="phone"
-                            className="w-full bg-parchment border border-white/10 p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            className="w-full bg-parchment border border-line-strong p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
                             placeholder="+1 (555) 000-0000"
                           />
                         </div>
@@ -272,7 +272,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           <input
                             type="text"
                             name="company"
-                            className="w-full bg-parchment border border-white/10 p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
+                            className="w-full bg-parchment border border-line-strong p-3.5 font-sans text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors rounded-xl"
                             placeholder="Acme Corp"
                           />
                         </div>
@@ -284,7 +284,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                           name="serviceRequired"
                           required
                           defaultValue={selectedService || ""}
-                          className="w-full bg-parchment border border-white/10 p-3.5 font-sans text-ink focus:outline-none focus:border-brass transition-colors appearance-none rounded-xl"
+                          className="w-full bg-parchment border border-line-strong p-3.5 font-sans text-ink focus:outline-none focus:border-brass transition-colors appearance-none rounded-xl"
                         >
                           <option value="" disabled>Select a service...</option>
                           {serviceOptions.map(opt => (
@@ -325,16 +325,16 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg bg-parchment border border-white/10 shadow-2xl overflow-y-auto rounded-3xl"
+              className="relative w-full max-w-lg bg-parchment border border-line-strong shadow-2xl overflow-y-auto rounded-3xl"
             >
-              <div className="sticky top-0 bg-parchment/90 backdrop-blur border-b border-white/5 p-6 flex items-center justify-between z-10">
+              <div className="sticky top-0 bg-parchment/90 backdrop-blur border-b border-line p-6 flex items-center justify-between z-10">
                 <div>
                   <h4 className="font-sans text-[10px] tracking-widest uppercase text-brass mb-1 font-bold">Skills Category</h4>
                   <h3 className="font-sans text-2xl font-bold text-ink">{expandedCategory}</h3>
                 </div>
                 <button
                   onClick={() => setExpandedCategory(null)}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 text-slate hover:text-ink hover:bg-white/10 transition-all rounded-full"
+                  className="w-8 h-8 flex items-center justify-center bg-surface-subtle border border-line-strong text-slate hover:text-ink hover:bg-surface-hover transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -345,7 +345,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                   {skills.filter(s => s.category === expandedCategory).map(skill => (
                     <span
                       key={skill._id}
-                      className="px-4 py-2 bg-white/5 border border-white/10 text-ink text-sm font-sans rounded-xl shadow-sm"
+                      className="px-4 py-2 bg-surface-subtle border border-line-strong text-ink text-sm font-sans rounded-xl shadow-sm"
                     >
                       {skill.name}
                     </span>

@@ -22,7 +22,7 @@ export default function HeroSection({ profile }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="rounded-3xl border border-white/5 bg-parchment/60 backdrop-blur-2xl shadow-2xl overflow-hidden"
+          className="rounded-3xl border border-line bg-parchment/60 backdrop-blur-2xl shadow-2xl overflow-hidden"
         >
           <div className="p-8 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-16">
             
@@ -37,7 +37,7 @@ export default function HeroSection({ profile }: HeroProps) {
 
               {/* Title & Headline */}
               <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6">
-                Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-blue-300">{profile.name}</span>
+                Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-brass-light">{profile.name}</span>
               </h1>
 
               <div className="text-xl md:text-2xl font-semibold text-ink-2 mb-6">
@@ -52,7 +52,7 @@ export default function HeroSection({ profile }: HeroProps) {
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="#contact"
-                  className="flex items-center gap-2 bg-gradient-to-r from-brass to-brass-light text-page font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-brass/25 hover:-translate-y-0.5"
+                  className="flex items-center gap-2 bg-gradient-to-r from-brass to-brass-light text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-brass/25 hover:-translate-y-0.5"
                 >
                   Connect with me
                   <ChevronRight className="w-4 h-4" />
@@ -63,7 +63,7 @@ export default function HeroSection({ profile }: HeroProps) {
                     href={profile.linkedin.startsWith('http') ? profile.linkedin : `https://${profile.linkedin}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/5 border border-white/10 text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-white/10 hover:border-brass-light hover:text-brass-light"
+                    className="flex items-center gap-2 bg-surface-subtle border border-line-strong text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-surface-hover hover:border-brass-light hover:text-brass-light"
                   >
                     <LinkIcon className="w-4 h-4" />
                     LinkedIn
@@ -75,7 +75,7 @@ export default function HeroSection({ profile }: HeroProps) {
                     href={profile.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/5 border border-white/10 text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-white/10 hover:border-brass hover:text-brass"
+                    className="flex items-center gap-2 bg-surface-subtle border border-line-strong text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-surface-hover hover:border-brass hover:text-brass"
                   >
                     <Download className="w-4 h-4" />
                     Resume
@@ -86,7 +86,7 @@ export default function HeroSection({ profile }: HeroProps) {
 
             {/* Right Column: Professional Portrait Frame */}
             <div className="relative w-64 h-64 md:w-[340px] md:h-[400px] shrink-0">
-              <div className="w-full h-full relative rounded-3xl overflow-hidden border border-white/10 bg-page p-2 shadow-2xl group">
+              <div className="w-full h-full relative rounded-3xl overflow-hidden border border-line-strong bg-page p-2 shadow-2xl group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brass/20 to-brass-light/20 rounded-3xl blur-xl group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-parchment flex items-center justify-center">
                   {profile.photoUrl ? (

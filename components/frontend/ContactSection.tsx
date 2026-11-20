@@ -40,7 +40,7 @@ export default function ContactSection({ profile }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-24 bg-parchment border-t border-white/5 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-parchment border-t border-line relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 lg:gap-24">
 
         {/* Contact Info */}
@@ -60,7 +60,7 @@ export default function ContactSection({ profile }: ContactProps) {
             <div className="space-y-8">
               {profile?.email && (
                 <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-white/5 text-brass rounded-2xl shadow-sm">
+                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-line text-brass rounded-2xl shadow-sm">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ export default function ContactSection({ profile }: ContactProps) {
               )}
               {profile?.phone && (
                 <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-white/5 text-brass rounded-2xl shadow-sm">
+                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-line text-brass rounded-2xl shadow-sm">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -86,7 +86,7 @@ export default function ContactSection({ profile }: ContactProps) {
               )}
               {profile?.location && (
                 <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-white/5 text-brass rounded-2xl shadow-sm">
+                  <div className="w-12 h-12 flex items-center justify-center bg-page border border-line text-brass rounded-2xl shadow-sm">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ export default function ContactSection({ profile }: ContactProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-page border border-white/5 p-8 md:p-10 shadow-xl rounded-3xl"
+            className="bg-page border border-line p-8 md:p-10 shadow-xl rounded-3xl"
           >
             {success ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-12 space-y-4">
@@ -117,7 +117,7 @@ export default function ContactSection({ profile }: ContactProps) {
                 <p className="text-slate font-sans font-light">Thank you for reaching out. I&apos;ll get back to you shortly.</p>
                 <button
                   onClick={() => setSuccess(false)}
-                  className="mt-6 px-6 py-3 bg-white/5 text-ink font-sans text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors rounded-xl border border-white/10"
+                  className="mt-6 px-6 py-3 bg-surface-subtle text-ink font-sans text-sm font-semibold tracking-wide hover:bg-surface-hover transition-colors rounded-xl border border-line-strong"
                 >
                   Send Another
                 </button>
@@ -128,22 +128,22 @@ export default function ContactSection({ profile }: ContactProps) {
 
                 <div>
                   <label htmlFor="name" className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate mb-2">Name</label>
-                  <input required type="text" id="name" name="name" placeholder="Jane Doe" className="w-full bg-parchment border border-white/5 px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="text" id="name" name="name" placeholder="Jane Doe" className="w-full bg-parchment border border-line-strong px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate mb-2">Email</label>
-                  <input required type="email" id="email" name="email" placeholder="jane@example.com" className="w-full bg-parchment border border-white/5 px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="email" id="email" name="email" placeholder="jane@example.com" className="w-full bg-parchment border border-line-strong px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate mb-2">Subject</label>
-                  <input required type="text" id="subject" name="subject" placeholder="Consultation Inquiry" className="w-full bg-parchment border border-white/5 px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
+                  <input required type="text" id="subject" name="subject" placeholder="Consultation Inquiry" className="w-full bg-parchment border border-line-strong px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors rounded-xl" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate mb-2">Message</label>
-                  <textarea required id="message" name="message" rows={4} placeholder="How can I help you..." className="w-full bg-parchment border border-white/5 px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
+                  <textarea required id="message" name="message" rows={4} placeholder="How can I help you..." className="w-full bg-parchment border border-line-strong px-4 py-3.5 text-ink placeholder-slate/50 focus:border-brass outline-none transition-colors resize-none rounded-xl"></textarea>
                 </div>
 
                 <button

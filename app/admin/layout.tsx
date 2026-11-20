@@ -54,7 +54,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="min-h-screen bg-page text-ink flex font-sans">
       {/* Mobile Menu Bar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-parchment text-ink border-b border-white/5 z-50 flex items-center justify-between px-4">
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-parchment text-ink border-b border-line z-50 flex items-center justify-between px-4">
         <div className="flex items-center gap-2 text-brass font-bold">
           <Hexagon className="w-5 h-5" />
           <span>Control Panel</span>
@@ -68,13 +68,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside
         className={`${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 fixed md:sticky top-0 left-0 z-40 w-64 h-screen bg-parchment border-r border-white/5 text-ink transition-transform duration-300 ease-in-out flex flex-col`}
+        } md:translate-x-0 fixed md:sticky top-0 left-0 z-40 w-64 h-screen bg-parchment border-r border-line text-ink transition-transform duration-300 ease-in-out flex flex-col`}
       >
         {/* Header */}
-        <div className="h-16 md:h-20 flex flex-col justify-center px-6 border-b border-white/5 mt-16 md:mt-0">
+        <div className="h-16 md:h-20 flex flex-col justify-center px-6 border-b border-line mt-16 md:mt-0">
           <div className="flex items-center gap-2 font-bold text-lg text-brass">
             <Hexagon className="w-5 h-5 text-brass" />
-            <span>Mynul<span className="text-white">.Admin</span></span>
+            <span>Mynul<span className="text-ink">.Admin</span></span>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-slate mt-1 font-medium">
             <Globe className="w-3 h-3 text-brass-light" />
@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                     isActive
                       ? "bg-brass/10 border border-brass/20 text-brass shadow-sm shadow-brass/5"
-                      : "text-slate hover:bg-white/5 hover:text-ink border border-transparent"
+                      : "text-slate hover:bg-surface-subtle hover:text-ink border border-transparent"
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isActive ? "text-brass" : "text-slate/60"}`} />
@@ -109,7 +109,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
 
         {/* Footer Admin User */}
-        <div className="p-4 border-t border-white/5 bg-white/5">
+        <div className="p-4 border-t border-line bg-surface-subtle">
           <div className="mb-3 px-2 text-xs text-ink font-medium truncate flex items-center gap-2">
             <div className="w-6 h-6 rounded-full bg-brass/20 border border-brass/30 flex items-center justify-center shrink-0">
               <User className="w-3 h-3 text-brass" />

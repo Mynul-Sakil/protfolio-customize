@@ -25,6 +25,18 @@ export const metadata: Metadata = {
   description: "Portfolio of Mynul Islam.",
 };
 
+const themeInitScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem("portfolio-theme");
+    var theme = stored === "light" || stored === "dark" ? stored : "dark";
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {
+    document.documentElement.dataset.theme = "dark";
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,9 +45,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${fraunces.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col selection:bg-brass selection:text-page" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-full flex flex-col selection:bg-brass selection:text-white" suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>

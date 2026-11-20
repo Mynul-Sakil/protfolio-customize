@@ -17,7 +17,7 @@ interface ImpactSectionProps {
 export default function ImpactSection({ stats }: ImpactSectionProps) {
   // We'll still use stats if they exist, but we highlight the 50% AI performance metric
   return (
-    <section className="relative py-20 bg-page overflow-hidden border-t border-white/5 z-0">
+    <section className="relative py-20 bg-page overflow-hidden border-t border-line z-0">
       
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         
@@ -57,7 +57,7 @@ export default function ImpactSection({ stats }: ImpactSectionProps) {
             </p>
           </div>
           <div className="shrink-0 text-center md:text-right">
-            <div className="font-sans text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-brass-light mb-2 drop-shadow-sm">
+            <div className="font-sans text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-ink to-brass-light mb-2 drop-shadow-sm">
               50%+
             </div>
             <div className="font-semibold text-brass tracking-wide uppercase text-sm">
@@ -76,7 +76,7 @@ export default function ImpactSection({ stats }: ImpactSectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-parchment border border-white/5 hover:border-brass/40 transition-all group shadow-lg"
+                className="p-6 rounded-2xl bg-parchment border border-line hover:border-brass/40 transition-all group shadow-lg"
               >
                 <div className="font-sans text-4xl sm:text-5xl font-extrabold text-ink mb-2">
                   {stat.value}

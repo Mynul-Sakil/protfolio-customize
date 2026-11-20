@@ -46,7 +46,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="min-h-screen bg-page selection:bg-brass selection:text-page font-sans text-ink">
+    <main className="min-h-screen bg-page selection:bg-brass selection:text-white font-sans text-ink">
       <Navbar />
       
       <HeroSection profile={profile} />

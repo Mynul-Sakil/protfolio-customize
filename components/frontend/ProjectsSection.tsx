@@ -45,22 +45,22 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="rounded-3xl border border-white/5 bg-parchment p-6 md:p-8 shadow-xl hover:border-brass-light/30 hover:shadow-brass-light/5 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                className="rounded-3xl border border-line bg-parchment p-6 md:p-8 shadow-xl hover:border-brass-light/30 hover:shadow-brass-light/5 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   {/* Top Header */}
-                  <div className="flex items-center justify-between font-sans text-xs text-slate mb-6 pb-4 border-b border-white/5">
+                  <div className="flex items-center justify-between font-sans text-xs text-slate mb-6 pb-4 border-b border-line">
                     <div className="flex items-center gap-2 text-brass-light font-bold uppercase tracking-wider">
                       <Briefcase className="w-4 h-4" />
                       <span>Featured Delivery</span>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-ink font-semibold uppercase tracking-widest">
+                    <span className="px-3 py-1 rounded-full bg-surface-subtle border border-line-strong text-[10px] text-ink font-semibold uppercase tracking-widest">
                       {project.category}
                     </span>
                   </div>
 
                   {project.imageUrl ? (
-                    <div className="relative aspect-[16/9] w-full bg-page border border-white/5 rounded-2xl overflow-hidden mb-6 shadow-md">
+                    <div className="relative aspect-[16/9] w-full bg-page border border-line rounded-2xl overflow-hidden mb-6 shadow-md">
                       <Image 
                         src={project.imageUrl} 
                         alt={project.title} 
@@ -80,9 +80,9 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-white/5 flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass-light transition-colors">
+                <div className="pt-5 border-t border-line flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass-light transition-colors">
                   <span>Explore Case Study</span>
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brass-light/10 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center group-hover:bg-brass-light/10 transition-colors">
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
@@ -109,16 +109,16 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-white/10 flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-line-strong flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
             >
-              <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center justify-between font-sans text-sm text-ink backdrop-blur-md sticky top-0 z-10">
+              <div className="px-6 py-4 bg-surface-subtle border-b border-line flex items-center justify-between font-sans text-sm text-ink backdrop-blur-md sticky top-0 z-10">
                 <div className="flex items-center gap-2 text-brass-light font-bold">
                   <FolderKanban className="w-4 h-4" />
                   <span>Project Overview</span>
                 </div>
                 <button 
                   onClick={() => setSelectedProject(null)}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 text-slate hover:text-ink hover:bg-white/10 transition-all rounded-full"
+                  className="w-8 h-8 flex items-center justify-center bg-surface-subtle border border-line-strong text-slate hover:text-ink hover:bg-surface-hover transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -126,7 +126,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
 
               <div className="overflow-y-auto">
                 {selectedProject.imageUrl && (
-                  <div className="relative aspect-[16/9] w-full bg-page border-b border-white/5 shrink-0 overflow-hidden">
+                  <div className="relative aspect-[16/9] w-full bg-page border-b border-line shrink-0 overflow-hidden">
                     <Image 
                       src={selectedProject.imageUrl} 
                       alt={selectedProject.title} 

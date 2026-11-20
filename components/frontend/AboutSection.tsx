@@ -11,7 +11,7 @@ export default function AboutSection({ profile }: AboutProps) {
   if (!profile?.professionalSummary) return null;
 
   return (
-    <section id="about" className="py-24 bg-page border-y border-white/5 relative overflow-hidden">
+    <section id="about" className="py-24 bg-page border-y border-line relative overflow-hidden">
       {/* Subtle Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-brass/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
@@ -35,12 +35,12 @@ export default function AboutSection({ profile }: AboutProps) {
           </h2>
 
           {/* Premium Bio Card */}
-          <div className="rounded-3xl border border-white/10 bg-parchment/80 backdrop-blur-xl shadow-xl overflow-hidden relative">
+          <div className="rounded-3xl border border-line-strong bg-parchment/80 backdrop-blur-xl shadow-xl overflow-hidden relative">
             <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-brass to-brass-light"></div>
             
             <div className="p-8 md:p-12">
               <div className="flex items-start gap-6">
-                <div className="hidden md:flex w-12 h-12 rounded-xl bg-white/5 border border-white/10 items-center justify-center shrink-0">
+                <div className="hidden md:flex w-12 h-12 rounded-xl bg-surface-subtle border border-line-strong items-center justify-center shrink-0">
                   <Award className="w-6 h-6 text-brass-light" />
                 </div>
                 <div>
@@ -51,7 +51,7 @@ export default function AboutSection({ profile }: AboutProps) {
               </div>
 
               {/* Extra business focus stats/points below bio */}
-              <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="mt-12 pt-8 border-t border-line-strong grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-brass/10 flex items-center justify-center shrink-0">
                     <Zap className="w-5 h-5 text-brass" />

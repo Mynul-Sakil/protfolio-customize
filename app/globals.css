@@ -1,14 +1,52 @@
 @import "tailwindcss";
 
+:root {
+  --theme-ink: #F8FAFC; /* Crisp white code text */
+  --theme-ink-2: #E2E8F0; /* Slate-200 readable text */
+  --theme-parchment: #0F172A; /* Slate-900 surface background */
+  --theme-page: #020617; /* Slate-950 main page background */
+  --theme-brass: #2563EB; /* Blue-600 primary accent */
+  --theme-brass-light: #38BDF8; /* Sky-400 secondary accent */
+  --theme-slate: #94A3B8; /* Slate-400 comment/subtitle text */
+  --theme-line: rgba(255, 255, 255, 0.08); /* Subtle borders */
+  --theme-line-strong: rgba(255, 255, 255, 0.14); /* Stronger borders */
+  --theme-surface-subtle: rgba(255, 255, 255, 0.05); /* Subtle fills */
+  --theme-surface-hover: rgba(255, 255, 255, 0.10); /* Hover fills */
+  --theme-card-highlight: #162032; /* Highlighted card gradient end */
+  --theme-scrollbar-track: #06090E;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --theme-ink: #0F172A; /* Slate-900 primary text */
+  --theme-ink-2: #334155; /* Slate-700 secondary text */
+  --theme-parchment: #FFFFFF; /* White card/surface background */
+  --theme-page: #F8FAFC; /* Slate-50 main page background */
+  --theme-brass: #2563EB; /* Blue-600 primary accent */
+  --theme-brass-light: #0284C7; /* Sky-600 accessible light accent */
+  --theme-slate: #64748B; /* Slate-500 subtitle text */
+  --theme-line: rgba(15, 23, 42, 0.08); /* Subtle slate borders */
+  --theme-line-strong: rgba(15, 23, 42, 0.14); /* Stronger slate borders */
+  --theme-surface-subtle: rgba(15, 23, 42, 0.04); /* Subtle slate fills */
+  --theme-surface-hover: rgba(15, 23, 42, 0.08); /* Hover slate fills */
+  --theme-card-highlight: #EFF6FF; /* Blue-50 highlighted card gradient end */
+  --theme-scrollbar-track: #E2E8F0;
+  color-scheme: light;
+}
+
 @theme inline {
-  --color-ink: #F8FAFC; /* Crisp white code text */
-  --color-ink-2: #E2E8F0; /* Slate-200 readable text */
-  --color-parchment: #0F172A; /* Slate-900 surface background */
-  --color-page: #020617; /* Slate-950 main page background */
-  --color-brass: #2563EB; /* Blue-600 primary accent */
-  --color-brass-light: #38BDF8; /* Sky-400 secondary accent */
-  --color-slate: #94A3B8; /* Slate-400 comment/subtitle text */
-  --color-line: rgba(255, 255, 255, 0.05); /* Subtle grid lines */
+  --color-ink: var(--theme-ink);
+  --color-ink-2: var(--theme-ink-2);
+  --color-parchment: var(--theme-parchment);
+  --color-page: var(--theme-page);
+  --color-brass: var(--theme-brass);
+  --color-brass-light: var(--theme-brass-light);
+  --color-slate: var(--theme-slate);
+  --color-line: var(--theme-line);
+  --color-line-strong: var(--theme-line-strong);
+  --color-surface-subtle: var(--theme-surface-subtle);
+  --color-surface-hover: var(--theme-surface-hover);
+  --color-card-highlight: var(--theme-card-highlight);
 
   --font-serif: var(--font-fraunces), serif;
   --font-sans: var(--font-ibm-plex), sans-serif;
@@ -19,6 +57,7 @@ body {
   background-color: var(--color-page);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 @layer utilities {
@@ -44,7 +83,7 @@ body {
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #06090E;
+    background: var(--theme-scrollbar-track);
   }
   ::-webkit-scrollbar-thumb {
     background-color: rgba(16, 185, 129, 0.25);

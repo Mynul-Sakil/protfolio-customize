@@ -48,8 +48,8 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                   onClick={() => setSelectedExperience(exp)}
                   className={`rounded-3xl border ${
                     isCurrent 
-                      ? "border-brass/30 bg-gradient-to-br from-parchment to-[#162032] shadow-xl shadow-brass/5" 
-                      : "border-white/5 bg-parchment hover:border-brass/30"
+                      ? "border-brass/30 bg-gradient-to-br from-parchment to-card-highlight shadow-xl shadow-brass/5" 
+                      : "border-line bg-parchment hover:border-brass/30"
                   } p-6 sm:p-8 flex flex-col justify-between cursor-pointer group transition-all duration-300 relative overflow-hidden`}
                 >
                   {isCurrent && (
@@ -80,9 +80,9 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                     )}
                   </div>
 
-                  <div className="pt-5 border-t border-white/5 flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass transition-colors">
+                  <div className="pt-5 border-t border-line flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass transition-colors">
                     <span>View full details</span>
-                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brass/10 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center group-hover:bg-brass/10 transition-colors">
                       <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
@@ -110,17 +110,17 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-white/10 flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
+              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-line-strong flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
             >
               {/* Modal Window Header */}
-              <div className="px-6 py-4 bg-white/5 border-b border-white/5 flex items-center justify-between sticky top-0 z-10 backdrop-blur-md">
+              <div className="px-6 py-4 bg-surface-subtle border-b border-line flex items-center justify-between sticky top-0 z-10 backdrop-blur-md">
                 <div className="flex items-center gap-2 font-sans font-semibold text-sm text-ink">
                   <Briefcase className="w-4 h-4 text-brass" />
                   <span>Role Details</span>
                 </div>
                 <button 
                   onClick={() => setSelectedExperience(null)}
-                  className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 text-slate hover:text-ink hover:bg-white/10 transition-all rounded-full"
+                  className="w-8 h-8 flex items-center justify-center bg-surface-subtle border border-line-strong text-slate hover:text-ink hover:bg-surface-hover transition-all rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -139,13 +139,13 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                   {selectedExperience.role}
                 </p>
 
-                <div className="space-y-4 pt-6 border-t border-white/5">
+                <div className="space-y-4 pt-6 border-t border-line">
                   <h4 className="font-sans text-xs uppercase tracking-widest text-slate font-bold mb-4 flex items-center gap-2">
                     <Target className="w-4 h-4 text-brass" /> Key Achievements & Responsibilities
                   </h4>
                   <ul className="space-y-4 font-sans text-sm md:text-base text-ink-2">
                     {selectedExperience.responsibilities.map((resp: string, i: number) => (
-                      <li key={i} className="flex items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                      <li key={i} className="flex items-start bg-surface-subtle p-4 rounded-xl border border-line">
                         <span className="w-2 h-2 rounded-full bg-brass mt-2 mr-4 shrink-0"></span>
                         <span className="leading-relaxed font-light">{resp}</span>
                       </li>
