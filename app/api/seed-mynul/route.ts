@@ -174,14 +174,6 @@ export async function GET() {
         link: "https://github.com/Mynul-Sakil/Mini-social-feed-github_show",
         order: 6,
       },
-      {
-        title: "Hanzalbd — E-Commerce Platform",
-        description:
-          "Responsive online storefront built with Next.js, TypeScript, tRPC, and MongoDB featuring product discovery, multi-criteria filtering, persistent cart management, and streamlined checkout.",
-        category: "E-Commerce",
-        link: "https://hanzal.vercel.app/",
-        order: 7,
-      },
     ]);
 
     // 6. Services
