@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 interface TestimonialItem {
   _id?: string;
   name: string;
@@ -30,12 +28,8 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((test, index) => (
-            <motion.blockquote
+            <blockquote
               key={test._id || index}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.06 }}
               className="p-7 rounded-xl border border-line bg-parchment flex flex-col justify-between"
             >
               <p className="font-serif text-lg text-ink leading-relaxed mb-6">
@@ -47,7 +41,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
                   {test.role}
                 </div>
               </footer>
-            </motion.blockquote>
+            </blockquote>
           ))}
         </div>
       </div>

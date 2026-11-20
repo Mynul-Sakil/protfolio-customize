@@ -46,12 +46,8 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
               const hasMore = highlights.length > 3;
 
               return (
-                <motion.div
+                <div
                   key={exp._id || `${exp.organization}-${index}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35 }}
                   className="py-9 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10"
                 >
                   {/* Left: Dates & Location */}
@@ -105,7 +101,7 @@ export default function ExperienceSection({ experiences }: ExperienceProps) {
                       </button>
                     )}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

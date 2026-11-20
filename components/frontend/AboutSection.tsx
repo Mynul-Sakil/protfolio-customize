@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 interface AboutProps {
   profile: {
     professionalSummary?: string;
@@ -32,13 +30,7 @@ export default function AboutSection({ profile }: AboutProps) {
   return (
     <section id="about" className="py-20 md:py-24 bg-page border-b border-line">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left: Executive Summary */}
           <div className="lg:col-span-7">
             <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
@@ -68,7 +60,7 @@ export default function AboutSection({ profile }: AboutProps) {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Send, Loader2, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { createMessage } from "@/actions/message";
 
@@ -55,13 +54,7 @@ export default function ContactSection({ profile }: ContactProps) {
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left: Direct Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35 }}
-            className="lg:col-span-5"
-          >
+          <div className="lg:col-span-5">
             <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
               06 / Contact
             </p>
@@ -144,16 +137,10 @@ export default function ContactSection({ profile }: ContactProps) {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: Clean Inquiry Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: 0.08 }}
-            className="lg:col-span-7 bg-parchment border border-line p-7 md:p-9 rounded-xl"
-          >
+          <div className="lg:col-span-7 bg-parchment border border-line p-7 md:p-9 rounded-xl">
             {success ? (
               <div className="py-10 text-center space-y-3">
                 <div className="w-12 h-12 bg-brass/10 text-brass rounded-full flex items-center justify-center mx-auto">
@@ -263,7 +250,7 @@ export default function ContactSection({ profile }: ContactProps) {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 interface ImpactStat {
   _id?: string;
   value: string;
@@ -50,13 +48,9 @@ export default function ImpactSection({ stats }: ImpactSectionProps) {
 
         {/* 3-Column Executive Value Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-          {executivePillars.map((pillar, index) => (
-            <motion.div
+          {executivePillars.map((pillar) => (
+            <div
               key={pillar.audience}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.06 }}
               className="p-7 rounded-xl border border-line bg-parchment flex flex-col justify-between"
             >
               <div>
@@ -70,7 +64,7 @@ export default function ImpactSection({ stats }: ImpactSectionProps) {
                   {pillar.body}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -79,8 +73,12 @@ export default function ImpactSection({ stats }: ImpactSectionProps) {
           <div className="rounded-xl border border-line bg-parchment overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-line">
               {stats.map((stat, index) => (
-                <div key={stat._id || index} className="p-6 md:p-7">
-                  <div className="font-serif text-3xl md:text-4xl font-medium text-ink mb-1.5">
+                <div key={stat._id || index} className="p-6 md:p-7 flex flex-col justify-center">
+                  <div
+                    className={`font-serif font-medium text-ink mb-1.5 whitespace-nowrap ${
+                      stat.value.length > 5 ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl"
+                    }`}
+                  >
                     {stat.value}
                   </div>
                   <div className="font-mono text-[11px] uppercase tracking-wider text-slate">

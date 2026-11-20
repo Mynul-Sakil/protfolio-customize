@@ -51,12 +51,8 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
           {/* 2-Column Editorial Case Study Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <motion.article
+              <article
                 key={project._id || project.title}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: (index % 2) * 0.06 }}
                 onClick={() => setSelectedProject(project)}
                 className="rounded-xl border border-line bg-parchment p-6 md:p-7 hover:border-line-strong transition-colors cursor-pointer group flex flex-col justify-between"
               >
@@ -110,7 +106,7 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
                     </a>
                   )}
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>

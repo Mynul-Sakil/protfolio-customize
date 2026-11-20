@@ -87,12 +87,8 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {services.map((service, index) => (
-                  <motion.div
+                  <div
                     key={service._id || service.title}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: index * 0.06 }}
                     onClick={() => setSelectedService(service.title)}
                     className="p-7 rounded-xl border border-line bg-parchment hover:border-line-strong transition-colors cursor-pointer group flex flex-col justify-between"
                   >
@@ -114,7 +110,7 @@ export default function SkillsAndServices({ skills, services }: SkillsServicesPr
                       <span>Request consultation</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
