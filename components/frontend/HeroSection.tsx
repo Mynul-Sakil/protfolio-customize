@@ -28,34 +28,62 @@ export default function HeroSection({ profile }: HeroProps) {
     : null;
 
   return (
-    <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-page border-b border-line">
+    <section className="pt-24 pb-14 md:pt-32 md:pb-24 bg-page border-b border-line">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Executive Value Proposition */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.35 }}
             className="lg:col-span-7"
           >
-            {/* Availability Status */}
-            <div className="inline-flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-slate mb-6">
+            {/* Mobile-only Compact Identity Header (Portrait + Name + Availability above the fold) */}
+            <div className="flex lg:hidden items-center gap-4 mb-6">
+              {profile.photoUrl && (
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-line-strong bg-surface-subtle shrink-0 shadow-xs">
+                  <Image
+                    src={profile.photoUrl}
+                    alt={profile.name}
+                    fill
+                    sizes="80px"
+                    priority
+                    className="object-cover object-top"
+                  />
+                </div>
+              )}
+              <div className="min-w-0">
+                <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-slate mb-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0" />
+                  <span>Open to Remote Roles</span>
+                </div>
+                <div className="font-serif text-lg font-semibold text-ink leading-tight">
+                  {profile.name}
+                </div>
+                <div className="font-sans text-xs text-slate mt-0.5 truncate">
+                  Full Stack &amp; Backend Engineer · Cansoft
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Availability Status */}
+            <div className="hidden lg:inline-flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-slate mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400" />
               <span>Open to Full-Time &amp; Technical Advisory · Remote</span>
             </div>
 
             {/* Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight text-ink leading-[1.12] mb-6">
+            <h1 className="font-serif text-[2rem] sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight text-ink leading-[1.14] mb-5 md:mb-6">
               I build reliable software systems that help businesses scale without breaking.
             </h1>
 
-            {/* Role Line */}
-            <p className="font-sans text-base md:text-lg font-medium text-ink mb-4">
+            {/* Desktop Role Line */}
+            <p className="hidden lg:block font-sans text-base md:text-lg font-medium text-ink mb-4">
               {profile.name} — {profile.title}
             </p>
 
             {/* Plain-English Intro */}
-            <p className="font-sans text-base md:text-lg text-ink-2 leading-relaxed max-w-2xl mb-9">
+            <p className="font-sans text-[15px] md:text-lg text-ink-2 leading-relaxed max-w-2xl mb-7 md:mb-9">
               {profile.shortIntroduction}
             </p>
 
@@ -63,7 +91,7 @@ export default function HeroSection({ profile }: HeroProps) {
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-ink text-page font-sans text-sm font-medium hover:bg-brass hover:text-white transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-ink text-page font-sans text-sm font-medium hover:bg-brass hover:text-white transition-colors"
               >
                 <span>Schedule a Conversation</span>
                 <ArrowRight className="w-4 h-4" />
@@ -74,7 +102,7 @@ export default function HeroSection({ profile }: HeroProps) {
                   href={linkedinHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
                 >
                   <span>LinkedIn</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -85,7 +113,7 @@ export default function HeroSection({ profile }: HeroProps) {
                 href="https://github.com/Mynul-Sakil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
               >
                 <span>GitHub</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -105,21 +133,22 @@ export default function HeroSection({ profile }: HeroProps) {
             </div>
           </motion.div>
 
-          {/* Right Column: Portrait & Executive Fact Sheet */}
+          {/* Right Column: Desktop Portrait + Executive Fact Sheet */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.08 }}
+            transition={{ duration: 0.35, delay: 0.06 }}
             className="lg:col-span-5"
           >
             <div className="rounded-xl border border-line bg-parchment overflow-hidden shadow-sm">
-              <div className="relative aspect-[4/4] sm:aspect-[5/4] lg:aspect-[4/4] w-full bg-surface-subtle overflow-hidden">
+              {/* Full Portrait on Desktop (Mobile already shows compact portrait at top) */}
+              <div className="hidden lg:block relative aspect-[4/4] w-full bg-surface-subtle overflow-hidden">
                 {profile.photoUrl ? (
                   <Image
                     src={profile.photoUrl}
                     alt={profile.name}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    sizes="40vw"
                     priority
                     className="object-cover object-top"
                   />
@@ -131,8 +160,8 @@ export default function HeroSection({ profile }: HeroProps) {
                 )}
               </div>
 
-              {/* Scannable Executive Fact Sheet */}
-              <div className="p-5 grid grid-cols-2 gap-4 border-t border-line text-xs">
+              {/* Scannable Executive Fact Sheet (visible on both Mobile & Desktop) */}
+              <div className="p-5 grid grid-cols-2 gap-4 lg:border-t lg:border-line text-xs">
                 <div className="flex items-start gap-2.5">
                   <Building2 className="w-4 h-4 text-brass shrink-0 mt-0.5" />
                   <div>
