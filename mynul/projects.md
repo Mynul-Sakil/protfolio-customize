@@ -28,6 +28,24 @@ Consolidated from Cansoft company repositories, live portfolio database, all 5 r
 
 ## 2. Featured Portfolio & Resume Projects
 
+### DevTools Hub — Developer Utilities Suite
+- **Live**: https://devtools-hub-navy.vercel.app/
+- **GitHub**: https://github.com/Mynul-Sakil/Dev-Tools-2 *(Public)*
+- **Category**: Web Application / Developer Productivity
+- **Tech Stack**: Next.js, React, TypeScript, Tailwind CSS, Lucide Icons
+- **Highlights**:
+  - Browser-based developer toolkit featuring JSON Formatter & Validator, Image Editor, Font Picker, and Markdown-to-LinkedIn formatter.
+  - Light/dark theme support and instant client-side processing with zero backend latency.
+
+### Tap Kill — Native Android Arcade Game
+- **Google Play Store**: https://play.google.com/store/apps/details?id=com.mynul.tapkill
+- **GitHub**: https://github.com/Mynul-Sakil/tap-kill *(Private)*
+- **Category**: Android · Google Play (v1.2.0, SDK 36)
+- **Tech Stack**: Kotlin, Android SDK, Gradle
+- **Highlights**:
+  - Published native Android arcade game featuring wave-based gameplay, interactive tutorial, tactile haptic vibration feedback, and local high-score persistence.
+  - Privacy-first architecture with zero data collection or tracking.
+
 ### System 3.0 (Gamified Habit Engine)
 - **Live**: https://system-3-6czj.vercel.app/
 - **GitHub**: https://github.com/Mynul-Sakil/system-3.0 *(Private)*

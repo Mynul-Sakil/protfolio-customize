@@ -135,12 +135,20 @@ export async function GET() {
         order: 1,
       },
       {
-        title: "Ticket Fusion — Event & Booking Platform",
+        title: "DevTools Hub — Developer Utilities Suite",
         description:
-          "End-to-end event ticketing and management platform built with Next.js, TypeScript, Node.js, tRPC, MongoDB, Redis, and Stripe. Features multi-tier authentication, race-condition-safe Redis inventory caching, Stripe checkout workflows, and high-volume admin dashboards.",
-        category: "Full Stack SaaS",
-        link: "https://ticketfusion-ui.vercel.app/",
+          "All-in-one browser-based productivity suite built with Next.js, React, TypeScript, and Tailwind CSS. Includes a JSON Formatter & Validator, Image Editor, Font Picker, and Markdown-to-LinkedIn converter with light/dark theming and instant client-side processing. Repo: https://github.com/Mynul-Sakil/Dev-Tools-2",
+        category: "Web Application",
+        link: "https://devtools-hub-navy.vercel.app/",
         order: 2,
+      },
+      {
+        title: "Tap Kill — Native Android Arcade Game",
+        description:
+          "Published native Android arcade game (v1.2.0, Android SDK 36) engineered from scratch in Kotlin with wave-based gameplay, interactive tutorial, haptic vibration feedback, local high-score persistence, and a privacy-first zero-tracking design. Available on Google Play Store.",
+        category: "Android · Google Play",
+        link: "https://play.google.com/store/apps/details?id=com.mynul.tapkill",
+        order: 3,
       },
       {
         title: "System 3.0 — Gamified Habit Engine",
@@ -148,7 +156,7 @@ export async function GET() {
           "Full-stack habit tracking platform built with Next.js, TypeScript, tRPC, Zod, and MongoDB. Features end-to-end type-safe APIs, dynamic stat progression calculations, and real-time ranking leaderboards.",
         category: "Full Stack Web",
         link: "https://system-3-6czj.vercel.app/",
-        order: 3,
+        order: 4,
       },
       {
         title: "Transportation Management System (GQLAB)",
@@ -156,7 +164,7 @@ export async function GET() {
           "Enterprise transit operations dashboard built with Next.js, React, Node.js, GraphQL, and PostgreSQL. Supports server-side filtering, sorting, cursor-based pagination, and role-based access for large logistics datasets.",
         category: "Enterprise System",
         link: "https://gqlab.vercel.app/",
-        order: 4,
+        order: 5,
       },
       {
         title: "Mini Social Feed Mobile App",
@@ -164,7 +172,7 @@ export async function GET() {
           "Cross-platform social mobile app built with React Native, Expo, Node.js, Express, MongoDB, and Firebase Cloud Messaging (FCM). Includes persistent JWT auth, posts, likes, comments, and real-time push notifications.",
         category: "Mobile App",
         link: "https://github.com/Mynul-Sakil/Mini-social-feed-github_show",
-        order: 5,
+        order: 6,
       },
       {
         title: "Hanzalbd — E-Commerce Platform",
@@ -172,7 +180,7 @@ export async function GET() {
           "Responsive online storefront built with Next.js, TypeScript, tRPC, and MongoDB featuring product discovery, multi-criteria filtering, persistent cart management, and streamlined checkout.",
         category: "E-Commerce",
         link: "https://hanzal.vercel.app/",
-        order: 6,
+        order: 7,
       },
     ]);
 
