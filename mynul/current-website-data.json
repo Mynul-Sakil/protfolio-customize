@@ -1,0 +1,125 @@
+{
+  "exportedAt": "2026-11-21",
+  "source": "MongoDB live portfolio database (public collections only)",
+  "profile": {
+    "name": "Mynul Islam",
+    "title": "Full Stack Engineer | AI Full Stack Developer at Cansoft",
+    "shortIntroduction": "Full Stack Engineer with 3+ years of experience building scalable web applications using React, Next.js, Node.js, TypeScript, and AI tools. Currently working at Cansoft as an AI Full Stack Developer with primary focus on backend architecture, API optimization, and microservices.",
+    "professionalSummary": "Full Stack Engineer with 3+ years of experience building scalable web applications using React, Next.js, Node.js, and TypeScript. Experienced in designing REST & GraphQL APIs, building reusable frontend components, implementing authentication systems (JWT, RBAC), and optimizing database performance. Strong focus on clean architecture, performance optimization, and delivering production-ready applications.",
+    "email": "mynul.sakil@gmail.com",
+    "phone": "+8801581477504",
+    "location": "Noakhali, Bangladesh",
+    "linkedin": "https://www.linkedin.com/in/mynul-islam-sakil/",
+    "photoUrl": "https://res.cloudinary.com/kaddfemv/image/upload/v1795201485/knrwi4zozlrps6gehb10.png",
+    "resumeUrl": ""
+  },
+  "experiences": [
+    {
+      "order": 1,
+      "role": "AI Full Stack Developer",
+      "organization": "Cansoft (https://cansoft.com/)",
+      "location": "Remote / Canada",
+      "startDate": "Apr 2026",
+      "endDate": "Present",
+      "responsibilities": [
+        "Engineered robust backend services and microservices architecture as primary core focus",
+        "Leveraged AI technologies and LLM integrations to enhance full-stack product capabilities",
+        "Developed modern, responsive frontend modules when needed for project deliverables",
+        "Optimized backend API performance, database query execution, and cache strategies"
+      ]
+    },
+    {
+      "order": 2,
+      "role": "Full Stack Developer",
+      "organization": "Aliyah Holdings LLC",
+      "location": "Remote",
+      "startDate": "Aug 2024",
+      "endDate": "Apr 2026",
+      "responsibilities": [
+        "Developed scalable full-stack web applications using React, Next.js, Node.js, and PostgreSQL/MongoDB",
+        "Built reusable frontend components to maintain consistent UI patterns across multiple applications",
+        "Designed and implemented RESTful APIs with structured validation and authentication",
+        "Implemented JWT-based authentication and role-based access control for secure systems",
+        "Optimized database queries and indexing strategies to improve API performance",
+        "Integrated third-party services including payment APIs and external business tools",
+        "Improved frontend performance using memoization, dynamic imports, and optimized state updates",
+        "Collaborated with distributed teams in agile development cycles and code reviews"
+      ]
+    }
+  ],
+  "skills": [
+    { "category": "Frontend", "order": 1, "name": "React.js" },
+    { "category": "Frontend", "order": 2, "name": "Next.js" },
+    { "category": "Frontend", "order": 3, "name": "TypeScript" },
+    { "category": "Frontend", "order": 4, "name": "JavaScript (ES6+)" },
+    { "category": "Frontend", "order": 5, "name": "Tailwind CSS & SCSS" },
+    { "category": "Frontend", "order": 6, "name": "Material UI" },
+    { "category": "Backend", "order": 1, "name": "Node.js & Express.js" },
+    { "category": "Backend", "order": 2, "name": "RESTful APIs" },
+    { "category": "Backend", "order": 3, "name": "GraphQL & tRPC" },
+    { "category": "Backend", "order": 4, "name": "JWT Auth & RBAC" },
+    { "category": "Databases", "order": 1, "name": "PostgreSQL & Prisma" },
+    { "category": "Databases", "order": 2, "name": "MongoDB & Mongoose" },
+    { "category": "Tools & DevOps", "order": 1, "name": "Docker & CI/CD" },
+    { "category": "Tools & DevOps", "order": 2, "name": "AWS (EC2, S3) & Linux" },
+    { "category": "Tools & DevOps", "order": 3, "name": "Redis Caching" },
+    { "category": "Tools & DevOps", "order": 4, "name": "Stripe API Integration" },
+    { "category": "Tools & DevOps", "order": 5, "name": "AI Tools (Claude, ChatGPT, Gemini)" },
+    { "category": "Tools & DevOps", "order": 6, "name": "Problem Solving (LeetCode, Codeforces)" }
+  ],
+  "services": [
+    {
+      "order": 1,
+      "title": "Backend API & Microservices",
+      "description": "Designing scalable RESTful & GraphQL APIs, microservices, database schemas, and robust authentication systems using Node.js, Express, tRPC, and MongoDB/PostgreSQL."
+    },
+    {
+      "order": 2,
+      "title": "Full Stack Web Development",
+      "description": "End-to-end web application development using Next.js, React, TypeScript, and modern styling solutions for responsive, high-performance web applications."
+    },
+    {
+      "order": 3,
+      "title": "AI Integration & Automation",
+      "description": "Integrating LLMs, AI APIs (Claude, ChatGPT, Gemini), and automated workflows into web applications for enhanced user experiences and intelligent features."
+    }
+  ],
+  "projects": [
+    {
+      "order": 1,
+      "title": "System 3.0 (Gamified Habit Tracker)",
+      "category": "Full Stack",
+      "description": "Full-stack habit tracking system with dynamic stat progression, task tracking, and ranking logic using Next.js, TypeScript, tRPC, Zod, MongoDB, and Mongoose."
+    },
+    {
+      "order": 2,
+      "title": "Ticket Fusion (Event Management Platform)",
+      "category": "Web Application",
+      "description": "Event booking and management platform featuring secure authentication, role-based access control, Stripe payment workflows, Redis caching, and reusable UI components."
+    },
+    {
+      "order": 3,
+      "title": "Transportation Management System (GQLAB)",
+      "category": "Enterprise System",
+      "description": "Enterprise dashboard module for operational tracking, shipment visibility, and large dataset handling built with Next.js, React, GraphQL APIs, and Node.js."
+    },
+    {
+      "order": 4,
+      "title": "Mini Social Feed Mobile App",
+      "category": "Mobile App",
+      "description": "Social feed mobile application built with React Native, Node.js, MongoDB, and Firebase FCM supporting auth, posts, likes, comments, and real-time push notifications."
+    }
+  ],
+  "impacts": [
+    { "order": 1, "value": "3+", "label": "Years Experience" },
+    { "order": 2, "value": "10+", "label": "Full Stack Apps Built" },
+    { "order": 3, "value": "100%", "label": "Backend Production Delivery" }
+  ],
+  "achievements": [
+    { "order": 1, "title": "B.Sc. in Computer Science - Manarat International University, Dhaka (2020 - 2024)" },
+    { "order": 2, "title": "HSC - Chowmuhani SA College, Noakhali (2018 - 2019 batch)" },
+    { "order": 3, "title": "Competitive Problem Solver on LeetCode, Codeforces & HackerRank" }
+  ],
+  "certifications": [],
+  "testimonials": []
+}
