@@ -2,116 +2,171 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Download, Link as LinkIcon, Briefcase, TrendingUp, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, MapPin, Building2, Clock, Layers } from "lucide-react";
+
+interface ProfileData {
+  name: string;
+  title?: string;
+  shortIntroduction?: string;
+  linkedin?: string;
+  resumeUrl?: string;
+  photoUrl?: string;
+  location?: string;
+}
 
 interface HeroProps {
-  profile: any;
+  profile: ProfileData | null;
 }
 
 export default function HeroSection({ profile }: HeroProps) {
   if (!profile) return null;
 
+  const linkedinHref = profile.linkedin
+    ? profile.linkedin.startsWith("http")
+      ? profile.linkedin
+      : `https://${profile.linkedin}`
+    : null;
+
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-page z-0">
-      {/* Corporate Glow Background */}
-      <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-brass/10 rounded-full blur-[120px] animate-pulse -z-10"></div>
-      <div className="absolute bottom-1/4 right-1/6 w-[500px] h-[500px] bg-brass-light/10 rounded-full blur-[120px] animate-pulse delay-1000 -z-10"></div>
-
-      <div className="max-w-6xl mx-auto px-6 md:px-12 w-full">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="rounded-3xl border border-line bg-parchment/60 backdrop-blur-2xl shadow-2xl overflow-hidden"
-        >
-          <div className="p-8 md:p-14 flex flex-col lg:flex-row items-center justify-between gap-16">
-            
-            {/* Left Column: Executive Bio */}
-            <div className="flex-1 max-w-2xl">
-              
-              {/* Professional Status Pill */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass-light font-medium text-xs md:text-sm mb-8 tracking-wide">
-                <Briefcase className="w-4 h-4" />
-                <span>Engineering Leadership & Delivery</span>
-              </div>
-
-              {/* Title & Headline */}
-              <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink mb-6">
-                Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass via-brass-light to-brass-light">{profile.name}</span>
-              </h1>
-
-              <div className="text-xl md:text-2xl font-semibold text-ink-2 mb-6">
-                {profile.title}
-              </div>
-
-              <p className="text-slate text-base md:text-lg mb-10 leading-relaxed font-sans font-light max-w-xl">
-                {profile.shortIntroduction}
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact"
-                  className="flex items-center gap-2 bg-gradient-to-r from-brass to-brass-light text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-brass/25 hover:-translate-y-0.5"
-                >
-                  Connect with me
-                  <ChevronRight className="w-4 h-4" />
-                </a>
-
-                {profile.linkedin && (
-                  <a
-                    href={profile.linkedin.startsWith('http') ? profile.linkedin : `https://${profile.linkedin}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-surface-subtle border border-line-strong text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-surface-hover hover:border-brass-light hover:text-brass-light"
-                  >
-                    <LinkIcon className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                )}
-
-                {profile.resumeUrl && (
-                  <a
-                    href={profile.resumeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-surface-subtle border border-line-strong text-ink px-6 py-3.5 rounded-xl text-sm transition-all hover:bg-surface-hover hover:border-brass hover:text-brass"
-                  >
-                    <Download className="w-4 h-4" />
-                    Resume
-                  </a>
-                )}
-              </div>
+    <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-page border-b border-line">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+          {/* Left Column: Executive Value Proposition */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="lg:col-span-7"
+          >
+            {/* Availability Status */}
+            <div className="inline-flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-slate mb-6">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400" />
+              <span>Open to Full-Time &amp; Technical Advisory · Remote</span>
             </div>
 
-            {/* Right Column: Professional Portrait Frame */}
-            <div className="relative w-64 h-64 md:w-[340px] md:h-[400px] shrink-0">
-              <div className="w-full h-full relative rounded-3xl overflow-hidden border border-line-strong bg-page p-2 shadow-2xl group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brass/20 to-brass-light/20 rounded-3xl blur-xl group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-parchment flex items-center justify-center">
-                  {profile.photoUrl ? (
-                    <Image
-                      src={profile.photoUrl}
-                      alt={profile.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center p-6 text-center">
-                      <TrendingUp className="w-12 h-12 text-brass mb-3 opacity-50" />
-                      <span className="font-sans text-sm text-ink font-semibold">{profile.name}</span>
-                      <span className="font-sans text-xs text-slate mt-1">{profile.title}</span>
+            {/* Editorial Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight text-ink leading-[1.12] mb-6">
+              I build reliable software systems that help businesses scale without breaking.
+            </h1>
+
+            {/* Role Line */}
+            <p className="font-sans text-base md:text-lg font-medium text-ink mb-4">
+              {profile.name} — {profile.title}
+            </p>
+
+            {/* Plain-English Intro */}
+            <p className="font-sans text-base md:text-lg text-ink-2 leading-relaxed max-w-2xl mb-9">
+              {profile.shortIntroduction}
+            </p>
+
+            {/* Action Row */}
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-ink text-page font-sans text-sm font-medium hover:bg-brass hover:text-white transition-colors"
+              >
+                <span>Schedule a Conversation</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              {linkedinHref && (
+                <a
+                  href={linkedinHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
+                >
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              )}
+
+              <a
+                href="https://github.com/Mynul-Sakil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
+              >
+                <span>GitHub</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              {profile.resumeUrl && (
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg border border-line-strong bg-parchment text-ink font-sans text-sm font-medium hover:border-brass hover:text-brass transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Resume</span>
+                </a>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Right Column: Portrait & Executive Fact Sheet */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="lg:col-span-5"
+          >
+            <div className="rounded-xl border border-line bg-parchment overflow-hidden shadow-sm">
+              <div className="relative aspect-[4/4] sm:aspect-[5/4] lg:aspect-[4/4] w-full bg-surface-subtle overflow-hidden">
+                {profile.photoUrl ? (
+                  <Image
+                    src={profile.photoUrl}
+                    alt={profile.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    priority
+                    className="object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                    <span className="font-serif text-2xl text-ink">{profile.name}</span>
+                    <span className="text-sm text-slate mt-1">{profile.title}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Scannable Executive Fact Sheet */}
+              <div className="p-5 grid grid-cols-2 gap-4 border-t border-line text-xs">
+                <div className="flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-brass shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-mono uppercase tracking-wider text-[10px] text-slate">Current Role</div>
+                    <div className="font-sans font-medium text-ink mt-0.5">Cansoft Technology</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Clock className="w-4 h-4 text-brass shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-mono uppercase tracking-wider text-[10px] text-slate">Experience</div>
+                    <div className="font-sans font-medium text-ink mt-0.5">2+ Years Production</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-brass shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-mono uppercase tracking-wider text-[10px] text-slate">Location</div>
+                    <div className="font-sans font-medium text-ink mt-0.5">
+                      {profile.location || "Noakhali, Bangladesh"}
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-page/90 via-transparent to-transparent"></div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <Layers className="w-4 h-4 text-brass shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-mono uppercase tracking-wider text-[10px] text-slate">Core Focus</div>
+                    <div className="font-sans font-medium text-ink mt-0.5">SaaS · Backend · Full Stack</div>
+                  </div>
                 </div>
               </div>
             </div>
-
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

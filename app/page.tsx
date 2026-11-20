@@ -1,10 +1,10 @@
 import Navbar from "@/components/frontend/Navbar";
 import HeroSection from "@/components/frontend/HeroSection";
-import AboutSection from "@/components/frontend/AboutSection";
-import ExperienceSection from "@/components/frontend/ExperienceSection";
 import ImpactSection from "@/components/frontend/ImpactSection";
-import SkillsAndServices from "@/components/frontend/SkillsAndServices";
 import ProjectsSection from "@/components/frontend/ProjectsSection";
+import ExperienceSection from "@/components/frontend/ExperienceSection";
+import SkillsAndServices from "@/components/frontend/SkillsAndServices";
+import AboutSection from "@/components/frontend/AboutSection";
 import MarqueeSection from "@/components/frontend/MarqueeSection";
 import TestimonialsSection from "@/components/frontend/TestimonialsSection";
 import ContactSection from "@/components/frontend/ContactSection";
@@ -22,17 +22,16 @@ import { getTestimonials } from "@/actions/testimonial";
 import { getImpactStats } from "@/actions/impact";
 
 export default async function Home() {
-  // Fetch all data in parallel
   const [
-    profile, 
-    experiences, 
-    skills, 
-    services, 
-    projects, 
-    certifications, 
-    achievements, 
+    profile,
+    experiences,
+    skills,
+    services,
+    projects,
+    certifications,
+    achievements,
     testimonials,
-    impactStats
+    impactStats,
   ] = await Promise.all([
     getProfile(),
     getExperiences(),
@@ -42,31 +41,34 @@ export default async function Home() {
     getCertifications(),
     getAchievements(),
     getTestimonials(),
-    getImpactStats()
+    getImpactStats(),
   ]);
 
   return (
     <main className="min-h-screen bg-page selection:bg-brass selection:text-white font-sans text-ink">
       <Navbar />
-      
+
       <HeroSection profile={profile} />
-      
+
       <ImpactSection stats={impactStats || []} />
-      
-      <AboutSection profile={profile} />
-      
-      <ExperienceSection experiences={experiences || []} />
-      
-      <SkillsAndServices skills={skills || []} services={services || []} />
-      
+
       <ProjectsSection projects={projects || []} />
-      
-      <MarqueeSection certifications={certifications || []} achievements={achievements || []} />
-      
+
+      <ExperienceSection experiences={experiences || []} />
+
+      <SkillsAndServices skills={skills || []} services={services || []} />
+
+      <AboutSection profile={profile} />
+
+      <MarqueeSection
+        certifications={certifications || []}
+        achievements={achievements || []}
+      />
+
       <TestimonialsSection testimonials={testimonials || []} />
-      
+
       <ContactSection profile={profile} />
-      
+
       <Footer />
     </main>
   );

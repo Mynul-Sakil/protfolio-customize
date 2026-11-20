@@ -1,37 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --theme-ink: #F8FAFC; /* Crisp white code text */
-  --theme-ink-2: #E2E8F0; /* Slate-200 readable text */
-  --theme-parchment: #0F172A; /* Slate-900 surface background */
-  --theme-page: #020617; /* Slate-950 main page background */
-  --theme-brass: #2563EB; /* Blue-600 primary accent */
-  --theme-brass-light: #38BDF8; /* Sky-400 secondary accent */
-  --theme-slate: #94A3B8; /* Slate-400 comment/subtitle text */
-  --theme-line: rgba(255, 255, 255, 0.08); /* Subtle borders */
-  --theme-line-strong: rgba(255, 255, 255, 0.14); /* Stronger borders */
-  --theme-surface-subtle: rgba(255, 255, 255, 0.05); /* Subtle fills */
-  --theme-surface-hover: rgba(255, 255, 255, 0.10); /* Hover fills */
-  --theme-card-highlight: #162032; /* Highlighted card gradient end */
-  --theme-scrollbar-track: #06090E;
-  color-scheme: dark;
+  --theme-ink: #111827; /* Deep editorial ink */
+  --theme-ink-2: #374151; /* Readable graphite body */
+  --theme-parchment: #FFFFFF; /* Crisp card / surface */
+  --theme-page: #FAF9F6; /* Warm editorial paper */
+  --theme-brass: #1D4ED8; /* Dignified cobalt primary accent */
+  --theme-brass-light: #1E40AF; /* Deep cobalt hover/secondary accent */
+  --theme-slate: #6B7280; /* Muted stone metadata */
+  --theme-line: rgba(17, 24, 39, 0.09); /* Hairline editorial border */
+  --theme-line-strong: rgba(17, 24, 39, 0.16); /* Emphasized border */
+  --theme-surface-subtle: #F3F2EE; /* Subtle tinted surface */
+  --theme-surface-hover: #EAE8E1; /* Subtle hover tint */
+  --theme-card-highlight: #F4F6FB; /* Subtle accent tint */
+  --theme-scrollbar-track: #EFECE6;
+  --theme-scrollbar-thumb: rgba(17, 24, 39, 0.2);
+  color-scheme: light;
 }
 
-html[data-theme="light"] {
-  --theme-ink: #0F172A; /* Slate-900 primary text */
-  --theme-ink-2: #334155; /* Slate-700 secondary text */
-  --theme-parchment: #FFFFFF; /* White card/surface background */
-  --theme-page: #F8FAFC; /* Slate-50 main page background */
-  --theme-brass: #2563EB; /* Blue-600 primary accent */
-  --theme-brass-light: #0284C7; /* Sky-600 accessible light accent */
-  --theme-slate: #64748B; /* Slate-500 subtitle text */
-  --theme-line: rgba(15, 23, 42, 0.08); /* Subtle slate borders */
-  --theme-line-strong: rgba(15, 23, 42, 0.14); /* Stronger slate borders */
-  --theme-surface-subtle: rgba(15, 23, 42, 0.04); /* Subtle slate fills */
-  --theme-surface-hover: rgba(15, 23, 42, 0.08); /* Hover slate fills */
-  --theme-card-highlight: #EFF6FF; /* Blue-50 highlighted card gradient end */
-  --theme-scrollbar-track: #E2E8F0;
-  color-scheme: light;
+html[data-theme="dark"] {
+  --theme-ink: #F3F4F6; /* Warm off-white ink */
+  --theme-ink-2: #D1D5DB; /* Crisp light gray body */
+  --theme-parchment: #14171F; /* Elevated charcoal card */
+  --theme-page: #0C0E12; /* Deep refined charcoal canvas */
+  --theme-brass: #60A5FA; /* Calm steel-blue accent */
+  --theme-brass-light: #93C5FD; /* Lighter steel-blue hover */
+  --theme-slate: #9CA3AF; /* Muted warm stone */
+  --theme-line: rgba(255, 255, 255, 0.09); /* Subtle dark hairline */
+  --theme-line-strong: rgba(255, 255, 255, 0.16); /* Emphasized dark hairline */
+  --theme-surface-subtle: rgba(255, 255, 255, 0.04); /* Subtle dark fill */
+  --theme-surface-hover: rgba(255, 255, 255, 0.08); /* Subtle dark hover */
+  --theme-card-highlight: #191E29; /* Subtle dark accent surface */
+  --theme-scrollbar-track: #101318;
+  --theme-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -48,9 +50,9 @@ html[data-theme="light"] {
   --color-surface-hover: var(--theme-surface-hover);
   --color-card-highlight: var(--theme-card-highlight);
 
-  --font-serif: var(--font-fraunces), serif;
-  --font-sans: var(--font-ibm-plex), sans-serif;
-  --font-mono: var(--font-jetbrains), monospace;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-ibm-plex), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 body {
@@ -61,23 +63,6 @@ body {
 }
 
 @layer utilities {
-  .clip-diagonal {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
-  }
-
-  /* IDE Glow utilities */
-  .glow-emerald {
-    box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
-  }
-  .glow-cyan {
-    box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
-  }
-  .border-glow-emerald {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.15), 0 0 15px rgba(16, 185, 129, 0.2);
-  }
-
-  /* Global Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -86,11 +71,10 @@ body {
     background: var(--theme-scrollbar-track);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(16, 185, 129, 0.25);
+    background-color: var(--theme-scrollbar-thumb);
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(16, 185, 129, 0.7);
+    background-color: var(--theme-brass);
   }
 }
-

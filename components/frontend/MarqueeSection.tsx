@@ -1,82 +1,100 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
-interface MarqueeProps {
-  certifications: any[];
-  achievements: any[];
+interface CredentialItem {
+  _id?: string;
+  title: string;
+  issuer?: string;
+  date?: string;
+  imageUrl?: string;
 }
 
+interface MarqueeProps {
+  certifications: CredentialItem[];
+  achievements: CredentialItem[];
+}
+
+const codingProfiles = [
+  { name: "LeetCode", handle: "@mynul47", href: "https://leetcode.com/u/mynul47/" },
+  { name: "Codeforces", handle: "Sakil470004", href: "https://codeforces.com/profile/Sakil470004" },
+  { name: "HackerRank", handle: "@mynul_sakil", href: "https://www.hackerrank.com/profile/mynul_sakil" },
+];
+
 export default function MarqueeSection({ certifications, achievements }: MarqueeProps) {
-  const items = [...certifications, ...achievements];
+  const items = [...(certifications || []), ...(achievements || [])];
   if (!items.length) return null;
 
-  // Duplicate items for infinite scroll effect
-  const marqueeItems = [...items, ...items, ...items];
-
   return (
-    <section className="py-24 bg-page/50 overflow-hidden border-y border-line relative z-0">
-      {/* Decorative text */}
-      <div className="absolute top-8 left-12 text-brass/10 font-serif text-8xl md:text-9xl font-bold opacity-10 pointer-events-none whitespace-nowrap -z-10">
-        RECOGNITIONS & AWARDS
-      </div>
+    <section className="py-20 bg-page border-b border-line">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
+              Education &amp; Credentials
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink">
+              Academic foundation &amp; problem solving.
+            </h2>
+          </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 mb-12 relative z-10">
-        <h2 className="font-mono text-sm uppercase tracking-widest text-brass mb-2">Milestones</h2>
-        <h3 className="font-serif text-3xl md:text-4xl font-semibold text-ink">Certifications & Achievements.</h3>
-      </div>
-
-      {/* Marquee Container */}
-      <div className="relative flex overflow-x-hidden group">
-        <motion.div
-          className="flex whitespace-nowrap gap-6 md:gap-8 px-4"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 40,
-          }}
-        >
-          {marqueeItems.map((item, index) => {
-            const isCert = 'issuer' in item;
-            return (
-              <div 
-                key={`${item._id}-${index}`} 
-                className="w-72 sm:w-80 md:w-96 shrink-0 bg-parchment p-4 border border-line flex flex-col hover:-translate-y-2 transition-transform duration-300 rounded-2xl"
+          <div className="flex flex-wrap items-center gap-2">
+            {codingProfiles.map((profile) => (
+              <a
+                key={profile.name}
+                href={profile.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-line bg-parchment text-xs font-mono text-ink hover:border-brass hover:text-brass transition-colors"
               >
-                <div className="relative aspect-[4/3] w-full bg-page border-b border-line overflow-hidden mb-4 rounded-xl">
-                  {item.imageUrl ? (
-                    <Image 
-                      src={item.imageUrl} 
-                      alt={item.title} 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center font-mono text-xs uppercase text-slate">
-                      No Image
+                <span>{profile.name}</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {items.map((item, index) => {
+            const isCert = Boolean(item.issuer);
+            return (
+              <div
+                key={item._id || `${item.title}-${index}`}
+                className="p-6 rounded-xl border border-line bg-parchment flex flex-col justify-between"
+              >
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-brass">
+                    {isCert ? "Certification" : "Credential"}
+                  </span>
+
+                  {item.imageUrl && (
+                    <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-line bg-surface-subtle my-4">
+                      <Image
+                        src={item.imageUrl}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                      />
                     </div>
                   )}
-                  <div className="absolute top-2 right-2 bg-brass text-white text-[10px] font-mono uppercase tracking-widest px-3 py-1 z-10 rounded-full">
-                    {isCert ? 'Certification' : 'Achievement'}
-                  </div>
+
+                  <h3 className="font-serif text-lg font-medium text-ink mt-2 leading-snug">
+                    {item.title}
+                  </h3>
                 </div>
-                
-                <h4 className="font-serif text-lg font-semibold text-ink whitespace-normal line-clamp-2">
-                  {item.title}
-                </h4>
-                {isCert && (
-                  <p className="font-sans text-sm text-slate mt-1 flex justify-between">
+
+                {(item.issuer || item.date) && (
+                  <div className="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs text-slate font-mono">
                     <span>{item.issuer}</span>
-                    <span className="font-mono text-[10px] uppercase text-brass">{item.date}</span>
-                  </p>
+                    <span>{item.date}</span>
+                  </div>
                 )}
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

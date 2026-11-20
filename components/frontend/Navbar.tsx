@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import ThemeToggle from "@/components/frontend/ThemeToggle";
 
 const navLinks = [
-  { name: "About", href: "#about" },
+  { name: "Impact", href: "#impact" },
+  { name: "Work", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Capabilities", href: "#services" },
+  { name: "About", href: "#about" },
 ];
 
 export default function Navbar() {
@@ -20,9 +20,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 24);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,89 +32,97 @@ export default function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      const top = element.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-page/90 backdrop-blur-xl border-b border-line shadow-lg shadow-black/10 py-3" 
-          : "bg-transparent py-5"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 border-b ${
+        isScrolled
+          ? "bg-page/95 backdrop-blur-md border-line py-3"
+          : "bg-page/80 backdrop-blur-sm border-transparent py-4"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        
-        {/* Brand / Logo */}
-        <Link 
-          href="/" 
-          className="flex items-center gap-2.5 font-sans text-lg font-bold text-ink tracking-tight hover:opacity-90 transition-opacity group"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      <div className="max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
+        {/* Typographic Wordmark */}
+        <Link
+          href="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-serif text-lg md:text-xl font-semibold tracking-tight text-ink hover:text-brass transition-colors"
         >
-          <div className="w-8 h-8 rounded-lg bg-brass/10 border border-brass/20 flex items-center justify-center text-brass group-hover:border-brass-light transition-colors">
-            <Hexagon className="w-4 h-4" />
-          </div>
-          <span>Mynul<span className="text-brass">.</span>Islam</span>
+          Mynul Islam
         </Link>
 
-        {/* Desktop Nav & Theme Toggle */}
+        {/* Desktop Links */}
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-7">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => scrollTo(e, link.href)}
+              className="text-sm font-sans font-medium text-slate hover:text-ink transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <nav className="flex gap-1.5 bg-parchment/80 p-1.5 rounded-xl border border-line backdrop-blur-md">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => scrollTo(e, link.href)}
-                className="px-4 py-1.5 text-sm font-sans font-medium text-slate hover:text-ink hover:bg-surface-subtle rounded-lg transition-all"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
           <ThemeToggle showLabel />
+          <a
+            href="#contact"
+            onClick={(e) => scrollTo(e, "#contact")}
+            className="h-10 px-4 inline-flex items-center justify-center rounded-lg bg-ink text-page text-sm font-medium hover:bg-brass hover:text-white transition-colors"
+          >
+            Contact
+          </a>
         </div>
 
         {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
-          <button 
+          <button
             type="button"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            className="text-brass-light p-2 rounded-xl bg-parchment border border-line-strong h-10 w-10 flex items-center justify-center"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="h-10 w-10 rounded-lg border border-line bg-parchment text-ink flex items-center justify-center"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-parchment border-b border-line shadow-2xl md:hidden"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.18 }}
+            className="md:hidden bg-parchment border-b border-line shadow-lg"
           >
-            <nav className="flex flex-col py-4 px-6 gap-2">
+            <nav className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollTo(e, link.href)}
-                  className="py-3 px-4 rounded-xl bg-page border border-line text-sm font-sans font-medium text-ink hover:text-brass hover:border-brass/30 transition-colors flex items-center justify-between"
+                  className="py-2.5 px-3 rounded-lg text-sm font-medium text-ink hover:bg-surface-subtle transition-colors"
                 >
-                  <span>{link.name}</span>
+                  {link.name}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={(e) => scrollTo(e, "#contact")}
+                className="mt-2 py-2.5 px-4 rounded-lg bg-ink text-page text-center text-sm font-medium hover:bg-brass hover:text-white transition-colors"
+              >
+                Schedule a Conversation
+              </a>
             </nav>
           </motion.div>
         )}

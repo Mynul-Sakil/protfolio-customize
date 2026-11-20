@@ -29,10 +29,10 @@ const themeInitScript = `
 (function() {
   try {
     var stored = localStorage.getItem("portfolio-theme");
-    var theme = stored === "light" || stored === "dark" ? stored : "dark";
+    var theme = stored === "light" || stored === "dark" ? stored : "light";
     document.documentElement.dataset.theme = theme;
   } catch (e) {
-    document.documentElement.dataset.theme = "dark";
+    document.documentElement.dataset.theme = "light";
   }
 })();
 `;
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
       className={`${fraunces.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >

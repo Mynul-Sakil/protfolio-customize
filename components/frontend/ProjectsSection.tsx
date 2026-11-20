@@ -3,122 +3,147 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FolderKanban, ArrowUpRight, X, ExternalLink, Briefcase } from "lucide-react";
+import { ArrowUpRight, ExternalLink, X } from "lucide-react";
+
+interface ProjectItem {
+  _id?: string;
+  title: string;
+  description: string;
+  category: string;
+  imageUrl?: string;
+  link?: string;
+}
 
 interface ProjectsProps {
-  projects: any[];
+  projects: ProjectItem[];
 }
 
 export default function ProjectsSection({ projects }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   if (!projects || projects.length === 0) return null;
 
   return (
     <>
-      <section id="projects" className="py-24 bg-page relative overflow-hidden">
-        
-        {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-brass-light/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          
-          {/* Section Badge */}
-          <div className="flex items-center gap-2 mb-4">
-            <span className="px-3 py-1.5 rounded-full bg-brass-light/10 border border-brass-light/20 text-brass-light font-medium text-xs tracking-wide flex items-center gap-1.5">
-              <FolderKanban className="w-3.5 h-3.5" />
-              Strategic Initiatives
-            </span>
+      <section id="projects" className="py-20 md:py-24 bg-page border-b border-line">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+            <div className="max-w-2xl">
+              <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
+                02 / Selected Work
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink">
+                Production systems &amp; case studies.
+              </h2>
+            </div>
+            <a
+              href="https://github.com/Mynul-Sakil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate hover:text-brass transition-colors"
+            >
+              <span>Explore more on GitHub</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
 
-          <h2 className="font-sans text-3xl md:text-5xl font-extrabold text-ink mb-12 tracking-tight">
-            Key <span className="text-brass-light">Case Studies</span>
-          </h2>
-
-          {/* Project Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 2-Column Editorial Case Study Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <motion.div
-                key={project._id || index}
-                initial={{ opacity: 0, y: 20 }}
+              <motion.article
+                key={project._id || project.title}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.35, delay: (index % 2) * 0.06 }}
                 onClick={() => setSelectedProject(project)}
-                className="rounded-3xl border border-line bg-parchment p-6 md:p-8 shadow-xl hover:border-brass-light/30 hover:shadow-brass-light/5 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                className="rounded-xl border border-line bg-parchment p-6 md:p-7 hover:border-line-strong transition-colors cursor-pointer group flex flex-col justify-between"
               >
                 <div>
-                  {/* Top Header */}
-                  <div className="flex items-center justify-between font-sans text-xs text-slate mb-6 pb-4 border-b border-line">
-                    <div className="flex items-center gap-2 text-brass-light font-bold uppercase tracking-wider">
-                      <Briefcase className="w-4 h-4" />
-                      <span>Featured Delivery</span>
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-surface-subtle border border-line-strong text-[10px] text-ink font-semibold uppercase tracking-widest">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-brass">
                       {project.category}
+                    </span>
+                    <span className="font-mono text-[11px] text-slate">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  {project.imageUrl ? (
-                    <div className="relative aspect-[16/9] w-full bg-page border border-line rounded-2xl overflow-hidden mb-6 shadow-md">
-                      <Image 
-                        src={project.imageUrl} 
-                        alt={project.title} 
-                        fill 
+                  {project.imageUrl && (
+                    <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-line bg-surface-subtle mb-5">
+                      <Image
+                        src={project.imageUrl}
+                        alt={project.title}
+                        fill
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
-                  ) : null}
+                  )}
 
-                  <h3 className="font-sans text-2xl font-bold text-ink group-hover:text-brass-light transition-colors mb-3">
+                  <h3 className="font-serif text-xl md:text-2xl font-medium text-ink group-hover:text-brass transition-colors mb-3 leading-snug">
                     {project.title}
                   </h3>
 
-                  <p className="font-sans text-sm md:text-base text-slate font-light line-clamp-3 leading-relaxed mb-6">
+                  <p className="font-sans text-sm md:text-[15px] text-ink-2 leading-relaxed line-clamp-3 mb-6">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-line flex items-center justify-between font-sans text-sm font-medium text-slate group-hover:text-brass-light transition-colors">
-                  <span>Explore Case Study</span>
-                  <div className="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center group-hover:bg-brass-light/10 transition-colors">
-                    <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
+                <div className="pt-4 border-t border-line flex items-center justify-between text-sm">
+                  <span className="font-medium text-ink group-hover:text-brass transition-colors inline-flex items-center gap-1">
+                    Read overview
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-slate hover:text-brass transition-colors"
+                    >
+                      <span>Live</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Case Study Modal */}
       <AnimatePresence>
         {selectedProject && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-page/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50 backdrop-blur-xs"
             />
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-line-strong flex flex-col overflow-hidden shadow-2xl rounded-3xl z-10"
+              exit={{ opacity: 0, scale: 0.97, y: 12 }}
+              transition={{ duration: 0.18 }}
+              className="relative w-full max-w-2xl max-h-[90vh] bg-parchment border border-line-strong rounded-xl shadow-2xl flex flex-col overflow-hidden z-10"
             >
-              <div className="px-6 py-4 bg-surface-subtle border-b border-line flex items-center justify-between font-sans text-sm text-ink backdrop-blur-md sticky top-0 z-10">
-                <div className="flex items-center gap-2 text-brass-light font-bold">
-                  <FolderKanban className="w-4 h-4" />
-                  <span>Project Overview</span>
-                </div>
-                <button 
+              <div className="px-6 py-4 border-b border-line flex items-center justify-between sticky top-0 bg-parchment z-10">
+                <span className="font-mono text-xs uppercase tracking-widest text-brass">
+                  {selectedProject.category}
+                </span>
+                <button
+                  type="button"
+                  aria-label="Close modal"
                   onClick={() => setSelectedProject(null)}
-                  className="w-8 h-8 flex items-center justify-center bg-surface-subtle border border-line-strong text-slate hover:text-ink hover:bg-surface-hover transition-all rounded-full"
+                  className="w-8 h-8 rounded-lg border border-line flex items-center justify-center text-slate hover:text-ink hover:bg-surface-subtle transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -126,37 +151,32 @@ export default function ProjectsSection({ projects }: ProjectsProps) {
 
               <div className="overflow-y-auto">
                 {selectedProject.imageUrl && (
-                  <div className="relative aspect-[16/9] w-full bg-page border-b border-line shrink-0 overflow-hidden">
-                    <Image 
-                      src={selectedProject.imageUrl} 
-                      alt={selectedProject.title} 
-                      fill 
+                  <div className="relative aspect-[16/9] w-full bg-surface-subtle border-b border-line overflow-hidden">
+                    <Image
+                      src={selectedProject.imageUrl}
+                      alt={selectedProject.title}
+                      fill
                       className="object-cover"
                     />
                   </div>
                 )}
 
-                <div className="p-6 sm:p-10">
-                  <span className="px-3 py-1.5 rounded-full bg-brass-light/10 border border-brass-light/20 text-brass-light font-sans text-xs font-semibold tracking-wide inline-block mb-4">
-                    {selectedProject.category}
-                  </span>
-                  
-                  <h3 className="font-sans text-3xl font-bold text-ink mb-4">
+                <div className="p-6 sm:p-8">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-medium text-ink mb-4">
                     {selectedProject.title}
                   </h3>
-                  
-                  <p className="font-sans text-slate text-base font-light leading-relaxed mb-10 whitespace-pre-wrap">
+                  <p className="font-sans text-base text-ink-2 leading-relaxed whitespace-pre-wrap mb-8">
                     {selectedProject.description}
                   </p>
 
                   {selectedProject.link && (
-                    <a 
+                    <a
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-brass to-brass-light text-white font-sans text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-brass/25 hover:-translate-y-0.5 transition-all rounded-xl"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-ink text-page text-sm font-medium hover:bg-brass hover:text-white transition-colors"
                     >
-                      <span>View Live Implementation</span>
+                      <span>Visit Live Project</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   )}

@@ -2,15 +2,25 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { getProfile, updateProfile } from "@/actions/profile";
+import { getProfile, updateProfile, switchProfilePhoto } from "@/actions/profile";
 import ImageUpload from "@/components/ImageUpload";
-import { Save, Loader2 } from "lucide-react";
+import { Save, Loader2, Check, History } from "lucide-react";
 import AdminSkeleton from "@/components/AdminSkeleton";
+
+interface PhotoVersion {
+  url: string;
+  version: number;
+  label?: string;
+  isDefault?: boolean;
+  savedAt?: string;
+}
 
 export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-    const [formData, setFormData] = useState({
+  const [switchingUrl, setSwitchingUrl] = useState<string | null>(null);
+  const [photoHistory, setPhotoHistory] = useState<PhotoVersion[]>([]);
+  const [formData, setFormData] = useState({
     name: "",
     title: "",
     shortIntroduction: "",
@@ -39,6 +49,7 @@ export default function ProfilePage() {
           location: data.location || "",
           linkedin: data.linkedin || "",
         });
+        setPhotoHistory(Array.isArray(data.photoHistory) ? data.photoHistory : []);
       }
       setLoading(false);
     };
@@ -54,12 +65,32 @@ export default function ProfilePage() {
     setSaving(true);
     const res = await updateProfile(formData);
     if (res.success) {
+      if (res.profile?.photoHistory) {
+        setPhotoHistory(res.profile.photoHistory);
+      }
+      if (res.profile?.photoUrl) {
+        setFormData((prev) => ({ ...prev, photoUrl: res.profile.photoUrl }));
+      }
       toast.success("Profile updated successfully!");
     } else {
       toast.error("Failed to update profile.");
     }
     setSaving(false);
-      };
+  };
+
+  const handleSwitchPhoto = async (url: string) => {
+    if (url === formData.photoUrl) return;
+    setSwitchingUrl(url);
+    const res = await switchProfilePhoto(url);
+    if (res.success && res.profile) {
+      setFormData((prev) => ({ ...prev, photoUrl: res.profile.photoUrl }));
+      setPhotoHistory(res.profile.photoHistory || []);
+      toast.success("Profile photo switched!");
+    } else {
+      toast.error(res.error || "Failed to switch photo.");
+    }
+    setSwitchingUrl(null);
+  };
 
   if (loading) {
     return <AdminSkeleton />;
@@ -72,42 +103,104 @@ export default function ProfilePage() {
           <h2 className="text-2xl font-serif font-semibold text-ink">Profile Information</h2>
           <p className="text-slate text-sm">Update your core details and contact information.</p>
         </div>
-        
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 gap-6">
-          
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Profile Photo</label>
-            <ImageUpload 
-              value={formData.photoUrl} 
-              onChange={(url) => setFormData(prev => ({ ...prev, photoUrl: url }))} 
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">
+              Profile Photo
+            </label>
+            <ImageUpload
+              value={formData.photoUrl}
+              onChange={(url) => setFormData((prev) => ({ ...prev, photoUrl: url }))}
             />
+
+            {photoHistory.length > 0 && (
+              <div className="mt-5 pt-5 border-t border-line">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate mb-3">
+                  <History className="w-3.5 h-3.5 text-brass" />
+                  <span>Saved Photo Versions ({photoHistory.length})</span>
+                </div>
+                <p className="text-xs text-slate mb-3">
+                  Every uploaded photo is preserved by version. Click any version to switch your active photo immediately.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                  {photoHistory.map((item) => {
+                    const isActive = item.url === formData.photoUrl;
+                    const isSwitching = switchingUrl === item.url;
+                    return (
+                      <div
+                        key={`${item.version}-${item.url}`}
+                        className={`rounded-lg border p-2 transition-all bg-page ${
+                          isActive ? "border-brass ring-1 ring-brass/30" : "border-line"
+                        }`}
+                      >
+                        <div className="relative aspect-square w-full rounded overflow-hidden bg-surface-subtle mb-2">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.url}
+                            alt={item.label || `Version ${item.version}`}
+                            className="w-full h-full object-cover"
+                          />
+                          <span className="absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[10px] font-mono font-semibold rounded bg-page/90 text-ink border border-line">
+                            v{item.version}
+                            {item.isDefault ? " · Default" : ""}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          disabled={isActive || Boolean(switchingUrl)}
+                          onClick={() => handleSwitchPhoto(item.url)}
+                          className={`w-full py-1.5 px-2 rounded text-xs font-medium flex items-center justify-center gap-1 transition-colors ${
+                            isActive
+                              ? "bg-brass/10 text-brass cursor-default"
+                              : "bg-surface-subtle hover:bg-surface-hover text-ink cursor-pointer"
+                          }`}
+                        >
+                          {isSwitching ? (
+                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          ) : isActive ? (
+                            <>
+                              <Check className="w-3.5 h-3.5" />
+                              Active
+                            </>
+                          ) : (
+                            "Use This Photo"
+                          )}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">Resume / CV (PDF)</label>
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-2">
+              Resume / CV (PDF)
+            </label>
             <div className="flex items-center gap-4">
-              <input 
-                type="file" 
+              <input
+                type="file"
                 accept="application/pdf"
                 onChange={async (e) => {
                   const file = e.target.files?.[0];
                   if (!file) return;
-                  
+
                   const uploadData = new FormData();
                   uploadData.append("file", file);
-                  
+
                   try {
                     setSaving(true);
                     const res = await fetch("/api/resume", {
                       method: "POST",
-                      body: uploadData
+                      body: uploadData,
                     });
                     const data = await res.json();
                     if (data.success) {
-                      setFormData(prev => ({ ...prev, resumeUrl: "/api/resume" }));
+                      setFormData((prev) => ({ ...prev, resumeUrl: "/api/resume" }));
                       toast.success("Resume uploaded! Don't forget to Save Changes.");
                     } else {
                       toast.error("Failed to upload resume.");
@@ -116,60 +209,147 @@ export default function ProfilePage() {
                     toast.error("Error uploading resume.");
                   } finally {
                     setSaving(false);
-                                      }
+                  }
                 }}
-                className="block w-full text-sm text-slate file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-mono file:uppercase file:bg-brass/10 file:text-brass hover:file:bg-brass/20 transition-colors" 
+                className="block w-full text-sm text-slate file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-mono file:uppercase file:bg-brass/10 file:text-brass hover:file:bg-brass/20 transition-colors"
               />
               {formData.resumeUrl && formData.resumeUrl === "/api/resume" && (
-                <a href={formData.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-brass underline whitespace-nowrap">View Current</a>
+                <a
+                  href={formData.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-brass underline whitespace-nowrap"
+                >
+                  View Current
+                </a>
               )}
             </div>
-            <p className="text-xs text-slate mt-2">Uploading will overwrite the previous resume. PDF format only.</p>
+            <p className="text-xs text-slate mt-2">
+              Uploading will overwrite the previous resume. PDF format only.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Full Name</label>
-              <input type="text" name="name" value={formData.name} placeholder="John Doe" onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                placeholder="John Doe"
+                onChange={handleChange}
+                required
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Professional Title</label>
-              <input type="text" name="title" value={formData.title} placeholder="e.g. Marketing Executive" onChange={handleChange} required className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                Professional Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                placeholder="e.g. Full Stack & Backend Software Engineer"
+                onChange={handleChange}
+                required
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Short Introduction (Hero Section)</label>
-            <textarea name="shortIntroduction" value={formData.shortIntroduction} placeholder="I am a professional..." onChange={handleChange} rows={5} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+              Short Introduction (Hero Section)
+            </label>
+            <textarea
+              name="shortIntroduction"
+              value={formData.shortIntroduction}
+              placeholder="I am a professional..."
+              onChange={handleChange}
+              rows={5}
+              className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"
+            ></textarea>
           </div>
 
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Professional Summary (About Me)</label>
-            <textarea name="professionalSummary" value={formData.professionalSummary} placeholder="Detailed career overview..." onChange={handleChange} rows={4} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"></textarea>
+            <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+              Professional Summary (About Me)
+            </label>
+            <textarea
+              name="professionalSummary"
+              value={formData.professionalSummary}
+              placeholder="Detailed career overview..."
+              onChange={handleChange}
+              rows={4}
+              className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors resize-none"
+            ></textarea>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Email</label>
-              <input type="email" name="email" value={formData.email} placeholder="john@example.com" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                placeholder="john@example.com"
+                onChange={handleChange}
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Phone</label>
-              <input type="text" name="phone" value={formData.phone} placeholder="+1 (555) 000-0000" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                Phone
+              </label>
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                placeholder="+1 (555) 000-0000"
+                onChange={handleChange}
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">Location</label>
-              <input type="text" name="location" value={formData.location} placeholder="Sydney, Australia" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                Location
+              </label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                placeholder="Noakhali, Bangladesh"
+                onChange={handleChange}
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
             <div>
-              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">LinkedIn URL</label>
-              <input type="url" name="linkedin" value={formData.linkedin} placeholder="https://linkedin.com/in/johndoe" onChange={handleChange} className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors" />
+              <label className="block text-xs font-mono uppercase tracking-widest text-slate mb-1">
+                LinkedIn URL
+              </label>
+              <input
+                type="url"
+                name="linkedin"
+                value={formData.linkedin}
+                placeholder="https://linkedin.com/in/johndoe"
+                onChange={handleChange}
+                className="w-full bg-transparent border-b border-line px-2 py-2 text-ink placeholder-slate/50 focus:outline-none focus:border-brass transition-colors"
+              />
             </div>
           </div>
         </div>
 
         <div className="pt-4 flex justify-end">
-          <button type="submit" disabled={saving} className="flex items-center gap-2 py-2 px-6 bg-ink text-page font-mono text-sm uppercase tracking-wider hover:bg-brass transition-colors disabled:opacity-70">
+          <button
+            type="submit"
+            disabled={saving}
+            className="flex items-center gap-2 py-2 px-6 bg-ink text-page font-mono text-sm uppercase tracking-wider hover:bg-brass hover:text-white transition-colors disabled:opacity-70"
+          >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             Save Changes
           </button>

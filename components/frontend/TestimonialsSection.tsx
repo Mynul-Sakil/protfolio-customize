@@ -1,51 +1,53 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+
+interface TestimonialItem {
+  _id?: string;
+  name: string;
+  role: string;
+  feedback: string;
+}
 
 interface TestimonialsProps {
-  testimonials: any[];
+  testimonials: TestimonialItem[];
 }
 
 export default function TestimonialsSection({ testimonials }: TestimonialsProps) {
   if (!testimonials || testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 bg-page">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
-        >
-          <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-brass mb-3">Words of Trust</h2>
-          <h3 className="font-sans text-4xl md:text-5xl font-extrabold text-ink">Client Endorsements</h3>
-        </motion.div>
+    <section className="py-20 md:py-24 bg-page border-b border-line">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="max-w-2xl mb-12">
+          <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
+            Endorsements
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink">
+            What colleagues &amp; clients say.
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((test, index) => (
-            <motion.div 
-              key={test._id}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.blockquote
+              key={test._id || index}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-parchment border border-line p-8 relative hover:border-brass/30 transition-all rounded-3xl shadow-lg"
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="p-7 rounded-xl border border-line bg-parchment flex flex-col justify-between"
             >
-              <Quote className="absolute top-6 right-6 w-8 h-8 text-brass/20" />
-              <p className="font-sans text-lg text-ink-2 font-light italic mb-8 relative z-10 leading-relaxed">
-                &quot;{test.feedback}&quot;
+              <p className="font-serif text-lg text-ink leading-relaxed mb-6">
+                &ldquo;{test.feedback}&rdquo;
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-[2px] bg-brass/50 rounded-full"></div>
-                <div>
-                  <h4 className="font-sans font-bold text-ink">{test.name}</h4>
-                  <p className="font-sans text-xs uppercase tracking-widest text-slate mt-1 font-semibold">{test.role}</p>
+              <footer className="pt-4 border-t border-line">
+                <div className="font-sans text-sm font-semibold text-ink">{test.name}</div>
+                <div className="font-mono text-[11px] uppercase tracking-wider text-slate mt-0.5">
+                  {test.role}
                 </div>
-              </div>
-            </motion.div>
+              </footer>
+            </motion.blockquote>
           ))}
         </div>
       </div>

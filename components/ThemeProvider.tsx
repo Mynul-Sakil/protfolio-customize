@@ -42,11 +42,11 @@ function readClientTheme(): Theme {
       // Ignore storage access errors
     }
   }
-  return "dark";
+  return "light";
 }
 
 function getServerTheme(): Theme {
-  return "dark";
+  return "light";
 }
 
 function applyThemeToDocument(theme: Theme) {

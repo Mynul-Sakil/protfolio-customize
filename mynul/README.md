@@ -27,6 +27,6 @@ This folder consolidates all of Mynul Islam's currently loaded website data (fet
 4. **GitHub Handle**: Standardized to `https://github.com/Mynul-Sakil`.
 5. **Resume Download Link (`resumeUrl`)**: Kept empty (`""`) by default.
 
-## Reminder / Pending Follow-Up
+## Sync Status
 
-- [ ] **Sync to Live Database & `seed-mynul`**: Update MongoDB collections and `app/api/seed-mynul/route.ts` with this consolidated data (including `2+` years experience, Cansoft `Apr 2026 – Present`, `https://github.com/Mynul-Sakil`, `emmai.ca` / `abc.emmai.ca` project entry, and live project links) **after** the other upcoming portfolio updates are finished.
+- [x] **Synced to Live Database & `seed-mynul`**: Updated MongoDB collections and `app/api/seed-mynul/route.ts` with consolidated `mynul/` data (`2+` years experience, Cansoft `Apr 2026 – Present`, `https://github.com/Mynul-Sakil`, `emmai.ca` / `abc.emmai.ca` Clinic Booking SaaS, live project links, and `photoHistory` v1 default).

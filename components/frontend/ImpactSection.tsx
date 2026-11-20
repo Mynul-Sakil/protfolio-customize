@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart, Zap } from "lucide-react";
 
 interface ImpactStat {
-  _id: string;
+  _id?: string;
   value: string;
   label: string;
   order: number;
@@ -14,81 +13,84 @@ interface ImpactSectionProps {
   stats: ImpactStat[];
 }
 
+const executivePillars = [
+  {
+    audience: "For CEOs & Founders",
+    headline: "Faster Product Delivery, End to End",
+    body: "I take complex business ideas—like multi-tenant SaaS platforms, booking systems, and customer portals—from database design all the way to live web and mobile products.",
+  },
+  {
+    audience: "For CFOs & Operations",
+    headline: "Lower Infrastructure Cost & Operational Risk",
+    body: "I prevent expensive downtime and bottlenecks using Redis caching, background job queues (BullMQ), automated Stripe billing, and HIPAA/PIPEDA-ready audit logging.",
+  },
+  {
+    audience: "For HR & Engineering Leads",
+    headline: "Dependable Remote Ownership",
+    body: "2+ years delivering production TypeScript, Node.js, Next.js, and PostgreSQL systems with remote North American and global teams—backed by CI/CD and automated testing.",
+  },
+];
+
 export default function ImpactSection({ stats }: ImpactSectionProps) {
-  // We'll still use stats if they exist, but we highlight the 50% AI performance metric
   return (
-    <section className="relative py-20 bg-page overflow-hidden border-t border-line z-0">
-      
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        
-        {/* Header */}
-        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass font-medium text-xs tracking-wide flex items-center gap-1.5">
-                <BarChart className="w-3.5 h-3.5" />
-                Measurable Outcomes
-              </span>
-            </div>
-            <h3 className="font-sans text-3xl md:text-4xl font-extrabold text-ink">
-              Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-brass to-brass-light">Impact</span> & Scale
-            </h3>
-          </div>
+    <section id="impact" className="py-20 md:py-24 bg-page border-b border-line">
+      <div className="max-w-6xl mx-auto px-6 md:px-10">
+        {/* Section Header */}
+        <div className="max-w-2xl mb-14">
+          <p className="font-mono text-xs uppercase tracking-widest text-brass mb-3">
+            01 / Business Value
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium tracking-tight text-ink mb-4">
+            What I deliver for leadership and hiring teams.
+          </h2>
+          <p className="font-sans text-base text-slate leading-relaxed">
+            Clear outcomes in plain language—whether you are evaluating engineering ROI, system reliability, or team fit.
+          </p>
         </div>
 
-        {/* Highlighted Primary Metric */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-brass/20 via-parchment to-parchment border border-brass/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl shadow-brass/5"
-        >
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-4 text-brass-light font-semibold">
-              <Zap className="w-6 h-6" />
-              <span>Key Performance Initiative</span>
-            </div>
-            <h4 className="text-2xl md:text-3xl font-bold text-ink mb-2">
-              AI-Powered Platform Optimization
-            </h4>
-            <p className="text-ink-2 font-light text-lg">
-              Architected and delivered an AI-driven infrastructure upgrade that significantly reduced latency and improved user conversion rates.
-            </p>
-          </div>
-          <div className="shrink-0 text-center md:text-right">
-            <div className="font-sans text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-ink to-brass-light mb-2 drop-shadow-sm">
-              50%+
-            </div>
-            <div className="font-semibold text-brass tracking-wide uppercase text-sm">
-              Performance Increase
-            </div>
-          </div>
-        </motion.div>
+        {/* 3-Column Executive Value Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+          {executivePillars.map((pillar, index) => (
+            <motion.div
+              key={pillar.audience}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="p-7 rounded-xl border border-line bg-parchment flex flex-col justify-between"
+            >
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-brass mb-3">
+                  {pillar.audience}
+                </div>
+                <h3 className="font-serif text-xl font-medium text-ink mb-3 leading-snug">
+                  {pillar.headline}
+                </h3>
+                <p className="font-sans text-sm text-ink-2 leading-relaxed">
+                  {pillar.body}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Database Metrics Grid */}
+        {/* Hairline Key Metrics Strip (DB-driven) */}
         {stats && stats.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat._id || index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-parchment border border-line hover:border-brass/40 transition-all group shadow-lg"
-              >
-                <div className="font-sans text-4xl sm:text-5xl font-extrabold text-ink mb-2">
-                  {stat.value}
+          <div className="rounded-xl border border-line bg-parchment overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-line">
+              {stats.map((stat, index) => (
+                <div key={stat._id || index} className="p-6 md:p-7">
+                  <div className="font-serif text-3xl md:text-4xl font-medium text-ink mb-1.5">
+                    {stat.value}
+                  </div>
+                  <div className="font-mono text-[11px] uppercase tracking-wider text-slate">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="font-sans text-xs text-slate group-hover:text-brass-light transition-colors uppercase tracking-wider font-medium">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
-
       </div>
     </section>
   );
