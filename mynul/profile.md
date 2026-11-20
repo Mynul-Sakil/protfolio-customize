@@ -11,8 +11,7 @@
 
 ## Online Profiles & Links
 - **LinkedIn**: https://www.linkedin.com/in/mynul-islam-sakil/
-- **GitHub (Current Handle)**: https://github.com/Mynul-Sakil
-- **GitHub (Legacy/Resume URL)**: https://github.com/sakil470004/
+- **GitHub**: https://github.com/Mynul-Sakil
 - **Portfolio (Current Repo Deployment)**: https://protfolio-customize.vercel.app
 - **Portfolio (Previous Deployment)**: https://mynul-sakil-portfolio.vercel.app/
 - **LeetCode**: https://leetcode.com/u/mynul47/
@@ -34,7 +33,11 @@
 
 ## Professional Summaries (By Positioning)
 
-### Current Live Website
+### Recommended Unified Portfolio Copy (2+ Years Experience)
+- **Short Intro**: Full Stack & Backend-focused Software Engineer with 2+ years of experience building scalable web applications, microservices, and multi-tenant SaaS systems using Node.js, TypeScript, Next.js, React, PostgreSQL, Redis, and AI tools. Currently working at Cansoft Technology as an AI Full Stack Developer focusing on backend architecture, API optimization, and distributed systems.
+- **Full Summary**: Full Stack & Backend Software Engineer with 2+ years of experience building scalable microservices, high-throughput REST/GraphQL/tRPC APIs, and modern React/Next.js applications using TypeScript, Node.js, PostgreSQL, MongoDB, Redis, and Docker. Proven track record in multi-tenant SaaS architecture, granular RBAC (CASL, JWT), asynchronous job queues (BullMQ), database optimization, and AI-powered integrations.
+
+### Current Live Website (Snapshot — Pending Sync)
 - **Short Intro**: Full Stack Engineer with 3+ years of experience building scalable web applications using React, Next.js, Node.js, TypeScript, and AI tools. Currently working at Cansoft as an AI Full Stack Developer with primary focus on backend architecture, API optimization, and microservices.
 - **Full Summary**: Full Stack Engineer with 3+ years of experience building scalable web applications using React, Next.js, Node.js, and TypeScript. Experienced in designing REST & GraphQL APIs, building reusable frontend components, implementing authentication systems (JWT, RBAC), and optimizing database performance. Strong focus on clean architecture, performance optimization, and delivering production-ready applications.
 
@@ -52,9 +55,9 @@ Frontend Developer with 3+ years of experience in React/Next.js along with 6 mon
 
 ---
 
-## Current Impact Stats (Live Website)
-- **50%+** Performance Increase (AI-Powered Platform Optimization — hardcoded highlight card)
-- **3+** Years Experience
+## Impact Stats (Confirmed Target: `2+` Years Experience)
+- **50%+** Performance Increase (AI-Powered Platform Optimization — highlight card)
+- **2+** Years Experience *(currently `3+` in DB — pending sync)*
 - **10+** Full Stack Apps Built
 - **100%** Backend Production Delivery
 

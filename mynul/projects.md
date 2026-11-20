@@ -7,9 +7,12 @@ Consolidated from Cansoft company repositories, live portfolio database, all 5 r
 ## 1. Company / Production Flagship Project
 
 ### Clinic Booking & Scheduling SaaS (`emmai.ca`) — Cansoft Technology
-- **Repositories**:
-  - Backend (Private): `Cansoft-Technologies/clinic-booking-app-backend` — Deployment: `https://clinic-booking-app-backend.vercel.app`
-  - Frontend (Private): `Cansoft-Technologies/clinic-booking-app-frontend` — Live/Staging: `https://emmai.ca`
+- **Live Links**:
+  - Main App: https://emmai.ca
+  - Multi-Tenant Clinic Subdomain: https://abc.emmai.ca
+- **Repositories (Private — Cansoft Organization)**:
+  - Backend: `Cansoft-Technologies/clinic-booking-app-backend`
+  - Frontend: `Cansoft-Technologies/clinic-booking-app-frontend`
 - **Category**: Enterprise Multi-Tenant SaaS / Full Stack & Backend
 - **Tech Stack**:
   - **Backend**: Node.js, Express, TypeScript, PostgreSQL (Supabase), Redis (`ioredis`), BullMQ, CASL (`@casl/ability`), JWT/JWKS, Google APIs (OAuth & Calendar), `ics` (iCal), Socket.io, Stripe, AWS S3, Vercel Blob, Nodemailer/IMAPFlow, Winston, Zod, Swagger/OpenAPI, Jest, Supertest, Playwright.

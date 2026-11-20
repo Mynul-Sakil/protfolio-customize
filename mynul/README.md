@@ -17,17 +17,16 @@ This folder consolidates all of Mynul Islam's currently loaded website data (fet
 | [resumes/react-nextjs-developer.md](./resumes/react-nextjs-developer.md) | React / Next.js Developer resume |
 | [resumes/react-native-developer.md](./resumes/react-native-developer.md) | React Native Developer resume |
 
-## Spotted Discrepancies to Confirm
+## Confirmed Source-of-Truth Decisions
 
-1. **Cansoft Technology & Aliyah Holdings Dates**:
-   - **Current DB (`seed-mynul`)**: Cansoft `Apr 2026 – Present`, Aliyah Holdings `Aug 2024 – Apr 2026`.
-   - **Backend Resume**: Cansoft `April 2025 – Present`, Aliyah Holdings `August 2024 – April 2025`.
-   - **Other 4 Resumes**: Aliyah Holdings `Aug 2024 – Present` (Cansoft not listed).
-2. **Years of Experience**:
-   - Backend resume says `2+ years`; current website & other resumes say `3+ years`.
-3. **GitHub Username / URL**:
-   - Resumes link to `https://github.com/sakil470004/`, while GitHub repos resolve under `https://github.com/Mynul-Sakil` (same account after rename/alias).
-4. **Resume Download Link (`resumeUrl`)**:
-   - Currently empty (`""`) in the database, so the Resume button on the Hero section is hidden.
-5. **Empty DB Sections**:
-   - `certifications` and `testimonials` are currently empty arrays in MongoDB, and `projects` in MongoDB do not yet have `link` or `imageUrl` fields populated.
+1. **Work Experience Dates**:
+   - **Cansoft Technology**: `Apr 2026 – Present`
+   - **Aliyah Holdings LLC**: `Aug 2024 – Apr 2026`
+2. **Years of Experience**: `2+ years` (accurate based on Aug 2024 start).
+3. **Clinic Booking App (`emmai.ca`)**: Approved for public portfolio showcase with live links `https://emmai.ca` and `https://abc.emmai.ca`.
+4. **GitHub Handle**: Standardized to `https://github.com/Mynul-Sakil`.
+5. **Resume Download Link (`resumeUrl`)**: Kept empty (`""`) by default.
+
+## Reminder / Pending Follow-Up
+
+- [ ] **Sync to Live Database & `seed-mynul`**: Update MongoDB collections and `app/api/seed-mynul/route.ts` with this consolidated data (including `2+` years experience, Cansoft `Apr 2026 – Present`, `https://github.com/Mynul-Sakil`, `emmai.ca` / `abc.emmai.ca` project entry, and live project links) **after** the other upcoming portfolio updates are finished.

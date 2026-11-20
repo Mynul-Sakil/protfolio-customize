@@ -3,13 +3,9 @@
 ## 1. Cansoft Technology
 - **Company URL**: https://cansoft.com/
 - **Location**: Remote / Canada
-- **Role Titles Used**:
-  - Current Website: `AI Full Stack Developer`
-  - Backend Resume: `Full Stack AI Developer / Backend Engineer`
-- **Dates** *(discrepancy to confirm)*:
-  - Current Website DB: `Apr 2026 – Present`
-  - Backend Resume: `April 2025 – Present`
-- **Key Product**: Multi-Tenant Clinic Booking & Scheduling SaaS (`emmai.ca` / `clinic-booking-app-backend` & `clinic-booking-app-frontend`)
+- **Role**: AI Full Stack Developer / Backend Engineer
+- **Duration**: `Apr 2026 – Present` *(confirmed)*
+- **Key Product**: Multi-Tenant Clinic Booking & Scheduling SaaS (`https://emmai.ca`, `https://abc.emmai.ca`)
 
 ### Consolidated Responsibilities & Achievements
 - **Multi-Tenant SaaS Backend Architecture**: Designed and implemented multi-tenancy supporting sub-domain routing, dynamic base URLs, and isolated clinic data instances using Node.js, Express, TypeScript, and PostgreSQL (Supabase).
@@ -24,15 +20,8 @@
 
 ## 2. Aliyah Holdings LLC
 - **Location**: Remote
-- **Role Titles Used**:
-  - Current Website / Full Stack Resume: `Full Stack Developer`
-  - Backend Resume: `Backend / Full Stack Engineer`
-  - Frontend / React Resumes: `Frontend / Full Stack Developer`
-  - React Native Resume: `Mobile UI / Full Stack Developer`
-- **Dates** *(discrepancy to confirm)*:
-  - Current Website DB: `Aug 2024 – Apr 2026`
-  - Backend Resume: `August 2024 – April 2025`
-  - Other 4 Resumes: `Aug 2024 – Present`
+- **Role**: Full Stack / Backend Developer *(also Frontend & Mobile UI across role-specific resumes)*
+- **Duration**: `Aug 2024 – Apr 2026` *(confirmed)*
 
 ### Consolidated Responsibilities & Achievements
 - **Full-Stack Web Engineering**: Developed and maintained scalable full-stack web applications using React, Next.js, Node.js, Express, TypeScript, PostgreSQL, and MongoDB.
