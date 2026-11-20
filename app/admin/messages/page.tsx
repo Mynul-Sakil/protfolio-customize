@@ -78,7 +78,7 @@ export default function MessagesPage() {
                 </div>
               )}
               
-              <div className="text-sm text-ink-2 whitespace-pre-wrap mt-2 p-3 bg-white/50 border border-line rounded">
+              <div className="text-sm text-ink-2 whitespace-pre-wrap mt-2 p-3 bg-surface-subtle border border-line rounded">
                 {msg.message}
               </div>
               

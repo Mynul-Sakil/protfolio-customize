@@ -160,7 +160,7 @@ export default function ExperiencePage() {
                 </ul>
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <button onClick={() => handleEdit(exp)} className="p-2 text-slate hover:text-ink hover:bg-white/5 rounded-lg transition-colors">
+                <button onClick={() => handleEdit(exp)} className="p-2 text-slate hover:text-ink hover:bg-surface-subtle rounded-lg transition-colors">
                   <Edit2 className="w-4 h-4" />
                 </button>
                 <button onClick={() => handleDelete(exp._id)} className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors">
