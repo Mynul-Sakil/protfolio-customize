@@ -7,6 +7,7 @@
 - **Phone**: `+8801581477504`
 - **Email**: `mynul.sakil@gmail.com`
 - **Current Photo URL**: `https://res.cloudinary.com/kaddfemv/image/upload/v1795201485/knrwi4zozlrps6gehb10.png`
+- **GitHub Profile Workspace Photo**: `Mynul-Sakil/mynul-cover-new.png` (`1402×1122`)
 - **Resume URL (DB)**: *(currently empty)*
 
 ## Online Profiles & Links
@@ -20,14 +21,19 @@
 
 ---
 
-## Education
+## Education & Certifications
 1. **Manarat International University** — Dhaka, Bangladesh
    - **Degree**: Bachelor of Science in Computer Science (B.Sc. in CS)
    - **Duration**: Jan 2020 – Apr 2024
-   - **Focus Areas**: Data Structures & Algorithms, Database Management Systems, Software Engineering, Object-Oriented Programming, Computer Vision & Image Processing
+   - **GPA**: `3.8 / 4.0`
+   - **Focus Areas**: Data Structures & Algorithms, Database Management Systems, Software Engineering, Object-Oriented Programming, Networking, AI, Computer Vision & Image Processing
 2. **Chowmuhani SA College** — Noakhali, Bangladesh
    - **Degree**: Higher Secondary Certificate (HSC)
    - **Duration**: 2018 – 2019 batch
+3. **Complete Web Development Course — Programming Hero**
+   - **Duration**: Jan 2023 – Jul 2023
+   - **Credential**: Certified Web Developer (2023)
+4. **Domain Knowledge**: Dhaka Stock Exchange (DSE) Market & Fundamental Analysis
 
 ---
 

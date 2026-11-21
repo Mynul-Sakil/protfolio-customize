@@ -8,15 +8,15 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - Go (Golang)
 - Kotlin (Native Android SDK)
 - Python (FastAPI, Django Basic, OpenCV, Automation)
-- C++
+- C / C++
 - SQL
 - Java (Basic)
 - HTML5 / CSS3
 
 ## Frontend & UI
-- React.js, Next.js (App Router & Pages Router), Vite
-- Tailwind CSS, SCSS / SASS, Material UI, Radix UI, Framer Motion
-- State Management: Redux Toolkit, React Query, Context API
+- React.js, Next.js (App Router & Pages Router), Vite, React Router
+- Tailwind CSS, Bootstrap, Daisy UI, SCSS / SASS, Material UI, Radix UI, Framer Motion
+- State Management & Data Fetching: Redux Toolkit, React Query, Context API, Axios
 - Performance: Code Splitting, Lazy Loading, Memoization, Rendering Optimization
 - Forms & Visualization: React Hook Form, Zod, Recharts, React Big Calendar
 
@@ -32,7 +32,7 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - Microservices Architecture, Multi-Tenant SaaS Architecture
 - Real-Time: Socket.io
 - Auth & Security: JWT, Google OAuth 2.0, CASL (Granular RBAC), Helmet, Rate Limiting
-- Calendar & Email: Google Calendar API, `.ics` (iCal), Nodemailer, IMAPFlow
+- Calendar & Email: Google Calendar API, `.ics` (iCal), Nodemailer, IMAPFlow, Google Translate API
 - Payments: Stripe API (Checkout, Webhooks, Split Payments)
 - API Docs: Swagger / OpenAPI
 
@@ -45,7 +45,7 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 
 ## DevOps, Testing & Tooling
 - Docker, Kubernetes (Basics), Git, GitHub, GitHub Actions (CI/CD), Linux
-- AWS (EC2, S3), Vercel
+- AWS (EC2, S3), Vercel, Render, Figma
 - Testing: Playwright (E2E), Jest, Supertest, Postman
 - Code Quality: ESLint, Prettier, Husky, Commitlint, Winston Logging
 - Agile / Scrum
@@ -54,3 +54,4 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - AI / LLM Engineering: Google Gemini API (structured JSON prompting & fallback resilience), Claude, ChatGPT, AI Agent Workflows
 - Computer Vision / AI Photo Recognition (OpenCV, Python)
 - Data Structures & Algorithms (LeetCode, Codeforces, HackerRank)
+- Dhaka Stock Exchange (DSE) Market & Fundamental Analysis

@@ -129,3 +129,8 @@ Consolidated from Cansoft company repositories, live portfolio database, all 5 r
 | **File Organizer App (macOS)** | Public | JavaScript, Electron.js | [Repo](https://github.com/Mynul-Sakil/file-organizer-app-mac) |
 | **Portfolio v3 (Previous)** | Public | TypeScript, Next.js, MongoDB, Nodemailer | [Live](https://mynul-sakil-portfolio.vercel.app/) · [Repo](https://github.com/Mynul-Sakil/portfolio-mynul-3) |
 | **Portfolio Customize (Current)** | Public | TypeScript, Next.js 16, MongoDB, Tailwind v4 | [Live](https://protfolio-customize.vercel.app) · [Repo](https://github.com/Mynul-Sakil/protfolio-customize) |
+| **Easy Bazaar** | Public | React, React Router, Node.js, Express, MongoDB, Firebase Auth, JWT | [Live](https://easy-bazar-ui.vercel.app/) · [Client](https://github.com/Mynul-Sakil/easy-bazar-ui) · [Server](https://github.com/Mynul-Sakil/easy-bazar-server) |
+| **Battle Toys** | Public | Next.js, MongoDB (Seller Dashboard & Inventory) | [Live](https://battle-toys-5a066.web.app/) |
+| **DevTools Pro (v1)** | Public | React, Tailwind CSS | [Live](https://devtools-pro.netlify.app/) |
+| **70Languages.com** | Production (Aliyah Holdings) | React, Tailwind CSS, Node.js, Socket.io, ChatGPT API, Google Translate API | Production Client Platform |
+| **Socket Chat App** | Public | React, Node.js, Express, Socket.io | Earlier Real-Time Chat Project |

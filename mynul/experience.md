@@ -24,10 +24,22 @@
 - **Duration**: `Aug 2024 – Apr 2026` *(confirmed)*
 
 ### Consolidated Responsibilities & Achievements
-- **Full-Stack Web Engineering**: Developed and maintained scalable full-stack web applications using React, Next.js, Node.js, Express, TypeScript, PostgreSQL, and MongoDB.
+- **Full-Stack Web Engineering**: Developed and maintained scalable full-stack web applications using React, Next.js, Node.js, Express, TypeScript, PostgreSQL, and MongoDB — including **70Languages.com** (with Socket.io real-time chat, ChatGPT API, and Google Translate API) and **BargainBunny** (React + Tailwind CSS UI).
 - **Modular REST & GraphQL APIs**: Designed production-ready RESTful and GraphQL APIs with structured middleware, input validation, JWT authentication, and Role-Based Access Control (RBAC).
 - **Database Optimization & Schema Design**: Engineered relational (PostgreSQL) and document-oriented (MongoDB) schemas with strategic indexing and query tuning to reduce response latency on high-traffic endpoints.
 - **Payment & Third-Party Integrations**: Integrated Stripe API for automated invoice payments, transaction webhooks, and split-payment routing alongside external business tools.
 - **Distributed Caching**: Added Redis caching for frequently requested endpoints to mitigate database bottlenecks during traffic spikes.
 - **Reusable UI & Mobile Responsiveness**: Built reusable component libraries, adapted web apps for mobile-friendly layouts, implemented protected routes, and optimized rendering via memoization, code splitting, and dynamic imports.
 - **Agile Collaboration**: Participated in sprint planning, API contract design, debugging, and code reviews across distributed engineering teams.
+
+---
+
+## 3. Rapid Proposal LLC
+- **Location**: Remote
+- **Role**: Full Stack Developer Intern
+- **Duration**: `Mar 2022 – Jul 2023` *(confirmed)*
+
+### Consolidated Responsibilities & Achievements
+- **REST API Optimization**: Developed and optimized Express.js RESTful APIs, delivering a **40% performance improvement** across core endpoints.
+- **Admin Dashboard**: Built a web-based admin panel for daily transaction management and administrative workflows using React.
+- **Backend Security & Scalability**: Strengthened authentication, validation, and backend service scalability.
