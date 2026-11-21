@@ -30,7 +30,7 @@ export default function HeroSection({ profile }: HeroProps) {
   return (
     <section className="pt-24 pb-14 md:pt-32 md:pb-24 bg-page border-b border-line">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start lg:items-center">
           {/* Left Column: Executive Value Proposition */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -48,7 +48,7 @@ export default function HeroSection({ profile }: HeroProps) {
                     fill
                     sizes="80px"
                     priority
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
               )}
@@ -150,7 +150,7 @@ export default function HeroSection({ profile }: HeroProps) {
                     fill
                     sizes="40vw"
                     priority
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
