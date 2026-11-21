@@ -14,7 +14,7 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - HTML5 / CSS3
 
 ## Frontend & UI
-- React.js, Next.js (App Router & Pages Router)
+- React.js, Next.js (App Router & Pages Router), Vite
 - Tailwind CSS, SCSS / SASS, Material UI, Radix UI, Framer Motion
 - State Management: Redux Toolkit, React Query, Context API
 - Performance: Code Splitting, Lazy Loading, Memoization, Rendering Optimization
@@ -51,6 +51,6 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - Agile / Scrum
 
 ## AI & Specialized Knowledge
-- AI Coding & LLM Tooling: Claude, ChatGPT, Gemini, AI Agent Workflows
+- AI / LLM Engineering: Google Gemini API (structured JSON prompting & fallback resilience), Claude, ChatGPT, AI Agent Workflows
 - Computer Vision / AI Photo Recognition (OpenCV, Python)
 - Data Structures & Algorithms (LeetCode, Codeforces, HackerRank)

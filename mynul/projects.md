@@ -46,6 +46,15 @@ Consolidated from Cansoft company repositories, live portfolio database, all 5 r
   - Published native Android arcade game featuring wave-based gameplay, interactive tutorial, tactile haptic vibration feedback, and local high-score persistence.
   - Privacy-first architecture with zero data collection or tracking.
 
+### AI Task Organizer — Smart AI Prioritization App
+- **Live**: https://ai-task-organizer-psi.vercel.app/
+- **GitHub**: https://github.com/Mynul-Sakil/ai-task-organizer *(Public)*
+- **Category**: Full Stack AI Application
+- **Tech Stack**: React 19, TypeScript, Vite, Tailwind CSS v4, Framer Motion, Node.js, Express, Zod, Google Gemini API, Vercel
+- **Highlights**:
+  - Full-stack monorepo that sends user tasks to a secure Express/TypeScript backend (`POST /prioritize`) calling the Google Gemini API with strict JSON prompting to categorize and sort tasks into High/Medium/Low priorities.
+  - Built-in resilient backend fallback prioritizer that handles Gemini quota/rate-limit errors gracefully, plus localStorage snapshot persistence and mobile-responsive UI.
+
 ### System 3.0 (Gamified Habit Engine)
 - **Live**: https://system-3-6czj.vercel.app/
 - **GitHub**: https://github.com/Mynul-Sakil/system-3.0 *(Private)*

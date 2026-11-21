@@ -111,7 +111,7 @@ export async function GET() {
       { name: "Redis Caching & BullMQ Queues", category: "Databases & Queues", order: 3 },
       { name: "Schema Design, Indexing & Audit Triggers", category: "Databases & Queues", order: 4 },
 
-      { name: "React.js & Next.js", category: "Frontend & Mobile", order: 1 },
+      { name: "React.js, Next.js & Vite", category: "Frontend & Mobile", order: 1 },
       { name: "React Native & Expo", category: "Frontend & Mobile", order: 2 },
       { name: "Kotlin (Android SDK) & Firebase", category: "Frontend & Mobile", order: 3 },
       { name: "Tailwind CSS, SCSS & Radix/MUI", category: "Frontend & Mobile", order: 4 },
@@ -121,7 +121,7 @@ export async function GET() {
       { name: "AWS (EC2, S3) & Linux", category: "Cloud, DevOps & AI", order: 2 },
       { name: "Stripe Payments & Socket.io", category: "Cloud, DevOps & AI", order: 3 },
       { name: "Playwright, Jest & Swagger/OpenAPI", category: "Cloud, DevOps & AI", order: 4 },
-      { name: "AI / LLM Integration & OpenCV", category: "Cloud, DevOps & AI", order: 5 },
+      { name: "AI / LLM Integration (Gemini API, OpenCV)", category: "Cloud, DevOps & AI", order: 5 },
     ];
     await Skill.insertMany(skillDocs);
 
@@ -152,12 +152,20 @@ export async function GET() {
         order: 3,
       },
       {
+        title: "AI Task Organizer — Smart AI Prioritization",
+        description:
+          "Full-stack AI task prioritization app built with React 19, TypeScript, Vite, Tailwind CSS v4, Node.js, Express, Zod, and the Google Gemini API. Uses strict JSON prompting on a secure backend with automatic fallback prioritization on quota/rate limits and localStorage snapshot history. Repo: https://github.com/Mynul-Sakil/ai-task-organizer",
+        category: "Full Stack AI",
+        link: "https://ai-task-organizer-psi.vercel.app/",
+        order: 4,
+      },
+      {
         title: "System 3.0 — Gamified Habit Engine",
         description:
           "Full-stack habit tracking platform built with Next.js, TypeScript, tRPC, Zod, and MongoDB. Features end-to-end type-safe APIs, dynamic stat progression calculations, and real-time ranking leaderboards.",
         category: "Full Stack Web",
         link: "https://system-3-6czj.vercel.app/",
-        order: 4,
+        order: 5,
       },
       {
         title: "Transportation Management System (GQLAB)",
@@ -165,14 +173,6 @@ export async function GET() {
           "Enterprise transit operations dashboard built with Next.js, React, Node.js, GraphQL, and PostgreSQL. Supports server-side filtering, sorting, cursor-based pagination, and role-based access for large logistics datasets.",
         category: "Enterprise System",
         link: "https://gqlab.vercel.app/",
-        order: 5,
-      },
-      {
-        title: "Mini Social Feed Mobile App",
-        description:
-          "Cross-platform social mobile app built with React Native, Expo, Node.js, Express, MongoDB, and Firebase Cloud Messaging (FCM). Includes persistent JWT auth, posts, likes, comments, and real-time push notifications.",
-        category: "Mobile App",
-        link: "https://github.com/Mynul-Sakil/Mini-social-feed-github_show",
         order: 6,
       },
     ]);
