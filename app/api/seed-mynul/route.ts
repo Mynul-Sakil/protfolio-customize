@@ -104,7 +104,7 @@ export async function GET() {
       { name: "REST, GraphQL & tRPC", category: "Backend & APIs", order: 3 },
       { name: "Multi-Tenant SaaS & Microservices", category: "Backend & APIs", order: 4 },
       { name: "JWT, Google OAuth & CASL RBAC", category: "Backend & APIs", order: 5 },
-      { name: "NestJS & FastAPI (Python)", category: "Backend & APIs", order: 6 },
+      { name: "NestJS, FastAPI & Django (Basic)", category: "Backend & APIs", order: 6 },
 
       { name: "PostgreSQL (Supabase) & Prisma", category: "Databases & Queues", order: 1 },
       { name: "MongoDB & Mongoose", category: "Databases & Queues", order: 2 },
@@ -113,10 +113,11 @@ export async function GET() {
 
       { name: "React.js & Next.js", category: "Frontend & Mobile", order: 1 },
       { name: "React Native & Expo", category: "Frontend & Mobile", order: 2 },
-      { name: "Tailwind CSS, SCSS & Radix/MUI", category: "Frontend & Mobile", order: 3 },
-      { name: "Redux Toolkit & React Query", category: "Frontend & Mobile", order: 4 },
+      { name: "Kotlin (Android SDK) & Firebase", category: "Frontend & Mobile", order: 3 },
+      { name: "Tailwind CSS, SCSS & Radix/MUI", category: "Frontend & Mobile", order: 4 },
+      { name: "Redux Toolkit & React Query", category: "Frontend & Mobile", order: 5 },
 
-      { name: "Docker & GitHub Actions (CI/CD)", category: "Cloud, DevOps & AI", order: 1 },
+      { name: "Docker, Kubernetes (Basics) & CI/CD", category: "Cloud, DevOps & AI", order: 1 },
       { name: "AWS (EC2, S3) & Linux", category: "Cloud, DevOps & AI", order: 2 },
       { name: "Stripe Payments & Socket.io", category: "Cloud, DevOps & AI", order: 3 },
       { name: "Playwright, Jest & Swagger/OpenAPI", category: "Cloud, DevOps & AI", order: 4 },

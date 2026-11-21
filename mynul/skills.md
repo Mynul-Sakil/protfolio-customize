@@ -6,7 +6,8 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - TypeScript
 - JavaScript (ES6+)
 - Go (Golang)
-- Python (FastAPI, OpenCV, Automation)
+- Kotlin (Native Android SDK)
+- Python (FastAPI, Django Basic, OpenCV, Automation)
 - C++
 - SQL
 - Java (Basic)
@@ -20,13 +21,13 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - Forms & Visualization: React Hook Form, Zod, Recharts, React Big Calendar
 
 ## Mobile Development
-- React Native
-- Expo
+- React Native & Expo
+- Kotlin (Native Android SDK 36, Gradle, Google Play Publishing)
 - React Navigation (Stack & Drawer)
-- AsyncStorage, Firebase Cloud Messaging (FCM)
+- AsyncStorage, Firebase (Auth, Cloud Messaging / FCM)
 
 ## Backend Systems & APIs
-- Node.js, Express.js, NestJS, FastAPI
+- Node.js, Express.js, NestJS, FastAPI, Django (Basic)
 - RESTful APIs, GraphQL, tRPC
 - Microservices Architecture, Multi-Tenant SaaS Architecture
 - Real-Time: Socket.io
@@ -43,7 +44,7 @@ Merged from the live portfolio database, all 5 resume variants, and verified Git
 - Cloud Storage: AWS S3, Vercel Blob, Cloudinary
 
 ## DevOps, Testing & Tooling
-- Docker, Git, GitHub, GitHub Actions (CI/CD), Linux
+- Docker, Kubernetes (Basics), Git, GitHub, GitHub Actions (CI/CD), Linux
 - AWS (EC2, S3), Vercel
 - Testing: Playwright (E2E), Jest, Supertest, Postman
 - Code Quality: ESLint, Prettier, Husky, Commitlint, Winston Logging
