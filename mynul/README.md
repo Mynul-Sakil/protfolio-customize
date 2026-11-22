@@ -10,6 +10,7 @@ This folder consolidates all of Mynul Islam's currently loaded website data (fet
 | [experience.md](./experience.md) | Consolidated work history (Cansoft Technology & Aliyah Holdings LLC) merged across DB and resumes |
 | [skills.md](./skills.md) | Master categorized technical skills matrix across Backend, Frontend, Mobile, Databases, DevOps, and AI |
 | [projects.md](./projects.md) | Full catalog of company, featured, and notable GitHub projects with live links, repos, and tech stacks |
+| [linkedin-profile.md](./linkedin-profile.md) | Complete HR/CFO/CTO-audited LinkedIn profile playbook (Headline, About, Experience, Featured, Projects, Certs, Skills & Banner) |
 | [current-website-data.json](./current-website-data.json) | Clean snapshot of all public collections currently loaded in the portfolio MongoDB database |
 | [resumes/backend-engineer.md](./resumes/backend-engineer.md) | Software Engineer, Backend resume |
 | [resumes/full-stack-developer.md](./resumes/full-stack-developer.md) | Full Stack Developer resume |
