@@ -128,7 +128,7 @@ Consolidated from Cansoft company repositories, live portfolio database, all 5 r
 | **FreshBite** | Public | TypeScript, Next.js | [Live](https://fresh-bite-mynul.vercel.app/) · [Repo](https://github.com/Mynul-Sakil/FreshBite) |
 | **File Organizer App (macOS)** | Public | JavaScript, Electron.js | [Repo](https://github.com/Mynul-Sakil/file-organizer-app-mac) |
 | **Portfolio v3 (Previous)** | Public | TypeScript, Next.js, MongoDB, Nodemailer | [Live](https://mynul-sakil-portfolio.vercel.app/) · [Repo](https://github.com/Mynul-Sakil/portfolio-mynul-3) |
-| **Portfolio Customize (Current)** | Public | TypeScript, Next.js 16, MongoDB, Tailwind v4 | [Live](https://protfolio-customize.vercel.app) · [Repo](https://github.com/Mynul-Sakil/protfolio-customize) |
+| **Portfolio Customize (Current)** | Public | TypeScript, Next.js 16, MongoDB, Tailwind v4 | [Live](https://mynul-portfolo.vercel.app/) · [Repo](https://github.com/Mynul-Sakil/protfolio-customize) |
 | **Easy Bazaar** | Public | React, React Router, Node.js, Express, MongoDB, Firebase Auth, JWT | [Live](https://easy-bazar-ui.vercel.app/) · [Client](https://github.com/Mynul-Sakil/easy-bazar-ui) · [Server](https://github.com/Mynul-Sakil/easy-bazar-server) |
 | **Battle Toys** | Public | Next.js, MongoDB (Seller Dashboard & Inventory) | [Live](https://battle-toys-5a066.web.app/) |
 | **DevTools Pro (v1)** | Public | React, Tailwind CSS | [Live](https://devtools-pro.netlify.app/) |

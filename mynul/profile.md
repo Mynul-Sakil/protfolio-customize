@@ -13,7 +13,7 @@
 ## Online Profiles & Links
 - **LinkedIn**: https://www.linkedin.com/in/mynul-islam-sakil/
 - **GitHub**: https://github.com/Mynul-Sakil
-- **Portfolio (Current Repo Deployment)**: https://protfolio-customize.vercel.app
+- **Portfolio (Current Live Deployment)**: https://mynul-portfolo.vercel.app/
 - **Portfolio (Previous Deployment)**: https://mynul-sakil-portfolio.vercel.app/
 - **LeetCode**: https://leetcode.com/u/mynul47/
 - **Codeforces**: https://codeforces.com/profile/Sakil470004

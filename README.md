@@ -89,7 +89,7 @@ Navigate to **[http://localhost:3000/admin](http://localhost:3000/admin)** and l
 1. Push your repository code to GitHub.
 2. Log into [Vercel](https://vercel.com/) and import your project repository.
 3. Add all Environment Variables from your `.env` file to Vercel's Environment Variables settings.
-4. Set `NEXTAUTH_URL` in Vercel to your deployed domain (e.g., `https://mynul-portfolio.vercel.app`).
+4. Set `NEXTAUTH_URL` in Vercel to your deployed domain (e.g., `https://mynul-portfolo.vercel.app`).
 5. Click **Deploy**.
 6. Once deployed, visit `https://your-domain.vercel.app/api/seed` once to seed your production admin user!
 

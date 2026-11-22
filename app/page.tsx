@@ -22,7 +22,7 @@ import { getTestimonials } from "@/actions/testimonial";
 import { getImpactStats } from "@/actions/impact";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://protfolio-customize.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mynul-portfolo.vercel.app";
 
 export default async function Home() {
   const [

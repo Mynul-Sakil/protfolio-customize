@@ -4,7 +4,7 @@ import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://protfolio-customize.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mynul-portfolo.vercel.app";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",

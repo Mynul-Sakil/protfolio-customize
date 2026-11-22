@@ -11,8 +11,8 @@ Verified against [`protfolio-customize/mynul/`](./README.md) and scored with the
 | Field | Action | Exact Value |
 | :--- | :--- | :--- |
 | **Location (Header & Contact Info)** | Standardize both | `Dhaka, Bangladesh` |
-| **Custom Header Link (`Portfolio`)** | Fix typo (`Mynul-Portfolo` →) | `https://protfolio-customize.vercel.app` |
-| **Contact Website 1 (Portfolio)** | Fix typo | `https://protfolio-customize.vercel.app` |
+| **Custom Header Link (`Portfolio`)** | Keep live URL | `https://mynul-portfolo.vercel.app/` |
+| **Contact Website 1 (Portfolio)** | Keep live URL | `https://mynul-portfolo.vercel.app/` |
 | **Contact Website 2 (Other → GitHub)** | Replace `@DemotivateProgrammer` | `https://github.com/Mynul-Sakil` |
 | **Email** | Keep | `mynul.sakil@gmail.com` |
 | **Phone** | Keep | `+8801581477504` |
@@ -63,7 +63,7 @@ Areas I work in: TypeScript · Node.js · Next.js · PostgreSQL · Redis · Mult
 Remove the outdated `Mynul_dev.pdf` Google Drive link until a fresh PDF is generated via `resume-builder`, and feature these 3 links:
 
 1. **Title:** `Mynul Islam — Executive Portfolio (Next.js 16 & MongoDB CMS)`
-   **URL:** `https://protfolio-customize.vercel.app/`
+   **URL:** `https://mynul-portfolo.vercel.app/`
 2. **Title:** `Emmai — Multi-Tenant Clinic Booking SaaS (Cansoft Technology)`
    **URL:** `https://emmai.ca`
 3. **Title:** `GitHub — Production Projects & Open-Source AI Tooling`

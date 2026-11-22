@@ -3,7 +3,7 @@
 - **Location**: Noakhali, Bangladesh
 - **Phone**: +8801581477504
 - **Email**: mynul.sakil@gmail.com
-- **Portfolio**: https://mynul-sakil-portfolio.vercel.app/
+- **Portfolio**: https://mynul-portfolo.vercel.app/
 - **GitHub**: https://github.com/sakil470004/ (https://github.com/Mynul-Sakil)
 - **LinkedIn**: https://www.linkedin.com/in/mynul-islam-sakil/
 
