@@ -21,10 +21,10 @@ Verified against [`protfolio-customize/mynul/`](./README.md) and scored with the
 
 ---
 
-## 2. Headline (`85/100 — SHIP` · `154/220` chars)
+## 2. Headline (`85/100 — SHIP` · `157/220` chars)
 
 ```text
-Backend & Full Stack Engineer for SaaS Teams | 2+ yrs shipping multi-tenant Node.js, TypeScript, Next.js & PostgreSQL systems at Cansoft (40% faster APIs)
+Backend & Full Stack Engineer for SaaS Teams | 2+ yrs cutting API latency (40%+) & shipping multi-tenant Node.js, TypeScript, Next.js & PostgreSQL at Cansoft
 ```
 
 ---
@@ -46,9 +46,9 @@ I help SaaS founders, CTOs, and product teams ship fast, reliable TypeScript, No
 
 — Outside client work, I build and ship developer tools and AI apps — including DevTools Hub, AI Task Organizer (Gemini API), System 3.0 (tRPC), and Tap Kill (native Kotlin Android).
 
-I write type-safe, maintainable code backed by automated Playwright and Jest tests, clear database indexing, and practical AI integrations — focusing on latency, reliability, and business outcomes rather than over-engineering.
+I write type-safe, maintainable code backed by automated Playwright and Jest tests, clear database indexing, and practical AI integrations — focusing on lower infrastructure/latency costs, compliance-ready reliability, and measurable business outcomes rather than over-engineering.
 
-Building a SaaS product or hiring a remote Backend / Full Stack Engineer? Message me here or email mynul.sakil@gmail.com — portfolio at protfolio-customize.vercel.app.
+Building a SaaS product or hiring a remote Backend / Full Stack Engineer? Message me here, email mynul.sakil@gmail.com, or explore my live portfolio in the Featured section below.
 
 Areas I work in: TypeScript · Node.js · Next.js · PostgreSQL · Redis · Multi-Tenant SaaS · AI Integration
 ```
