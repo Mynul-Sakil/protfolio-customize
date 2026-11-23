@@ -18,6 +18,7 @@ This folder consolidates all of Mynul Islam's currently loaded website data (fet
 | [resumes/frontend-developer.md](./resumes/frontend-developer.md) | Frontend Developer resume |
 | [resumes/react-nextjs-developer.md](./resumes/react-nextjs-developer.md) | React / Next.js Developer resume |
 | [resumes/react-native-developer.md](./resumes/react-native-developer.md) | React Native Developer resume |
+| `../../output/` *(workspace root)* | Generated ATS-safe PDF resumes (`<position-slug>_<YYYY-MM-DD>_<HH-MM>.pdf`) |
 
 ## Confirmed Source-of-Truth Decisions
 
