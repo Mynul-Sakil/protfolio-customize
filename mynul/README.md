@@ -14,6 +14,7 @@ This folder consolidates all of Mynul Islam's currently loaded website data (fet
 | [current-website-data.json](./current-website-data.json) | Clean snapshot of all public collections currently loaded in the portfolio MongoDB database |
 | [resumes/backend-engineer.md](./resumes/backend-engineer.md) | Software Engineer, Backend resume |
 | [resumes/full-stack-developer.md](./resumes/full-stack-developer.md) | Full Stack Developer resume |
+| [resumes/full-stack-frontend-focus.md](./resumes/full-stack-frontend-focus.md) | Full Stack Developer (Frontend Focus) resume |
 | [resumes/frontend-developer.md](./resumes/frontend-developer.md) | Frontend Developer resume |
 | [resumes/react-nextjs-developer.md](./resumes/react-nextjs-developer.md) | React / Next.js Developer resume |
 | [resumes/react-native-developer.md](./resumes/react-native-developer.md) | React Native Developer resume |
